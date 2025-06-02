@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using modelLibrary;
 
-namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
+namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
 {
-    static class rulesJadwal
+    static class RulesJadwal
     {
         public static readonly Dictionary<JenisSampah, DayOfWeek[]> HariPengambilan = new()
         {
