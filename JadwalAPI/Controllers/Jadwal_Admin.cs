@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;  // jangan lupa ini
 using JadwalAPI.Model;
 using JadwalAPI.Services;
+using JadwalAPI.Configuration; // untuk JadwalSettings
+using modelLibrary;
 
 namespace JadwalAPI.Controllers
 {
@@ -9,10 +12,13 @@ namespace JadwalAPI.Controllers
     public class JadwalAdminController : ControllerBase
     {
         private readonly IJadwalService _jadwalService;
+        private readonly JadwalSettings _settings;  // tambahkan field ini
 
-        public JadwalAdminController(IJadwalService jadwalService)
+        // Inject IOptions<JadwalSettings> di constructor
+        public JadwalAdminController(IJadwalService jadwalService, IOptions<JadwalSettings> settings)
         {
             _jadwalService = jadwalService;
+            _settings = settings.Value;  // inisialisasi _settings
         }
 
         [HttpGet]
@@ -45,6 +51,18 @@ namespace JadwalAPI.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            // Validasi jenis sampah
+            var invalidSampah = jadwal.JenisSampah?
+                .Where(s => !Enum.TryParse<JenisSampah>(s, true, out _))
+                .ToList();
+
+            if (invalidSampah != null && invalidSampah.Any())
+                return BadRequest($"Jenis sampah tidak valid: {string.Join(", ", invalidSampah)}");
+
+            // Set area default jika kosong
+            if (string.IsNullOrWhiteSpace(jadwal.areaDiambil))
+                jadwal.areaDiambil = _settings.DefaultArea;
 
             _jadwalService.TambahJadwal(jadwal);
             return CreatedAtAction(nameof(GetByTanggal), new { tanggal = jadwal.Tanggal.ToString("yyyy-MM-dd") }, jadwal);
