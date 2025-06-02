@@ -13,9 +13,9 @@ using System.Reflection;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
-namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
+namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
 {
-    public static class jadwalService
+    public static class JadwalService
     {
         private static readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7277/") };
 

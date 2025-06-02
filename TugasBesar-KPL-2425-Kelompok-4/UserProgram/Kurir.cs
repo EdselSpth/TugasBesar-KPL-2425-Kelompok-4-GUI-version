@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule;
+using TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
 {
