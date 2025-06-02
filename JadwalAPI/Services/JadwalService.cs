@@ -1,5 +1,8 @@
-﻿using JadwalAPI.Model;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using JadwalAPI.Configuration;
+using JadwalAPI.Model;
 using Microsoft.Extensions.Options;
 using modelLibrary;
 
@@ -16,33 +19,35 @@ namespace JadwalAPI.Services
 
             _jadwalList = new List<JadwalModel>
             {
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now), JenisSampah = new List<string> { JenisSampah.Organik.ToString() }, namaKurir = "Andi", areaDiambil = "Buahbatu" },
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(1)), JenisSampah = new List<string> { JenisSampah.Plastik.ToString() }, namaKurir = "Budi", areaDiambil = "Bojongsoang" },
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(2)), JenisSampah = new List<string> { JenisSampah.Kertas.ToString() }, namaKurir = "Joko", areaDiambil = "Cimahi" },
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(3)), JenisSampah = new List<string> { JenisSampah.Logam.ToString() }, namaKurir = "Oka", areaDiambil = "Pasirkoja" },
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(4)), JenisSampah = new List<string> { JenisSampah.Elektronik.ToString() }, namaKurir = "Eka", areaDiambil = "Gedebage" },
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(5)), JenisSampah = new List<string> { JenisSampah.BahanBerbahaya.ToString() }, namaKurir = "Herawan", areaDiambil = "Kiaracondong" },
-                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(6)), JenisSampah = new List<string> { JenisSampah.Minyak.ToString() }, namaKurir = "Tono", areaDiambil = "Ciganitri" }
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now), JenisSampah = new List<string> { JS(JenisSampah.Organik) }, namaKurir = "Andi", areaDiambil = "Buahbatu" },
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(1)), JenisSampah = new List<string> { JS(JenisSampah.Plastik) }, namaKurir = "Budi", areaDiambil = "Bojongsoang" },
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(2)), JenisSampah = new List<string> { JS(JenisSampah.Kertas) }, namaKurir = "Joko", areaDiambil = "Cimahi" },
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(3)), JenisSampah = new List<string> { JS(JenisSampah.Logam) }, namaKurir = "Oka", areaDiambil = "Pasirkoja" },
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(4)), JenisSampah = new List<string> { JS(JenisSampah.Elektronik) }, namaKurir = "Eka", areaDiambil = "Gedebage" },
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(5)), JenisSampah = new List<string> { JS(JenisSampah.BahanBerbahaya) }, namaKurir = "Herawan", areaDiambil = "Kiaracondong" },
+                new JadwalModel { Tanggal = DateOnly.FromDateTime(DateTime.Now.AddDays(6)), JenisSampah = new List<string> { JS(JenisSampah.Minyak) }, namaKurir = "Tono", areaDiambil = "Ciganitri" }
             };
         }
 
         public List<JadwalModel> GetAll() => _jadwalList;
 
         public List<JadwalModel> GetByTanggal(DateOnly tanggal) =>
-    _jadwalList.Where(j => j.Tanggal == tanggal).ToList();
+            _jadwalList.Where(j => j.Tanggal == tanggal).ToList();
 
-        public void TambahJadwal(JadwalModel jadwal)
+        public bool TambahJadwal(JadwalModel jadwal)
         {
+            if (jadwal.JenisSampah != null)
+            {
+                var invalidSampah = jadwal.JenisSampah.Where(s => !IsValidJenisSampah(s)).ToList();
+                if (invalidSampah.Any())
+                    return false; // Tolak jika ada jenis sampah tidak valid
+            }
+
             if (string.IsNullOrWhiteSpace(jadwal.areaDiambil))
                 jadwal.areaDiambil = _settings.DefaultArea;
 
-            // Ensure JenisSampah is being passed as a List<string> for consistency
-            if (jadwal.JenisSampah != null && jadwal.JenisSampah.Count == 0)
-            {
-                jadwal.JenisSampah = new List<string> { JenisSampah.Organik.ToString() }; // Default if empty
-            }
-
             _jadwalList.Add(jadwal);
+            return true;
         }
 
         public bool UpdateJadwal(DateOnly tanggal, JadwalModel updatedJadwal)
@@ -50,9 +55,23 @@ namespace JadwalAPI.Services
             var existing = _jadwalList.FirstOrDefault(j => j.Tanggal == tanggal);
             if (existing == null) return false;
 
+            if (updatedJadwal.JenisSampah != null)
+            {
+                var invalidSampah = updatedJadwal.JenisSampah.Where(js => !IsValidJenisSampah(js)).ToList();
+                if (invalidSampah.Any())
+                    return false; // Tolak jika ada jenis sampah tidak valid
+            }
+            else
+            {
+                updatedJadwal.JenisSampah = new List<string> { JS(JenisSampah.Organik) };
+            }
+
             existing.JenisSampah = updatedJadwal.JenisSampah;
             existing.namaKurir = updatedJadwal.namaKurir;
-            existing.areaDiambil = updatedJadwal.areaDiambil ?? _settings.DefaultArea;
+            existing.areaDiambil = string.IsNullOrWhiteSpace(updatedJadwal.areaDiambil)
+                ? _settings.DefaultArea
+                : updatedJadwal.areaDiambil;
+
             return true;
         }
 
@@ -64,5 +83,12 @@ namespace JadwalAPI.Services
             _jadwalList.Remove(existing);
             return true;
         }
+
+        public List<string> GetSemuaJenisSampah() => Enum.GetNames(typeof(JenisSampah)).ToList();
+
+        private static string JS(JenisSampah jenis) => jenis.ToString();
+
+        private static bool IsValidJenisSampah(string value) =>
+            Enum.TryParse<JenisSampah>(value, true, out _);
     }
 }

@@ -1,23 +1,23 @@
-using JadwalAPI.Configuration; // Tambahkan ini
+using JadwalAPI.Configuration;
 using JadwalAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Tambahkan konfigurasi JadwalSettings
+// Daftarkan konfigurasi JadwalSettings dari appsettings.json
 builder.Services.Configure<JadwalSettings>(
     builder.Configuration.GetSection("JadwalSettings"));
 
-// Tambahkan service JadwalService
+// Daftarkan service JadwalService
 builder.Services.AddSingleton<IJadwalService, JadwalService>();
 
-// Add services to the container.
+// Tambahkan controller dan swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware swagger di development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -26,5 +26,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();
