@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem;
+using TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
 {
@@ -23,7 +23,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
                     switch (pilihanuser)
                     {
                         case 1:
-                            jadwalService.ViewJadwal();
+                           
                             break;
                         case 2:
                             Console.WriteLine("Terima kasih sudah menggunakan aplikasi");
