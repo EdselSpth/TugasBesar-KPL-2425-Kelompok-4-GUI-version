@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginAPI", "LoginAPI\LoginA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LihatJadwal", "LihatJadwal\LihatJadwal.csproj", "{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApp", "LoginApp\LoginApp.csproj", "{2A107BDF-0111-4792-8FDF-122D1562AAA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A107BDF-0111-4792-8FDF-122D1562AAA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A107BDF-0111-4792-8FDF-122D1562AAA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A107BDF-0111-4792-8FDF-122D1562AAA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A107BDF-0111-4792-8FDF-122D1562AAA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
