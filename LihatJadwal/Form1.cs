@@ -97,6 +97,11 @@ namespace LihatJadwal
                 MessageBox.Show("Gagal memuat data: " + ex.Message);
             }
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class JadwalModel

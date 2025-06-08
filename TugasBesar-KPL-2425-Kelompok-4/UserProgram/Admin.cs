@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TugasBesar_KPL_2425_Kelompok_4;
 using TugasBesar_KPL_2425_Kelompok_4.Penarikan_Keuntungan;
-using TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem;
+using TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule;
 using static TugasBesar_KPL_2425_Kelompok_4.Penarikan_Keuntungan.StateBasedPenarikan;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
@@ -31,7 +31,6 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
                             createFlow();
                             break;
                         case 2:
-                            jadwalService.ViewJadwal();
                             break;
                         case 3:
                             editFlow();
@@ -118,7 +117,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
                 return;
             }
 
-            var invalid = jenisList.Where(j => !rulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
+            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
             if (invalid.Any())
             {
                 Console.WriteLine($"Jenis berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)} \n");
@@ -127,7 +126,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
 
             try
             {
-                jadwalService.CreateAndSendJadwal(tanggal, jenisList, namaKurir, area);
+                JadwalService.CreateAndSendJadwal(tanggal, jenisList, namaKurir, area);
                 Console.WriteLine("\n");
             }
             catch (Exception ex)
@@ -149,7 +148,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
                 return;
             }
 
-            var jadwal = jadwalService.GetJadwalByKurirDanTanggal(namaKurir, editDate);
+            var jadwal = JadwalService.GetJadwalByKurirDanTanggal(namaKurir, editDate);
             if (jadwal == null)
             {
                 Console.WriteLine("Jadwal tidak ditemukan di API.\n");
@@ -185,7 +184,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
 
             try
             {
-                jadwalService.UpdateJadwal(editDate, jenisList, newKurir, area);
+                JadwalService.UpdateJadwal(editDate, jenisList, newKurir, area);
             }
             catch (Exception ex)
             {
@@ -205,7 +204,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
                 return;
             }
 
-            jadwalService.DeleteJadwalByKurirDanTanggal(namaKurir, tanggal);
+            JadwalService.DeleteJadwalByKurirDanTanggal(namaKurir, tanggal);
             Console.WriteLine("\n");
         }
 
