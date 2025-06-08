@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using modelLibrary;
 
-namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
+namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
     static class RulesJadwal
     {

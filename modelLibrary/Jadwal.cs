@@ -1,5 +1,10 @@
 ﻿namespace modelLibrary
 {
+    public interface JadwalFactory<T>
+    {
+        public abstract Jadwal<T> CreateJadwal(DateOnly tanggal, List<T> jenisSampah, string areaDiambil, string namaKurir);
+    }
+
     public class Jadwal<T>
     {
         public DateOnly Tanggal { get; private set; }
@@ -28,4 +33,5 @@
             return new Jadwal<T>(tanggal, jenisSampah, areaDiambil, namaKurir);
         }
     }
+    
 }

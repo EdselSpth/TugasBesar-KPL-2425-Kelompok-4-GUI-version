@@ -9,7 +9,6 @@ using System.Text.Json;
 using modelLibrary;
 using JadwalAPI;
 using TugasBesar_KPL_2425_Kelompok_4.UserProgram;
-using TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
@@ -110,7 +109,6 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             {
                 Console.WriteLine($"{i + 1}. {semuaArea[i].area}");
             }
-            jadwalService.ViewJadwal();
             Console.Write("Masukkan nomor area terlebih dahulu: ");
             string input = Console.ReadLine();
             int nomorArea;
@@ -142,7 +140,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             DateOnly tgl = DateOnly.FromDateTime(tanggalJemput);
             var hari = tgl.DayOfWeek;
 
-            var jenisYangValid = Enum.GetValues(typeof(JenisSampah)).Cast<JenisSampah>().Where(js => rulesJadwal.pengambilanValidasi(js, tanggalJemput)).ToList();
+            var jenisYangValid = Enum.GetValues(typeof(JenisSampah)).Cast<JenisSampah>().Where(js => RulesJadwal.pengambilanValidasi(js, tanggalJemput)).ToList();
 
             if (jenisYangValid.Count == 0)
             {

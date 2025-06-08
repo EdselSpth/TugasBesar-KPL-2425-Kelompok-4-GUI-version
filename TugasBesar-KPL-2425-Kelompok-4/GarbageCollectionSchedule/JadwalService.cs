@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
-namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
+namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
     public static class JadwalService
     {
@@ -24,7 +24,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
             if (jenisList == null || jenisList.Count == 0)
                 throw new ArgumentException("Daftar jenis sampah tidak boleh kosong.", nameof(jenisList));
 
-            var invalid = jenisList.Where(j => !rulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
+            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
             if (invalid.Any())
                 throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
 
@@ -82,24 +82,6 @@ namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
         }
 
 
-        public static void ViewJadwal()
-        {
-            var jadwalList = _http.GetFromJsonAsync<List<JadwalModel>>("api/jadwal_admin").Result;
-            if (jadwalList == null || jadwalList.Count == 0)
-            {
-                Console.WriteLine("Tidak ada jadwal yang tersedia di API.");
-                return;
-            }
-            Console.WriteLine("\n∘<<──────>>∘∘JADWAL PENGAMBILAN SAMPAH∘∘<<──────>>∘");
-            foreach (var j in jadwalList)
-            {
-                Console.WriteLine($"Tanggal: {j.Tanggal:yyyy-MM-dd} ({j.Hari})");
-                Console.WriteLine($"  Jenis Sampah: {string.Join(", ", j.JenisSampah)}");
-                Console.WriteLine($"  Kurir: {j.namaKurir}");
-                Console.WriteLine($"  Area: {j.areaDiambil}");
-                Console.WriteLine();
-            }
-        }
 
         public static JadwalModel GetJadwalByKurirDanTanggal(string namaKurir, DateOnly tanggal)
         {
@@ -120,7 +102,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.PenjadwalanSystem
                 areaDiambil = area
             };
 
-            var invalid = jenisList.Where(j => !rulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
+            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
             if (invalid.Any())
                 throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
 
@@ -195,7 +177,7 @@ public class DateOnlyJsonConverter : JsonConverter<DateOnly>
         var s = reader.GetString() ?? throw new JsonException("Expected date string");
         return DateOnly.ParseExact(s, Format, CultureInfo.InvariantCulture);
     }
-
+     
     public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
         => writer.WriteStringValue(value.ToString(Format));
 }
