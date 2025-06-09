@@ -1,18 +1,15 @@
 ﻿namespace modelLibrary
 {
-    public interface JadwalFactory<T>
-    {
-        public abstract Jadwal<T> CreateJadwal(DateOnly tanggal, List<T> jenisSampah, string areaDiambil, string namaKurir);
-    }
 
-    public class Jadwal<T>
+
+    public class Jadwal
     {
         public DateOnly Tanggal { get; private set; }
-        public List<T> JenisSampah { get; private set; }
+        public List<String> JenisSampah { get; private set; }
         public string NamaKurir { get; private set; }
         public string AreaDiambil { get; private set; }
 
-        private Jadwal(DateOnly tanggal, List<T> jenisSampah, string areaDiambil, string namaKurir)
+        private Jadwal(DateOnly tanggal, List<String> jenisSampah, string areaDiambil, string namaKurir)
         {
             Tanggal = tanggal;
             JenisSampah = jenisSampah;
@@ -20,7 +17,7 @@
             NamaKurir = namaKurir;
         }
 
-        public static Jadwal<T> BuatJadwal(DateOnly tanggal, List<T> jenisSampah, string areaDiambil, string namaKurir)
+        public static Jadwal BuatJadwal(DateOnly tanggal, List<String> jenisSampah, string areaDiambil, string namaKurir)
         {
             if (string.IsNullOrWhiteSpace(namaKurir))
                 throw new ArgumentException("Nama kurir tidak boleh kosong.");
@@ -30,7 +27,7 @@
 
             areaDiambil ??= "Default Area";
 
-            return new Jadwal<T>(tanggal, jenisSampah, areaDiambil, namaKurir);
+            return new Jadwal(tanggal, jenisSampah, areaDiambil, namaKurir);
         }
     }
     

@@ -1,4 +1,4 @@
-namespace ManagementJadwal
+namespace adminAPP
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace ManagementJadwal
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormJadwalAddEditDelete());
+            Application.Run(new Form1());
         }
     }
 }
