@@ -20,6 +20,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         private static readonly HttpClient _http = new HttpClient { BaseAddress = new Uri("https://localhost:7277/") };
 
         public static void CreateAndSendJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurir, string area)
+        // method untuk membuat dan mengirim jadwal pengambilan sampah ke API
         {
             if (jenisList == null || jenisList.Count == 0)
                 throw new ArgumentException("Daftar jenis sampah tidak boleh kosong.", nameof(jenisList));
@@ -84,6 +85,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
 
         public static JadwalModel GetJadwalByKurirDanTanggal(string namaKurir, DateOnly tanggal)
+        // method untuk mendapatkan jadwal dari kurir dan tanggal
         {
             var response = _http.GetAsync("api/jadwal_admin").Result;
             if (!response.IsSuccessStatusCode) return null;
@@ -92,20 +94,21 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             return list?.FirstOrDefault(j => j.namaKurir.Equals(namaKurir, StringComparison.OrdinalIgnoreCase) && j.Tanggal == tanggal);
         }
 
-        public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurir, string area)
+        public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama)
         {
-            var model = new JadwalModel
-            {
-                Tanggal = tanggal,
-                JenisSampah = jenisList.Select(j => j.ToString()).ToList(),
-                namaKurir = namaKurir,
-                areaDiambil = area
-            };
+            var model = GetJadwalByKurirDanTanggal(namaKurirLama, tanggal);
+            if (model == null)
+                throw new InvalidOperationException($"Jadwal untuk kurir '{namaKurirLama}' pada tanggal {tanggal:yyyy-MM-dd} tidak ditemukan.");
 
-            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
+            var invalid = jenisList
+                .Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue)))
+                .ToList();
             if (invalid.Any())
                 throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
 
+            model.JenisSampah = jenisList.Select(j => j.ToString()).ToList();
+            model.areaDiambil = area;
+            model.namaKurir = namaKurirBaru;
 
             var response = _http.PutAsJsonAsync($"api/jadwal_admin/{tanggal:yyyy-MM-dd}", model).Result;
             response.EnsureSuccessStatusCode();
@@ -114,56 +117,6 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             var fileName = $"jadwal_{tanggal:yyyyMMdd}.json";
             File.WriteAllText(fileName, JsonSerializer.Serialize(model, new JsonSerializerOptions { WriteIndented = true }));
             Console.WriteLine($"File lokal {fileName} berhasil diperbarui.\n");
-        }
-
-        public static void DeleteJadwalByKurirDanTanggal(string namaKurir, DateOnly tanggal)
-        {
-            var apiResponse = _http.DeleteAsync($"api/jadwal_admin/{tanggal:yyyy-MM-dd}").Result;
-            if (!apiResponse.IsSuccessStatusCode)
-            {
-                Console.WriteLine("Gagal menghapus jadwal dari API.");
-                return;
-            }
-            Console.WriteLine("Jadwal berhasil dihapus dari API.");
-
-            var fileName = $"jadwal_{tanggal:yyyyMMdd}.json";
-            if (!File.Exists(fileName))
-            {
-                Console.WriteLine($"File {fileName} tidak ditemukan, tidak ada yang perlu dihapus.");
-                return;
-            }
-
-            var options = new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true,
-                Converters = { new DateOnlyJsonConverter() }
-            };
-
-            var json = File.ReadAllText(fileName);
-            var list = JsonSerializer.Deserialize<List<JadwalModel>>(json, options)
-                            ?? new List<JadwalModel>();
-
-            var removed = list.RemoveAll(j =>
-                j.namaKurir.Equals(namaKurir, StringComparison.OrdinalIgnoreCase)
-                && j.Tanggal == tanggal);
-
-            if (removed == 0)
-            {
-                Console.WriteLine("Tidak ada entri jadwal di file yang cocok untuk dihapus.");
-                return;
-            }
-
-            if (list.Count == 0)
-            {
-                File.Delete(fileName);
-                Console.WriteLine($"Semua entri di file {fileName} dihapus; file dihapus.");
-            }
-            else
-            {
-                var updatedJson = JsonSerializer.Serialize(list, options);
-                File.WriteAllText(fileName, updatedJson);
-                Console.WriteLine($"jadwal pengambilan oleh kurir '{namaKurir}' pada {tanggal:yyyy-MM-dd} dihapus dari {fileName}.\n");
-            }
         }
     }
 }
