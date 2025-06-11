@@ -8,4 +8,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DeleteJadwal\DeleteJadwal.csproj" />
+    <ProjectReference Include="..\FormPenarikanKeuntungan\FormPenarikanKeuntungan.csproj" />
+    <ProjectReference Include="..\LihatJadwal\LihatJadwal.csproj" />
+    <ProjectReference Include="..\tambahJadwalApp\tambahJadwalApp.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace LihatJadwal
 {
-    partial class Form1
+    partial class Lihatjadwal
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button buttonLoadAll;

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace DeleteJadwal
 {
-    partial class Form1
+    partial class HapusJadwal
     {
         private System.ComponentModel.IContainer components = null;
 

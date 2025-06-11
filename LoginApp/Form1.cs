@@ -10,7 +10,7 @@ using System.Text.Json;
 using System.Collections.Generic;
 using System.Threading;
 using LoginAPI.Models;
-
+using adminAPP;
 
 namespace LoginApp
 {
@@ -69,9 +69,9 @@ namespace LoginApp
                     {
                         case "admin":
                             // Navigate to Admin form
-                            // AdminForm adminForm = new AdminForm();
-                            // adminForm.Show();
-                            // this.Hide();
+                            var adminForm = new adminAPP.Form1();
+                            adminForm.Show();
+                            this.Hide();
                             break;
                         case "kurir":
                             // Navigate to Kurir form
