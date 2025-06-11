@@ -216,6 +216,7 @@
             Controls.Add(label1);
             Name = "formEditJadwal";
             Text = "Form1";
+            Load += formEditJadwal_Load;
             ResumeLayout(false);
             PerformLayout();
         }

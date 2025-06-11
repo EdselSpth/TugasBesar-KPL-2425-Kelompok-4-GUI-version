@@ -49,5 +49,10 @@ namespace editJadwalAPP
             }
 
         }
+
+        private void formEditJadwal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

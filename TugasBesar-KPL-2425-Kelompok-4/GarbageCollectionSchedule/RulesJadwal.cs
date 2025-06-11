@@ -6,7 +6,7 @@ using modelLibrary;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
-    static class RulesJadwal
+    public static class RulesJadwal
     {
         public static readonly Dictionary<JenisSampah, DayOfWeek[]> HariPengambilan = new()
         {

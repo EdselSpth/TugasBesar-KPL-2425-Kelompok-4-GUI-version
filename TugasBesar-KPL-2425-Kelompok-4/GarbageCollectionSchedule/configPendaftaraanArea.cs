@@ -10,11 +10,11 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
     public class configPendaftaraanArea
     {
-        private string configPath = "daftarArea.json";
+        private string configPath = @"E:\SMT4\Konstruksi_Perangkat_Lunak\TUBES_KPL_GUI\TugasBesar-KPL-2425-Kelompok-4-GUI-version\form_pendaftaran_area\bin\Debug\net8.0-windows\daftarArea.json";
         public int id { get; set; }
         public string area { get; set; }
   
-        public configPendaftaraanArea() : this("daftarArea.json") { }
+        public configPendaftaraanArea() : this(@"E:\SMT4\Konstruksi_Perangkat_Lunak\TUBES_KPL_GUI\TugasBesar-KPL-2425-Kelompok-4-GUI-version\form_pendaftaran_area\bin\Debug\net8.0-windows\daftarArea.json") { }
 
        
         public configPendaftaraanArea(string customPath)
