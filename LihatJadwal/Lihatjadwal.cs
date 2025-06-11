@@ -7,12 +7,12 @@ using System.Windows.Forms;
 
 namespace LihatJadwal
 {
-    public partial class Form1 : Form
+    public partial class Lihatjadwal : Form
     {
         private readonly HttpClient _httpClient = new();
         private List<JadwalModel> _allJadwals = new List<JadwalModel>();
 
-        public Form1()
+        public Lihatjadwal()
         {
             InitializeComponent();
         }

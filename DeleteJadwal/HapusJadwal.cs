@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace DeleteJadwal
 {
-    public partial class Form1 : Form
+    public partial class HapusJadwal : Form
     {
-        public Form1()
+        public HapusJadwal()
         {
             InitializeComponent();
         }

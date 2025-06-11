@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginAPI", "LoginAPI\LoginA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LihatJadwal", "LihatJadwal\LihatJadwal.csproj", "{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TambahJadwal", "TambahJadwal\TambahJadwal.csproj", "{A9BBE15C-19C8-4160-A2BF-6AAB07FE9BB8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApp", "LoginApp\LoginApp.csproj", "{1B14EF11-C346-B65E-58B9-E01DDA979A12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormPenarikanKeuntungan", "FormPenarikanKeuntungan\FormPenarikanKeuntungan.csproj", "{24DDC983-7753-44B5-B9C6-7483B279DD7B}"
@@ -26,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "editJadwalAPP", "editJadwalAPP\editJadwalAPP.csproj", "{3AD6998D-E390-3E9B-058E-2CF57BC65E75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "form_pendaftaran_area", "form_pendaftaran_area\form_pendaftaran_area.csproj", "{F3C4B49C-92D9-4C45-916B-2510D579BE9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adminAPP", "adminAPP\adminAPP.csproj", "{BFABC330-9616-9D0A-647A-97811CC7E5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sharedModels", "sharedModels\sharedModels.csproj", "{5C0E646E-1954-F81D-0B6F-88EFC34B80A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +55,6 @@ Global
 		{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AEC37BA-C71E-47EA-B32E-BFD07C50D917}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A9BBE15C-19C8-4160-A2BF-6AAB07FE9BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9BBE15C-19C8-4160-A2BF-6AAB07FE9BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9BBE15C-19C8-4160-A2BF-6AAB07FE9BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9BBE15C-19C8-4160-A2BF-6AAB07FE9BB8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B14EF11-C346-B65E-58B9-E01DDA979A12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B14EF11-C346-B65E-58B9-E01DDA979A12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B14EF11-C346-B65E-58B9-E01DDA979A12}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -81,6 +79,14 @@ Global
 		{F3C4B49C-92D9-4C45-916B-2510D579BE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3C4B49C-92D9-4C45-916B-2510D579BE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3C4B49C-92D9-4C45-916B-2510D579BE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFABC330-9616-9D0A-647A-97811CC7E5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFABC330-9616-9D0A-647A-97811CC7E5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFABC330-9616-9D0A-647A-97811CC7E5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFABC330-9616-9D0A-647A-97811CC7E5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C0E646E-1954-F81D-0B6F-88EFC34B80A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0E646E-1954-F81D-0B6F-88EFC34B80A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C0E646E-1954-F81D-0B6F-88EFC34B80A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0E646E-1954-F81D-0B6F-88EFC34B80A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
