@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            picture_1 = new PictureBox();
             label_Text1 = new Label();
             label_Text2 = new Label();
             label_Text3 = new Label();
@@ -38,18 +37,9 @@
             button_Masuk = new Button();
             label1 = new Label();
             linkLabel_Register = new LinkLabel();
+            picture_1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picture_1).BeginInit();
             SuspendLayout();
-            // 
-            // picture_1
-            // 
-            picture_1.Image = Properties.Resources.Login_Image_1;
-            picture_1.Location = new Point(22, 12);
-            picture_1.Name = "picture_1";
-            picture_1.Size = new Size(229, 418);
-            picture_1.SizeMode = PictureBoxSizeMode.Zoom;
-            picture_1.TabIndex = 0;
-            picture_1.TabStop = false;
             // 
             // label_Text1
             // 
@@ -114,7 +104,7 @@
             button_Masuk.Name = "button_Masuk";
             button_Masuk.Size = new Size(113, 39);
             button_Masuk.TabIndex = 7;
-            button_Masuk.Text = "Masuk";
+            button_Masuk.Text = " Masuk";
             button_Masuk.UseVisualStyleBackColor = false;
             button_Masuk.Click += button_Masuk_Click;
             // 
@@ -139,6 +129,16 @@
             linkLabel_Register.Text = "Daftar Sekarang!!!";
             linkLabel_Register.LinkClicked += linkLabel_Register_LinkClicked;
             // 
+            // picture_1
+            // 
+            picture_1.Image = Properties.Resources.Login_Image_1;
+            picture_1.Location = new Point(22, 12);
+            picture_1.Name = "picture_1";
+            picture_1.Size = new Size(229, 418);
+            picture_1.SizeMode = PictureBoxSizeMode.Zoom;
+            picture_1.TabIndex = 0;
+            picture_1.TabStop = false;
+            // 
             // MenuLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -162,8 +162,6 @@
         }
 
         #endregion
-
-        private PictureBox picture_1;
         private Label label_Text1;
         private Label label_Text2;
         private Label label_Text3;
@@ -173,5 +171,6 @@
         private Button button_Masuk;
         private Label label1;
         private LinkLabel linkLabel_Register;
+        private PictureBox picture_1;
     }
 }
