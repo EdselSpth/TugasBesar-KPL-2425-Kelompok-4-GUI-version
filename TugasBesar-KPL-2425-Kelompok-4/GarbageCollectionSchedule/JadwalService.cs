@@ -23,21 +23,26 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         // method untuk membuat dan mengirim jadwal pengambilan sampah ke API
         {
             if (jenisList == null || jenisList.Count == 0)
+            {
                 throw new ArgumentException("Daftar jenis sampah tidak boleh kosong.", nameof(jenisList));
+            }
 
             var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
-            if (invalid.Any())
-                throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
 
-            var model = new JadwalModel
+            if (invalid.Any())
             {
-                Tanggal = tanggal,
-                JenisSampah = jenisList.Select(j => j.ToString()).ToList(),
-                namaKurir = namaKurir ?? string.Empty,
-                areaDiambil = area ?? string.Empty
-            };
+                throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
+            }
+
+            var model = JadwalAPI.Model.JadwalModel.buatJadwal(
+                tanggal,
+                jenisList.Select(j => j.ToString()).ToList(),
+                namaKurir,
+                area
+            );
 
             var fileName = $"jadwal_{tanggal:yyyyMMdd}.json";
+
             var options = new JsonSerializerOptions
             {
                 WriteIndented = true,
@@ -98,13 +103,16 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         {
             var model = GetJadwalByKurirDanTanggal(namaKurirLama, tanggal);
             if (model == null)
+            {
                 throw new InvalidOperationException($"Jadwal untuk kurir '{namaKurirLama}' pada tanggal {tanggal:yyyy-MM-dd} tidak ditemukan.");
+            }
 
-            var invalid = jenisList
-                .Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue)))
-                .ToList();
+            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
+
             if (invalid.Any())
+            {
                 throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
+            }
 
             model.JenisSampah = jenisList.Select(j => j.ToString()).ToList();
             model.areaDiambil = area;

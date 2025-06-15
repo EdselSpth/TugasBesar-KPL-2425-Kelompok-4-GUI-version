@@ -11,6 +11,26 @@ namespace JadwalAPI.Model
         public string namaKurir { get; set; } = string.Empty;
         public string areaDiambil { get; set; } = string.Empty;
         public string Hari => Tanggal.DayOfWeek.ToString();
+
+        public static JadwalModel buatJadwal(DateOnly tanggal, List<string> listJenisSampah, string namaKurir, string namaArea)
+        {
+            if (string.IsNullOrWhiteSpace(namaKurir))
+            {
+                throw new ArgumentException("Nama kurir tidak boleh kosong.");
+            }
+
+            if (listJenisSampah == null || !listJenisSampah.Any()) { 
+                throw new ArgumentException("Jenis sampah harus diisi.");
+            }
+
+            return new JadwalModel
+            {
+                Tanggal = tanggal,
+                JenisSampah = listJenisSampah,
+                namaKurir = namaKurir,
+                areaDiambil = namaArea ?? "Default Area"
+            };
+        }
     }
 }
 
