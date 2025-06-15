@@ -1,24 +1,28 @@
 using LoginAPI.Models;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text;
 using LoginAPI;
+using View_Regreen.Admin;
+using System.Windows.Forms;
+using System.Drawing;
+using View_Regreen.Menu;
 
 namespace View_Regreen
 {
     public partial class MenuLogin : Form
     {
-        private readonly HttpClient _httpClient = new HttpClient();
+        private readonly HttpClient _httpClient = new();
+
         public MenuLogin()
         {
             InitializeComponent();
-            this.BackColor = ColorTranslator.FromHtml("#E8EDDE"); 
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
         }
 
         private void linkLabel_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            // TODO: Buka form pendaftaran jika ada
         }
 
         private async void button_Masuk_Click(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace View_Regreen
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Username and Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Username dan Password tidak boleh kosong.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -46,53 +50,74 @@ namespace View_Regreen
                 var response = await _httpClient.PostAsync(apiUrl, content);
                 var responseBody = await response.Content.ReadAsStringAsync();
 
+                var json = JsonDocument.Parse(responseBody);
+
                 if (response.IsSuccessStatusCode)
                 {
-                    var json = JsonDocument.Parse(responseBody);
-                    string usernameLogin = json.RootElement.GetProperty("username").GetString();
-                    int roleNumber = json.RootElement.GetProperty("role").GetInt32();
+                    if (!json.RootElement.TryGetProperty("username", out var usernameElement) ||
+                        !json.RootElement.TryGetProperty("role", out var roleElement))
+                    {
+                        MessageBox.Show("Data login tidak valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string usernameLogin = usernameElement.GetString();
+                    int roleNumber = roleElement.GetInt32();
+
+                    if (!Enum.IsDefined(typeof(Role), roleNumber))
+                    {
+                        MessageBox.Show("Role tidak dikenal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
                     Role roleEnum = (Role)roleNumber;
-
                     string role = roleEnum.ToString().ToLower();
 
-                    MessageBox.Show($"Login successful as {username} (Role: {role})", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Login berhasil sebagai {usernameLogin} (Role: {role})", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     switch (role)
                     {
                         case "admin":
-                            // Navigate to Admin form
-                            //var adminForm = new adminAPP.Form1();
-                            //adminForm.Show();
-                            //this.Hide();
-                            //break;
+                            var dashboardAdmin = new DashboardAdmin();
+                            dashboardAdmin.Show();
+                            this.Hide();
+                            break;
+
                         case "kurir":
-                            // Navigate to Kurir form
-                            // KurirForm kurirForm = new KurirForm();
-                            // kurirForm.Show();
-                            // this.Hide();
+                            // TODO: Panggil form kurir
                             break;
+
                         case "user":
-                            // Navigate to User form
-                            // UserForm userForm = new UserForm();
-                            // userForm.Show();
-                            // this.Hide();
+                            // TODO: Panggil form user
                             break;
+
                         default:
-                            MessageBox.Show("Role not recognized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Role tidak dikenali.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                     }
                 }
                 else
                 {
-                    var json = JsonDocument.Parse(responseBody);
-                    string errorMessage = json.RootElement.GetProperty("message").GetString();
-                    MessageBox.Show($"Login failed: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (json.RootElement.TryGetProperty("message", out var msg))
+                    {
+                        string errorMessage = msg.GetString();
+                        MessageBox.Show($"Login gagal: {errorMessage}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login gagal dengan kesalahan yang tidak diketahui.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-            catch (Exception ex) // Renamed the variable from 'e' to 'ex' to avoid conflict
+            catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void MenuLogin_Load(object sender, EventArgs e)
+        {
+            // Optional: tindakan saat form dimuat
         }
     }
 }

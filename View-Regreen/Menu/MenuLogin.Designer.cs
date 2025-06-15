@@ -156,6 +156,7 @@
             Controls.Add(picture_1);
             Name = "MenuLogin";
             Text = "Form1";
+            Load += MenuLogin_Load;
             ((System.ComponentModel.ISupportInitialize)picture_1).EndInit();
             ResumeLayout(false);
             PerformLayout();
