@@ -28,12 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MenuValidasiKeuntungan";
+            panel_1 = new Panel();
+            pictureBox6 = new PictureBox();
+            Keuntungan_Button = new PictureBox();
+            Area_Button = new PictureBox();
+            Penjadwalan_Button = new PictureBox();
+            Beranda_Button = new PictureBox();
+            pictureBox1 = new PictureBox();
+            panel_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Keuntungan_Button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Area_Button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Penjadwalan_Button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Beranda_Button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
+            // 
+            // panel_1
+            // 
+            panel_1.BackColor = SystemColors.ButtonHighlight;
+            panel_1.Controls.Add(pictureBox6);
+            panel_1.Controls.Add(Keuntungan_Button);
+            panel_1.Controls.Add(Area_Button);
+            panel_1.Controls.Add(Penjadwalan_Button);
+            panel_1.Controls.Add(Beranda_Button);
+            panel_1.Controls.Add(pictureBox1);
+            panel_1.Location = new Point(0, 0);
+            panel_1.Name = "panel_1";
+            panel_1.Size = new Size(215, 453);
+            panel_1.TabIndex = 1;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.Keluar;
+            pictureBox6.Location = new Point(18, 399);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(101, 27);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 5;
+            pictureBox6.TabStop = false;
+            // 
+            // Keuntungan_Button
+            // 
+            Keuntungan_Button.Image = Properties.Resources.Tarik_Untung_Menu;
+            Keuntungan_Button.Location = new Point(16, 275);
+            Keuntungan_Button.Name = "Keuntungan_Button";
+            Keuntungan_Button.Size = new Size(185, 48);
+            Keuntungan_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            Keuntungan_Button.TabIndex = 4;
+            Keuntungan_Button.TabStop = false;
+            // 
+            // Area_Button
+            // 
+            Area_Button.Image = Properties.Resources.Area_Menu_OFF;
+            Area_Button.Location = new Point(16, 221);
+            Area_Button.Name = "Area_Button";
+            Area_Button.Size = new Size(185, 48);
+            Area_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            Area_Button.TabIndex = 3;
+            Area_Button.TabStop = false;
+            // 
+            // Penjadwalan_Button
+            // 
+            Penjadwalan_Button.Image = Properties.Resources.Penjadwalan_Menu_OFF1;
+            Penjadwalan_Button.Location = new Point(16, 167);
+            Penjadwalan_Button.Name = "Penjadwalan_Button";
+            Penjadwalan_Button.Size = new Size(185, 48);
+            Penjadwalan_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            Penjadwalan_Button.TabIndex = 2;
+            Penjadwalan_Button.TabStop = false;
+            // 
+            // Beranda_Button
+            // 
+            Beranda_Button.Image = Properties.Resources.Beranda_Menu_OFF;
+            Beranda_Button.Location = new Point(16, 113);
+            Beranda_Button.Name = "Beranda_Button";
+            Beranda_Button.Size = new Size(185, 48);
+            Beranda_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            Beranda_Button.TabIndex = 1;
+            Beranda_Button.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Logo_Regreen;
+            pictureBox1.Location = new Point(18, 18);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(183, 67);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // MenuValidasiKeuntungan
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(panel_1);
+            Name = "MenuValidasiKeuntungan";
+            Text = "MenuValidasiKeuntungan";
+            panel_1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Keuntungan_Button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Area_Button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Penjadwalan_Button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Beranda_Button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel_1;
+        private PictureBox pictureBox6;
+        private PictureBox Keuntungan_Button;
+        private PictureBox Area_Button;
+        private PictureBox Penjadwalan_Button;
+        private PictureBox Beranda_Button;
+        private PictureBox pictureBox1;
     }
 }
