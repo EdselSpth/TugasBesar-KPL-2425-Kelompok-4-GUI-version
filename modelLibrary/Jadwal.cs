@@ -18,6 +18,7 @@
         }
 
         public static Jadwal BuatJadwal(DateOnly tanggal, List<String> jenisSampah, string areaDiambil, string namaKurir)
+        // Model Factory untuk penerapan design pattern Factory Method
         {
             if (string.IsNullOrWhiteSpace(namaKurir))
             {

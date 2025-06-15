@@ -9,6 +9,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
     public static class RulesJadwal
     {
         public static readonly Dictionary<JenisSampah, DayOfWeek[]> HariPengambilan = new()
+        // kamus aturan jenis sampah berdasarkan hari
         {
             { JenisSampah.Organik, new[] { DayOfWeek.Monday, DayOfWeek.Wednesday } },
             { JenisSampah.Plastik, new[] { DayOfWeek.Tuesday, DayOfWeek.Thursday } },
@@ -20,6 +21,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         };
 
         public static bool pengambilanValidasi(JenisSampah jenis, DateTime tanggal)
+        // method untuk validasi jenis sampah dengan hari
         {
             Debug.Assert(HariPengambilan != null, "Aturan Tidak Boleh Kosong");
             return HariPengambilan.TryGetValue(jenis, out var hari) && hari.Contains(tanggal.DayOfWeek);
