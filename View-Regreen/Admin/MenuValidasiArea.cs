@@ -10,13 +10,18 @@ using System.Windows.Forms;
 
 namespace View_Regreen.Admin
 {
-    public partial class MenuValidasiArea: Form
+    public partial class MenuValidasiArea : Form
     {
         public MenuValidasiArea()
         {
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
             panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
+        }
+
+        private void MenuValidasiArea_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
