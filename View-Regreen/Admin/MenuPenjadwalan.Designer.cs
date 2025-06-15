@@ -29,109 +29,117 @@
         private void InitializeComponent()
         {
             panel_1 = new Panel();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             pictureBox6 = new PictureBox();
-            Keuntungan_Button = new PictureBox();
-            ValidasiArea_button = new PictureBox();
-            Penjadwalan_button = new PictureBox();
-            Beranda_button = new PictureBox();
+            Beranda = new PictureBox();
             pictureBox1 = new PictureBox();
             panel_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Keuntungan_Button).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ValidasiArea_button).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Penjadwalan_button).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Beranda_button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Beranda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel_1
             // 
             panel_1.BackColor = SystemColors.ButtonHighlight;
+            panel_1.Controls.Add(pictureBox4);
+            panel_1.Controls.Add(pictureBox3);
+            panel_1.Controls.Add(pictureBox2);
             panel_1.Controls.Add(pictureBox6);
-            panel_1.Controls.Add(Keuntungan_Button);
-            panel_1.Controls.Add(ValidasiArea_button);
-            panel_1.Controls.Add(Penjadwalan_button);
-            panel_1.Controls.Add(Beranda_button);
+            panel_1.Controls.Add(Beranda);
             panel_1.Controls.Add(pictureBox1);
             panel_1.Location = new Point(0, 0);
+            panel_1.Margin = new Padding(3, 2, 3, 2);
             panel_1.Name = "panel_1";
-            panel_1.Size = new Size(215, 453);
+            panel_1.Size = new Size(228, 685);
             panel_1.TabIndex = 1;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.Penarikan_Menu_OFF;
+            pictureBox4.Location = new Point(16, 291);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(199, 53);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 8;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Area_Menu_OFF;
+            pictureBox3.Location = new Point(16, 234);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(199, 53);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 7;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Penjadwalan_Menu;
+            pictureBox2.Location = new Point(16, 177);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(199, 53);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
             // 
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.Keluar;
-            pictureBox6.Location = new Point(18, 399);
+            pictureBox6.Location = new Point(16, 631);
+            pictureBox6.Margin = new Padding(3, 2, 3, 2);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(101, 27);
+            pictureBox6.Size = new Size(85, 39);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 5;
+            pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
             // 
-            // Keuntungan_Button
+            // Beranda
             // 
-            Keuntungan_Button.Image = Properties.Resources.Penarikan_Menu_OFF;
-            Keuntungan_Button.Location = new Point(16, 275);
-            Keuntungan_Button.Name = "Keuntungan_Button";
-            Keuntungan_Button.Size = new Size(185, 48);
-            Keuntungan_Button.SizeMode = PictureBoxSizeMode.Zoom;
-            Keuntungan_Button.TabIndex = 4;
-            Keuntungan_Button.TabStop = false;
-            // 
-            // ValidasiArea_button
-            // 
-            ValidasiArea_button.Image = Properties.Resources.Area_Menu_OFF;
-            ValidasiArea_button.Location = new Point(16, 221);
-            ValidasiArea_button.Name = "ValidasiArea_button";
-            ValidasiArea_button.Size = new Size(185, 48);
-            ValidasiArea_button.SizeMode = PictureBoxSizeMode.Zoom;
-            ValidasiArea_button.TabIndex = 3;
-            ValidasiArea_button.TabStop = false;
-            // 
-            // Penjadwalan_button
-            // 
-            Penjadwalan_button.Image = Properties.Resources.Penjadwalan_Menu;
-            Penjadwalan_button.Location = new Point(16, 167);
-            Penjadwalan_button.Name = "Penjadwalan_button";
-            Penjadwalan_button.Size = new Size(185, 48);
-            Penjadwalan_button.SizeMode = PictureBoxSizeMode.Zoom;
-            Penjadwalan_button.TabIndex = 2;
-            Penjadwalan_button.TabStop = false;
-            // 
-            // Beranda_button
-            // 
-            Beranda_button.Image = Properties.Resources.Beranda_Menu_OFF;
-            Beranda_button.Location = new Point(16, 113);
-            Beranda_button.Name = "Beranda_button";
-            Beranda_button.Size = new Size(185, 48);
-            Beranda_button.SizeMode = PictureBoxSizeMode.Zoom;
-            Beranda_button.TabIndex = 1;
-            Beranda_button.TabStop = false;
+            Beranda.Image = Properties.Resources.Beranda_Menu_OFF;
+            Beranda.Location = new Point(16, 120);
+            Beranda.Margin = new Padding(3, 2, 3, 2);
+            Beranda.Name = "Beranda";
+            Beranda.Size = new Size(199, 53);
+            Beranda.SizeMode = PictureBoxSizeMode.Zoom;
+            Beranda.TabIndex = 4;
+            Beranda.TabStop = false;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_Regreen;
-            pictureBox1.Location = new Point(18, 18);
+            pictureBox1.Location = new Point(16, 14);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(183, 67);
+            pictureBox1.Size = new Size(204, 72);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
+            pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
             // MenuPenjadwalan
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1264, 681);
             Controls.Add(panel_1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuPenjadwalan";
             Text = "MenuPenjadwalan";
             panel_1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Keuntungan_Button).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ValidasiArea_button).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Penjadwalan_button).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Beranda_button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Beranda).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -139,11 +147,11 @@
         #endregion
 
         private Panel panel_1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
         private PictureBox pictureBox6;
-        private PictureBox Keuntungan_Button;
-        private PictureBox ValidasiArea_button;
-        private PictureBox Penjadwalan_button;
-        private PictureBox Beranda_button;
+        private PictureBox Beranda;
         private PictureBox pictureBox1;
     }
 }
