@@ -7,14 +7,93 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using modelLibrary;
+using JadwalAPI;
+using JadwalAPI.Model;
+using System.Text.Json;
 
 namespace View_Regreen.Admin
 {
-    public partial class TambahJadwal: Form
+    public partial class TambahJadwal : Form
     {
         public TambahJadwal()
         {
             InitializeComponent();
+            comboBox_jenissampah.DataSource = Enum.GetValues(typeof(JenisSampah));
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
+            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
+        }
+
+        private readonly HttpClient _httpClient = new();
+        private List<JadwalModel> _allJadwals = new();
+
+        private async Task LoadAllJadwalAsync()
+        {
+            try
+            {
+                string url = "https://localhost:7277/api/jadwal_admin";
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                var jadwals = JsonSerializer.Deserialize<List<JadwalModel>>(jsonString, options);
+
+                if (jadwals != null)
+                {
+                    _allJadwals = jadwals;
+                    dataGridView1.DataSource = _allJadwals;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal memuat data: " + ex.Message);
+            }
+        }
+
+        private async void TambahJadwal_Load(object sender, EventArgs e)
+        {
+            await LoadAllJadwalAsync();
+
+        }
+
+        private void button_Tambah_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var tanggal = DateOnly.FromDateTime(dateTimePicker.Value);
+                var namaKurir = textBox_namakurir.Text;
+                var area = textBox_area.Text;
+
+                if (comboBox_jenissampah.SelectedItem is not JenisSampah jenisSampah)
+                {
+                    MessageBox.Show("Pilih jenis sampah terlebih dahulu.");
+                    return;
+                }
+
+                var jenisList = new List<JenisSampah> { jenisSampah };
+                var jenisStringList = jenisList.Select(j => j.ToString()).ToList();
+
+                var jadwal = modelLibrary.Jadwal.BuatJadwal(tanggal, jenisStringList, area, namaKurir);
+
+                TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.CreateAndSendJadwal(
+                    jadwal.Tanggal,
+                    jenisList,
+                    jadwal.NamaKurir,
+                    jadwal.AreaDiambil
+                );
+
+                MessageBox.Show("Jadwal berhasil dibuat dan dikirim ke API.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("[Terjadi kesalahan] " + ex.Message);
+            }
         }
     }
 }
