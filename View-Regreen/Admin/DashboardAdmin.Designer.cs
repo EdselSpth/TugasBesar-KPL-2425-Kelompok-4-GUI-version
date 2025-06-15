@@ -171,7 +171,7 @@
             btnFilterTanggal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnFilterTanggal.Location = new Point(931, 759);
             btnFilterTanggal.Name = "btnFilterTanggal";
-            btnFilterTanggal.Size = new Size(203, 44);
+            btnFilterTanggal.Size = new Size(203, 39);
             btnFilterTanggal.TabIndex = 1;
             btnFilterTanggal.Text = "Cari";
             btnFilterTanggal.UseVisualStyleBackColor = true;
