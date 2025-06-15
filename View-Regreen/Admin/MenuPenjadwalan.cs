@@ -71,5 +71,19 @@ namespace View_Regreen.Admin
             hapusJadwalForm.ShowDialog();
             this.Hide();
         }
+
+        private void button_TambahJadwal_Click(object sender, EventArgs e)
+        {
+            var tambahJadwalForm = new TambahJadwal();
+            tambahJadwalForm.ShowDialog();
+            this.Hide();
+        }
+
+        private void button_EditJadwal_Click(object sender, EventArgs e)
+        {
+            var editJadwalForm = new EditJadwal();
+            editJadwalForm.ShowDialog();
+            this.Hide();
+        }
     }
 }

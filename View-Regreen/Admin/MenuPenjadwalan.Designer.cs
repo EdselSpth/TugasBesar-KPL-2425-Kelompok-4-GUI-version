@@ -181,6 +181,7 @@
             button_TambahJadwal.TabIndex = 8;
             button_TambahJadwal.Text = "Tambah Jadwal";
             button_TambahJadwal.UseVisualStyleBackColor = true;
+            button_TambahJadwal.Click += button_TambahJadwal_Click;
             // 
             // button_EditJadwal
             // 
@@ -192,6 +193,7 @@
             button_EditJadwal.TabIndex = 9;
             button_EditJadwal.Text = "Edit Jadwal";
             button_EditJadwal.UseVisualStyleBackColor = true;
+            button_EditJadwal.Click += button_EditJadwal_Click;
             // 
             // button_hapusJadwal
             // 
