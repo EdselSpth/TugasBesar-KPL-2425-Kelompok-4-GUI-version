@@ -11,14 +11,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using modelLibrary;
 using JadwalAPI;
+using View_Regreen.Menu;
 using JadwalAPI.Model;
+
 
 namespace View_Regreen.Admin
 {
     public partial class MenuPenjadwalan : Form
     {
         private readonly HttpClient _httpClient = new();
-        private List<JadwalModel> _allJadwals = new();
+        private List<JadwalAPI.Model.JadwalModel> _allJadwals = new();
+
+
         public MenuPenjadwalan()
         {
             InitializeComponent();
@@ -41,7 +45,8 @@ namespace View_Regreen.Admin
                     PropertyNameCaseInsensitive = true
                 };
 
-                var jadwals = JsonSerializer.Deserialize<List<JadwalModel>>(jsonString, options);
+                var jadwals = JsonSerializer.Deserialize<List<JadwalAPI.Model.JadwalModel>>(jsonString, options);
+
 
                 if (jadwals != null)
                 {
@@ -58,6 +63,13 @@ namespace View_Regreen.Admin
         private async void MenuPenjadwalan_Load(object sender, EventArgs e)
         {
             await LoadAllJadwalAsync();
+        }
+
+        private void button_hapusJadwal_Click(object sender, EventArgs e)
+        {
+            var hapusJadwalForm = new HapusJadwal();
+            hapusJadwalForm.ShowDialog();
+            this.Hide();
         }
     }
 }

@@ -65,7 +65,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = Properties.Resources.Penarikan_Menu_OFF;
+            pictureBox4.Image = Properties.Resources.User_Narik_Keuntungan_OFF;
             pictureBox4.Location = new Point(18, 388);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(227, 71);
@@ -75,7 +75,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.Area_Menu_OFF;
+            pictureBox3.Image = Properties.Resources.User_Daftar_Area_OFF;
             pictureBox3.Location = new Point(18, 312);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(227, 71);
@@ -85,7 +85,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.Penjadwalan_Menu_OFF1;
+            pictureBox2.Image = Properties.Resources.User_Daftar_Ambil_Sampah_OFF;
             pictureBox2.Location = new Point(18, 236);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(227, 71);
