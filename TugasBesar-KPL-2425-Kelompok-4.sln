@@ -29,6 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adminAPP", "adminAPP\adminA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "form_pendaftaran_penjemputan", "form_pendaftaran_penjemputan\form_pendaftaran_penjemputan.csproj", "{6925D902-88AB-4EC9-B0DB-D0164DDAEED2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View-Regreen", "View-Regreen\View-Regreen.csproj", "{6CDC144E-E708-5ED8-5C64-FABF7C1B7818}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,6 +89,10 @@ Global
 		{6925D902-88AB-4EC9-B0DB-D0164DDAEED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6925D902-88AB-4EC9-B0DB-D0164DDAEED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6925D902-88AB-4EC9-B0DB-D0164DDAEED2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CDC144E-E708-5ED8-5C64-FABF7C1B7818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDC144E-E708-5ED8-5C64-FABF7C1B7818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDC144E-E708-5ED8-5C64-FABF7C1B7818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDC144E-E708-5ED8-5C64-FABF7C1B7818}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

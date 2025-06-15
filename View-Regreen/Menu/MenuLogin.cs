@@ -13,6 +13,7 @@ namespace View_Regreen
         public MenuLogin()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE"); 
         }
 
         private void linkLabel_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

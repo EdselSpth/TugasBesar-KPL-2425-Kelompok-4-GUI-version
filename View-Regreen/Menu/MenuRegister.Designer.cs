@@ -46,7 +46,7 @@
             // picture_1
             // 
             picture_1.Image = Properties.Resources.Login_Image_1;
-            picture_1.Location = new Point(26, 20);
+            picture_1.Location = new Point(22, 12);
             picture_1.Name = "picture_1";
             picture_1.Size = new Size(229, 418);
             picture_1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -59,7 +59,6 @@
             textBox_Username.Name = "textBox_Username";
             textBox_Username.Size = new Size(485, 27);
             textBox_Username.TabIndex = 10;
-            textBox_Username.Text = "Masukkan username anda";
             // 
             // label_Text3
             // 
@@ -157,7 +156,6 @@
             textBox_Password.Name = "textBox_Password";
             textBox_Password.Size = new Size(485, 27);
             textBox_Password.TabIndex = 12;
-            textBox_Password.Text = "Masukkan Password Anda";
             // 
             // MenuRegister
             // 
