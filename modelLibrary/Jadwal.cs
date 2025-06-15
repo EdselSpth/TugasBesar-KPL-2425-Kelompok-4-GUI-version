@@ -20,10 +20,14 @@
         public static Jadwal BuatJadwal(DateOnly tanggal, List<String> jenisSampah, string areaDiambil, string namaKurir)
         {
             if (string.IsNullOrWhiteSpace(namaKurir))
+            {
                 throw new ArgumentException("Nama kurir tidak boleh kosong.");
+            }
 
             if (jenisSampah == null || !jenisSampah.Any())
+            {
                 throw new ArgumentException("Jenis sampah harus diisi.");
+            }
 
             areaDiambil ??= "Default Area";
 
