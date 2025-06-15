@@ -41,7 +41,7 @@
             dataGridView1 = new DataGridView();
             button_TambahJadwal = new Button();
             button_EditJadwal = new Button();
-            button3 = new Button();
+            button_hapusJadwal = new Button();
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -182,7 +182,7 @@
             // button_TambahJadwal
             // 
             button_TambahJadwal.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button_TambahJadwal.Location = new Point(268, 529);
+            button_TambahJadwal.Location = new Point(266, 529);
             button_TambahJadwal.Name = "button_TambahJadwal";
             button_TambahJadwal.Size = new Size(290, 64);
             button_TambahJadwal.TabIndex = 8;
@@ -199,22 +199,22 @@
             button_EditJadwal.Text = "Edit Jadwal";
             button_EditJadwal.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button_hapusJadwal
             // 
-            button3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(940, 529);
-            button3.Name = "button3";
-            button3.Size = new Size(290, 64);
-            button3.TabIndex = 10;
-            button3.Text = "Hapus Jadwal";
-            button3.UseVisualStyleBackColor = true;
+            button_hapusJadwal.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_hapusJadwal.Location = new Point(940, 529);
+            button_hapusJadwal.Name = "button_hapusJadwal";
+            button_hapusJadwal.Size = new Size(290, 64);
+            button_hapusJadwal.TabIndex = 10;
+            button_hapusJadwal.Text = "Hapus Jadwal";
+            button_hapusJadwal.UseVisualStyleBackColor = true;
             // 
             // MenuPenjadwalan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 681);
-            Controls.Add(button3);
+            Controls.Add(button_hapusJadwal);
             Controls.Add(button_EditJadwal);
             Controls.Add(button_TambahJadwal);
             Controls.Add(panelTableContainer);
@@ -253,6 +253,6 @@
         private DataGridView dataGridView1;
         private Button button_TambahJadwal;
         private Button button_EditJadwal;
-        private Button button3;
+        private Button button_hapusJadwal;
     }
 }
