@@ -63,9 +63,79 @@ namespace View_Regreen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Area_Menu_OFF {
+            get {
+                object obj = ResourceManager.GetObject("Area Menu OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beranda_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Beranda Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keluar {
+            get {
+                object obj = ResourceManager.GetObject("Keluar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_Image_1 {
             get {
                 object obj = ResourceManager.GetObject("Login Image 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_Regreen {
+            get {
+                object obj = ResourceManager.GetObject("Logo Regreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Penarikan_Menu_OFF {
+            get {
+                object obj = ResourceManager.GetObject("Penarikan Menu OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Penjadwalan_Menu_OFF {
+            get {
+                object obj = ResourceManager.GetObject("Penjadwalan Menu OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Penjadwalan_Menu_OFF1 {
+            get {
+                object obj = ResourceManager.GetObject("Penjadwalan Menu OFF1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

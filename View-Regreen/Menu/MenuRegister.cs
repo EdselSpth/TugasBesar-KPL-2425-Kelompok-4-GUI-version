@@ -15,6 +15,7 @@ namespace View_Regreen.Menu
         public MenuRegister()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
         }
 
         private void button_BuatAkun_Click(object sender, EventArgs e)
