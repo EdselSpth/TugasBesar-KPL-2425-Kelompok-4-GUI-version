@@ -55,7 +55,7 @@ namespace View_Regreen.Admin
             }
         }
 
-        private void MenuPenjadwalan_Load(object sender, EventArgs e)
+        private async void MenuPenjadwalan_Load(object sender, EventArgs e)
         {
             await LoadAllJadwalAsync();
         }
