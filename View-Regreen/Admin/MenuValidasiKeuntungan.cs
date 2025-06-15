@@ -15,6 +15,8 @@ namespace View_Regreen.Admin
         public MenuValidasiKeuntungan()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
+            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
         }
     }
 }
