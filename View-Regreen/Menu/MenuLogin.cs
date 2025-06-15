@@ -1,39 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing;
+using LoginAPI.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Net.Http;
+using System.Text.Json;
+using System.Text;
+using LoginAPI;
 
-
-namespace Views_Regreem
+namespace View_Regreen
 {
-    public partial class Regreen: Form
+    public partial class MenuLogin : Form
     {
-        public Regreen()
+        private readonly HttpClient _httpClient = new HttpClient();
+        public MenuLogin()
         {
             InitializeComponent();
-            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
         }
 
-        private void button_ToRegister_Click(object sender, EventArgs e)
+        private void linkLabel_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
         }
 
-        private async void button_Login_Click(object sender, EventArgs e)
+        private async void button_Masuk_Click(object sender, EventArgs e)
         {
-            var username = inputBox_Email.Text.Trim();
-            var password = InputBox_Password.Text;
+            var username = textBox_Username.Text.Trim();
+            var password = textBox_Password.Text;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Email dan Password tidak boleh kosong.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Username and Password cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -58,7 +52,6 @@ namespace Views_Regreem
                     int roleNumber = json.RootElement.GetProperty("role").GetInt32();
 
                     Role roleEnum = (Role)roleNumber;
-                    Console.WriteLine($"Role Enum: {roleEnum}"); // Debugging line to check role enum value
 
                     string role = roleEnum.ToString().ToLower();
 
@@ -67,10 +60,10 @@ namespace Views_Regreem
                     {
                         case "admin":
                             // Navigate to Admin form
-                            var adminForm = new adminAPP.Form1();
-                            adminForm.Show();
-                            this.Hide();
-                            break;
+                            //var adminForm = new adminAPP.Form1();
+                            //adminForm.Show();
+                            //this.Hide();
+                            //break;
                         case "kurir":
                             // Navigate to Kurir form
                             // KurirForm kurirForm = new KurirForm();
