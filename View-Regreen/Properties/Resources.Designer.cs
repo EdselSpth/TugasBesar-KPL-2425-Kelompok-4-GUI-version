@@ -173,9 +173,89 @@ namespace View_Regreen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Penjadwalan_Menu_OFF2 {
+            get {
+                object obj = ResourceManager.GetObject("Penjadwalan Menu OFF2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Tarik_Untung_Menu {
             get {
                 object obj = ResourceManager.GetObject("Tarik Untung Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Daftar_Ambil_Sampah {
+            get {
+                object obj = ResourceManager.GetObject("User Daftar Ambil Sampah", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Daftar_Ambil_Sampah_OFF {
+            get {
+                object obj = ResourceManager.GetObject("User Daftar Ambil Sampah OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Daftar_Area {
+            get {
+                object obj = ResourceManager.GetObject("User Daftar Area", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Daftar_Area_OFF {
+            get {
+                object obj = ResourceManager.GetObject("User Daftar Area OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Narik_Keuntungan {
+            get {
+                object obj = ResourceManager.GetObject("User Narik Keuntungan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Narik_Keuntungan_OFF {
+            get {
+                object obj = ResourceManager.GetObject("User Narik Keuntungan OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_Narik_Keuntungan_OFF1 {
+            get {
+                object obj = ResourceManager.GetObject("User Narik Keuntungan OFF1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
