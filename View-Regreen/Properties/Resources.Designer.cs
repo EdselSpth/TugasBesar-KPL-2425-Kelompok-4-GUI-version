@@ -63,6 +63,16 @@ namespace View_Regreen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Area_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Area Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Area_Menu_OFF {
             get {
                 object obj = ResourceManager.GetObject("Area Menu OFF", resourceCulture);
@@ -76,6 +86,16 @@ namespace View_Regreen.Properties {
         internal static System.Drawing.Bitmap Beranda_Menu {
             get {
                 object obj = ResourceManager.GetObject("Beranda Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Beranda_Menu_OFF {
+            get {
+                object obj = ResourceManager.GetObject("Beranda Menu OFF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +143,16 @@ namespace View_Regreen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Penjadwalan_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Penjadwalan Menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Penjadwalan_Menu_OFF {
             get {
                 object obj = ResourceManager.GetObject("Penjadwalan Menu OFF", resourceCulture);
@@ -136,6 +166,16 @@ namespace View_Regreen.Properties {
         internal static System.Drawing.Bitmap Penjadwalan_Menu_OFF1 {
             get {
                 object obj = ResourceManager.GetObject("Penjadwalan Menu OFF1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tarik_Untung_Menu {
+            get {
+                object obj = ResourceManager.GetObject("Tarik Untung Menu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
