@@ -58,6 +58,7 @@ namespace Views_Regreem
                     int roleNumber = json.RootElement.GetProperty("role").GetInt32();
 
                     Role roleEnum = (Role)roleNumber;
+                    Console.WriteLine($"Role Enum: {roleEnum}"); // Debugging line to check role enum value
 
                     string role = roleEnum.ToString().ToLower();
 
