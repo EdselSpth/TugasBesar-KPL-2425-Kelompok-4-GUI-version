@@ -122,5 +122,10 @@ namespace View_Regreen.Menu
         {
 
         }
+
+        private void label_Text5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
