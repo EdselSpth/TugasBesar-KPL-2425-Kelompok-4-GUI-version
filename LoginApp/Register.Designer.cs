@@ -148,7 +148,6 @@
             Login.TabIndex = 10;
             Login.Text = "Login sekarang";
             Login.UseVisualStyleBackColor = true;
-
             // 
             // Submit
             // 
@@ -158,7 +157,7 @@
             Submit.TabIndex = 11;
             Submit.Text = "Submit";
             Submit.UseVisualStyleBackColor = true;
-            
+            Submit.Click += Submit_Click_1;
             // 
             // Register
             // 
