@@ -46,26 +46,29 @@
             // picture_1
             // 
             picture_1.Image = Properties.Resources.Login_Image_1;
-            picture_1.Location = new Point(22, 12);
+            picture_1.Location = new Point(19, 9);
+            picture_1.Margin = new Padding(3, 2, 3, 2);
             picture_1.Name = "picture_1";
-            picture_1.Size = new Size(229, 418);
+            picture_1.Size = new Size(200, 314);
             picture_1.SizeMode = PictureBoxSizeMode.Zoom;
             picture_1.TabIndex = 1;
             picture_1.TabStop = false;
             // 
             // textBox_Username
             // 
-            textBox_Username.Location = new Point(281, 160);
+            textBox_Username.Location = new Point(246, 120);
+            textBox_Username.Margin = new Padding(3, 2, 3, 2);
             textBox_Username.Name = "textBox_Username";
-            textBox_Username.Size = new Size(485, 27);
+            textBox_Username.Size = new Size(425, 23);
             textBox_Username.TabIndex = 10;
+            textBox_Username.TextChanged += textBox_Username_TextChanged;
             // 
             // label_Text3
             // 
             label_Text3.AutoSize = true;
-            label_Text3.Location = new Point(278, 133);
+            label_Text3.Location = new Point(243, 100);
             label_Text3.Name = "label_Text3";
-            label_Text3.Size = new Size(75, 20);
+            label_Text3.Size = new Size(60, 15);
             label_Text3.TabIndex = 9;
             label_Text3.Text = "Username";
             // 
@@ -73,9 +76,9 @@
             // 
             label_Text2.AutoSize = true;
             label_Text2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text2.Location = new Point(280, 69);
+            label_Text2.Location = new Point(245, 52);
             label_Text2.Name = "label_Text2";
-            label_Text2.Size = new Size(355, 23);
+            label_Text2.Size = new Size(287, 19);
             label_Text2.TabIndex = 8;
             label_Text2.Text = "Buat akun ReGreen untuk mengakses aplikasi";
             // 
@@ -83,47 +86,49 @@
             // 
             label_Text1.AutoSize = true;
             label_Text1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Text1.Location = new Point(278, 29);
+            label_Text1.Location = new Point(243, 22);
             label_Text1.Name = "label_Text1";
-            label_Text1.Size = new Size(111, 28);
+            label_Text1.Size = new Size(89, 21);
             label_Text1.TabIndex = 7;
             label_Text1.Text = "Buat Akun";
             // 
             // label_Text4
             // 
             label_Text4.AutoSize = true;
-            label_Text4.Location = new Point(278, 201);
+            label_Text4.Location = new Point(243, 151);
             label_Text4.Name = "label_Text4";
-            label_Text4.Size = new Size(70, 20);
+            label_Text4.Size = new Size(57, 15);
             label_Text4.TabIndex = 11;
             label_Text4.Text = "Password";
             // 
             // label_Text5
             // 
             label_Text5.AutoSize = true;
-            label_Text5.Location = new Point(281, 264);
+            label_Text5.Location = new Point(246, 198);
             label_Text5.Name = "label_Text5";
-            label_Text5.Size = new Size(39, 20);
+            label_Text5.Size = new Size(30, 15);
             label_Text5.TabIndex = 13;
             label_Text5.Text = "Role";
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Admin", "Pengguna", "Kurir" });
-            comboBox1.Location = new Point(283, 287);
+            comboBox1.Location = new Point(248, 215);
+            comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(181, 28);
+            comboBox1.Size = new Size(159, 23);
             comboBox1.TabIndex = 14;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // button_BuatAkun
             // 
             button_BuatAkun.BackColor = Color.SeaGreen;
             button_BuatAkun.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button_BuatAkun.ForeColor = Color.Transparent;
-            button_BuatAkun.Location = new Point(281, 332);
+            button_BuatAkun.Location = new Point(246, 249);
+            button_BuatAkun.Margin = new Padding(3, 2, 3, 2);
             button_BuatAkun.Name = "button_BuatAkun";
-            button_BuatAkun.Size = new Size(113, 39);
+            button_BuatAkun.Size = new Size(99, 29);
             button_BuatAkun.TabIndex = 15;
             button_BuatAkun.Text = "Buat Akun";
             button_BuatAkun.UseVisualStyleBackColor = false;
@@ -133,9 +138,9 @@
             // 
             linkLabel_Login.AutoSize = true;
             linkLabel_Login.LinkColor = Color.Green;
-            linkLabel_Login.Location = new Point(442, 385);
+            linkLabel_Login.Location = new Point(387, 289);
             linkLabel_Login.Name = "linkLabel_Login";
-            linkLabel_Login.Size = new Size(46, 20);
+            linkLabel_Login.Size = new Size(37, 15);
             linkLabel_Login.TabIndex = 17;
             linkLabel_Login.TabStop = true;
             linkLabel_Login.Text = "Login";
@@ -144,24 +149,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(284, 385);
+            label1.Location = new Point(248, 289);
             label1.Name = "label1";
-            label1.Size = new Size(151, 20);
+            label1.Size = new Size(122, 15);
             label1.TabIndex = 16;
             label1.Text = "Sudah Punya Akun???";
             // 
             // textBox_Password
             // 
-            textBox_Password.Location = new Point(281, 224);
+            textBox_Password.Location = new Point(246, 168);
+            textBox_Password.Margin = new Padding(3, 2, 3, 2);
             textBox_Password.Name = "textBox_Password";
-            textBox_Password.Size = new Size(485, 27);
+            textBox_Password.Size = new Size(425, 23);
             textBox_Password.TabIndex = 12;
+            textBox_Password.TextChanged += textBox_Password_TextChanged;
             // 
             // MenuRegister
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(linkLabel_Login);
             Controls.Add(label1);
             Controls.Add(button_BuatAkun);
@@ -174,6 +181,7 @@
             Controls.Add(label_Text2);
             Controls.Add(label_Text1);
             Controls.Add(picture_1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuRegister";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)picture_1).EndInit();

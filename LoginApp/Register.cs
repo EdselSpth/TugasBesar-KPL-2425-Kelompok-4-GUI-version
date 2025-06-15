@@ -131,5 +131,10 @@ namespace LoginApp
                 MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Submit_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,7 +22,9 @@ namespace View_Regreen
 
         private void linkLabel_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // TODO: Buka form pendaftaran jika ada
+            var regForm = new MenuRegister();
+            regForm.Show();
+            this.Hide();
         }
 
         private async void button_Masuk_Click(object sender, EventArgs e)
