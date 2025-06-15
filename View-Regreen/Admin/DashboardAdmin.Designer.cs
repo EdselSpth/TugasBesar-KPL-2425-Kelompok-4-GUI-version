@@ -15,6 +15,7 @@
 
         #region Windows Form Designer generated code
 
+        private Panel panelTableContainer;
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -25,6 +26,7 @@
             pictureBox6 = new PictureBox();
             Beranda = new PictureBox();
             pictureBox1 = new PictureBox();
+            panelTableContainer = new Panel(); // panel pembungkus tabel
             dataGridView1 = new DataGridView();
             label1 = new Label();
             bindingSource1 = new BindingSource(components);
@@ -41,9 +43,8 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
-            // 
-            // panel_1
-            // 
+
+            // panel_1 (menu kiri)
             panel_1.BackColor = SystemColors.ButtonHighlight;
             panel_1.Controls.Add(pictureBox4);
             panel_1.Controls.Add(pictureBox3);
@@ -52,144 +53,103 @@
             panel_1.Controls.Add(Beranda);
             panel_1.Controls.Add(pictureBox1);
             panel_1.Location = new Point(0, 0);
-            panel_1.Margin = new Padding(3, 2, 3, 2);
             panel_1.Name = "panel_1";
-            panel_1.Size = new Size(228, 685);
+            panel_1.Size = new Size(261, 913);
             panel_1.TabIndex = 0;
-            // 
-            // pictureBox4
-            // 
+
             pictureBox4.Image = Properties.Resources.Penarikan_Menu_OFF;
-            pictureBox4.Location = new Point(16, 291);
-            pictureBox4.Margin = new Padding(3, 2, 3, 2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(199, 53);
+            pictureBox4.Location = new Point(18, 388);
+            pictureBox4.Size = new Size(227, 71);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 8;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
+
             pictureBox3.Image = Properties.Resources.Area_Menu_OFF;
-            pictureBox3.Location = new Point(16, 234);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(199, 53);
+            pictureBox3.Location = new Point(18, 312);
+            pictureBox3.Size = new Size(227, 71);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 7;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
+
             pictureBox2.Image = Properties.Resources.Penjadwalan_Menu_OFF1;
-            pictureBox2.Location = new Point(16, 177);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(199, 53);
+            pictureBox2.Location = new Point(18, 236);
+            pictureBox2.Size = new Size(227, 71);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox6
-            // 
+
             pictureBox6.Image = Properties.Resources.Keluar;
-            pictureBox6.Location = new Point(16, 631);
-            pictureBox6.Margin = new Padding(3, 2, 3, 2);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(85, 39);
+            pictureBox6.Location = new Point(18, 841);
+            pictureBox6.Size = new Size(97, 52);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 0;
-            pictureBox6.TabStop = false;
-            // 
-            // Beranda
-            // 
+
             Beranda.Image = Properties.Resources.Beranda_Menu;
-            Beranda.Location = new Point(16, 120);
-            Beranda.Margin = new Padding(3, 2, 3, 2);
-            Beranda.Name = "Beranda";
-            Beranda.Size = new Size(199, 53);
+            Beranda.Location = new Point(18, 160);
+            Beranda.Size = new Size(227, 71);
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
-            Beranda.TabIndex = 4;
-            Beranda.TabStop = false;
-            // 
-            // pictureBox1
-            // 
+
             pictureBox1.Image = Properties.Resources.Logo_Regreen;
-            pictureBox1.Location = new Point(16, 14);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(204, 72);
+            pictureBox1.Location = new Point(18, 19);
+            pictureBox1.Size = new Size(233, 96);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 5;
-            pictureBox1.TabStop = false;
-            // 
+
+            // panelTableContainer
+            panelTableContainer = new Panel();
+            panelTableContainer.Location = new Point(275, 113);
+            panelTableContainer.Size = new Size(1135, 367);
+            panelTableContainer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panelTableContainer.BackColor = SystemColors.Window;
+
             // dataGridView1
-            // 
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.Window;
+            dataGridView1.BorderStyle = BorderStyle.FixedSingle;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(291, 85);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(871, 275);
-            dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
+
+            panelTableContainer.Controls.Add(dataGridView1);
+
             // label1
-            // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(291, 49);
+            label1.Location = new Point(275, 65);
             label1.Name = "label1";
-            label1.Size = new Size(279, 25);
-            label1.TabIndex = 3;
+            label1.Size = new Size(336, 31);
             label1.Text = "Jadwal Pengambilan Terdaftar";
-            // 
+
             // label2
-            // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
             label2.ForeColor = SystemColors.ActiveCaptionText;
-            label2.Location = new Point(291, 392);
+            label2.Location = new Point(275, 523);
             label2.Name = "label2";
-            label2.Size = new Size(168, 25);
-            label2.TabIndex = 2;
+            label2.Size = new Size(202, 31);
             label2.Text = "Cari Pengambilan";
-            // 
+
             // dateTimePickerFilter
-            // 
-            dateTimePickerFilter.Location = new Point(291, 426);
-            dateTimePickerFilter.Margin = new Padding(3, 2, 3, 2);
+            dateTimePickerFilter.Location = new Point(275, 568);
             dateTimePickerFilter.Name = "dateTimePickerFilter";
-            dateTimePickerFilter.Size = new Size(231, 23);
-            dateTimePickerFilter.TabIndex = 1;
-            // 
+            dateTimePickerFilter.Size = new Size(263, 27);
+
             // btnFilterTanggal
-            // 
-            btnFilterTanggal.Location = new Point(291, 463);
-            btnFilterTanggal.Margin = new Padding(3, 2, 3, 2);
+            btnFilterTanggal.Location = new Point(275, 617);
             btnFilterTanggal.Name = "btnFilterTanggal";
-            btnFilterTanggal.Size = new Size(178, 25);
-            btnFilterTanggal.TabIndex = 0;
+            btnFilterTanggal.Size = new Size(203, 33);
             btnFilterTanggal.Text = "Cari";
             btnFilterTanggal.UseVisualStyleBackColor = true;
             btnFilterTanggal.Click += btnFilterTanggal_Click;
-            // 
-            // DashboardAdmin
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+
+            // DashboardAdmin Form
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1445, 908);
+            Controls.Add(panelTableContainer);
             Controls.Add(btnFilterTanggal);
             Controls.Add(dateTimePickerFilter);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
             Controls.Add(panel_1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "DashboardAdmin";
             Text = "Dashboard Admin";
             Load += DashboardAdmin_Load;
+
             panel_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
