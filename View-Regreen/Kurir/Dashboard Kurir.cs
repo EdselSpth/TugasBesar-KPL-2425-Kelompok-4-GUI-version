@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace View_Regreen.Menu
+namespace View_Regreen.Kurir
 {
-    public partial class DashboardAdmin : Form
+    public partial class Dashboard_Kurir: Form
     {
-        public DashboardAdmin()
+        public Dashboard_Kurir()
         {
             InitializeComponent();
-            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
-            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
         }
     }
 }
