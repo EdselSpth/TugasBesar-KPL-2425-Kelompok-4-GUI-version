@@ -117,41 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Penjadwalan Menu OFF1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Penjadwalan Menu OFF1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Area Menu OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Area Menu OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Penjadwalan Menu OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Penjadwalan Menu OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo Regreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo Regreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Beranda Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Beranda Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Beranda Menu OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Beranda Menu OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Area Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Area Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Keluar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Keluar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Login Image 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Login Image 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Penjadwalan Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Penjadwalan Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Penarikan Menu OFF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Penarikan Menu OFF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Tarik Untung Menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tarik Untung Menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
