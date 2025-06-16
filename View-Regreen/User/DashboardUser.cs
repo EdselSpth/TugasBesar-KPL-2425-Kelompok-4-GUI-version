@@ -4,6 +4,8 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View_Regreen.Admin;
+using View_Regreen.User;
 
 namespace View_Regreen.Menu
 {
@@ -90,6 +92,13 @@ namespace View_Regreen.Menu
 
                 this.Close(); // Sembunyikan form saat ini
             }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            var menuPenarikanKeuntungan = new MenuPenarikanKeuntungan();
+            menuPenarikanKeuntungan.Show();
+            this.Hide(); // Sembunyikan form saat ini
         }
     }
 }
