@@ -12,7 +12,8 @@ namespace modelLibrary
             DateOnly tanggal,
             List<string> jenisSampah,
             string kurir,
-            string areaDiambil)
+            string areaDiambil
+)
         {
             if (kurir == null || string.IsNullOrWhiteSpace(kurir))
                 throw new ArgumentException("Kurir tidak boleh kosong/null.");
