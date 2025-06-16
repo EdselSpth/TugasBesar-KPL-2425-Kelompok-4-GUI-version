@@ -161,6 +161,12 @@ namespace View_Regreen.Admin
         private void MenuValidasiKeuntungan_Load(object sender, EventArgs e)
         {
             // Optional logic saat form pertama kali ditampilkan
+
+        }
+
+        private void MenuValidasiKeuntungan_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
