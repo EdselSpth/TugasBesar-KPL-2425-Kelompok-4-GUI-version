@@ -29,6 +29,8 @@ namespace View_Regreen.Menu
         // Event handler saat form dimuat
         private async void DashboardAdmin_Load(object sender, EventArgs e)
         {
+            // Menampilkan pesan selamat datang dengan username dari session
+            label1.Text = $"Selamat Datang, {Session.Username}";
             // Memuat data jadwal dari API secara asinkron
             await LoadAllJadwalAsync();
         }
@@ -104,6 +106,41 @@ namespace View_Regreen.Menu
         {
             var menuPenjadwalan = new MenuPenjadwalan();
             menuPenjadwalan.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Session.Username = null; // Hapus username dari session
+                Session.Role = null; // Hapus role dari session
+
+                // Kembali ke menu login
+                var menuLogin = new MenuLogin();
+                menuLogin.Show();
+
+                this.Close(); // Sembunyikan form saat ini
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            var menuValidasiArea = new MenuValidasiArea();
+            menuValidasiArea.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            var menuValidasiKeuntungan = new MenuValidasiKeuntungan();
+            menuValidasiKeuntungan.Show();
             this.Hide(); // Sembunyikan form saat ini
         }
     }
