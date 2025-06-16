@@ -12,7 +12,6 @@ using JadwalAPI;
 using JadwalAPI.Model;
 using System.Text.Json;
 using TugasBesar_KPL_2425_Kelompok_4;
-using View_Regreen.Menu;
 
 namespace View_Regreen.Admin
 {
@@ -105,9 +104,7 @@ namespace View_Regreen.Admin
 
         private void Beranda_Click(object sender, EventArgs e)
         {
-            var dashboard = new DashboardAdmin();
-            dashboard.Show();
-            this.Hide();
+            
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
