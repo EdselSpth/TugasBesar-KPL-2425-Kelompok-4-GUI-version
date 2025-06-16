@@ -14,7 +14,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         public int id { get; set; }
         public string area { get; set; }
   
-        public configPendaftaraanArea() : this("daftarArea.json) { }
+        public configPendaftaraanArea() : this("daftarArea.json") { }
 
 
 

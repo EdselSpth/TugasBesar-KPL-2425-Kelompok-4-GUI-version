@@ -36,6 +36,7 @@
             btnHapus = new Button();
             Panel_Header = new Panel();
             label_Text1 = new Label();
+
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -74,7 +75,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+
             // 
             // pictureBox3
             // 
@@ -86,7 +87,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
+
             // 
             // pictureBox2
             // 
@@ -98,7 +99,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+
             // 
             // pictureBox6
             // 
@@ -110,7 +111,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 3;
             pictureBox6.TabStop = false;
-            pictureBox6.Click += pictureBox6_Click;
+
             // 
             // Beranda
             // 
@@ -122,7 +123,7 @@
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
-            Beranda.Click += Beranda_Click;
+
             // 
             // pictureBox1
             // 
@@ -209,15 +210,14 @@
             label_Text1.ForeColor = SystemColors.ButtonHighlight;
             label_Text1.Location = new Point(23, 17);
             label_Text1.Name = "label_Text1";
-            label_Text1.Size = new Size(198, 32);
-            label_Text1.TabIndex = 0;
-            label_Text1.Text = "HAPUS JADWAL";
+
             // 
             // HapusJadwal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 681);
+
             Controls.Add(Panel_Header);
             Controls.Add(panelTableContainer);
             Controls.Add(btnHapus);
@@ -259,5 +259,6 @@
         private PictureBox pictureBox4;
         private Panel Panel_Header;
         private Label label_Text1;
+        private Label label1;
     }
 }

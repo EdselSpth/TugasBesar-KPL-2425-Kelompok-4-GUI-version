@@ -1,39 +1,18 @@
 ﻿namespace modelLibrary
 {
-
-
-    public class Jadwal
+    public class Jadwal<T>
     {
-        public DateOnly Tanggal { get; private set; }
-        public List<String> JenisSampah { get; private set; }
-        public string NamaKurir { get; private set; }
-        public string AreaDiambil { get; private set; }
+        public DateOnly Tanggal { get; set; }
+        public List<T> JenisSampahList { get; set; }
+        public string KurirPengambil { get; set; }
+        public string AreaDiambil { get; set; }
 
-        private Jadwal(DateOnly tanggal, List<String> jenisSampah, string areaDiambil, string namaKurir)
+        public Jadwal(DateOnly tanggalInput, List<T> jenisSampahListInput, string kurirPengambilInput, string areaDiambilInput)
         {
-            Tanggal = tanggal;
-            JenisSampah = jenisSampah;
-            AreaDiambil = areaDiambil;
-            NamaKurir = namaKurir;
-        }
-
-        public static Jadwal BuatJadwal(DateOnly tanggal, List<String> jenisSampah, string areaDiambil, string namaKurir)
-        // Model Factory untuk penerapan design pattern Factory Method
-        {
-            if (string.IsNullOrWhiteSpace(namaKurir))
-            {
-                throw new ArgumentException("Nama kurir tidak boleh kosong.");
-            }
-
-            if (jenisSampah == null || !jenisSampah.Any())
-            {
-                throw new ArgumentException("Jenis sampah harus diisi.");
-            }
-
-            areaDiambil ??= "Default Area";
-
-            return new Jadwal(tanggal, jenisSampah, areaDiambil, namaKurir);
+            Tanggal = tanggalInput;
+            JenisSampahList = jenisSampahListInput;
+            AreaDiambil = areaDiambilInput;
+            KurirPengambil = kurirPengambilInput;
         }
     }
-    
 }

@@ -81,12 +81,17 @@ namespace View_Regreen.Admin
                 var jenisList = new List<JenisSampah> { jenisSampah };
                 var jenisStringList = jenisList.Select(j => j.ToString()).ToList();
 
-                var jadwal = modelLibrary.Jadwal.BuatJadwal(tanggal, jenisStringList, area, namaKurir);
+                var jadwal = JadwalFactory.BuatJadwal(
+                    tanggal,
+                    jenisStringList,
+                    namaKurir,
+                    area
+                );
 
                 TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.CreateAndSendJadwal(
                     jadwal.Tanggal,
                     jenisList,
-                    jadwal.NamaKurir,
+                    jadwal.KurirPengambil,
                     jadwal.AreaDiambil
                 );
 
