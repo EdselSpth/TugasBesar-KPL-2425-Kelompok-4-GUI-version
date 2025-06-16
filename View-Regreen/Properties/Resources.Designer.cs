@@ -83,6 +83,16 @@ namespace View_Regreen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BCA {
+            get {
+                object obj = ResourceManager.GetObject("BCA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Beranda_Menu {
             get {
                 object obj = ResourceManager.GetObject("Beranda Menu", resourceCulture);
@@ -96,6 +106,46 @@ namespace View_Regreen.Properties {
         internal static System.Drawing.Bitmap Beranda_Menu_OFF {
             get {
                 object obj = ResourceManager.GetObject("Beranda Menu OFF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BNI {
+            get {
+                object obj = ResourceManager.GetObject("BNI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BRI {
+            get {
+                object obj = ResourceManager.GetObject("BRI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DANA {
+            get {
+                object obj = ResourceManager.GetObject("DANA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GOPAY {
+            get {
+                object obj = ResourceManager.GetObject("GOPAY", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +176,26 @@ namespace View_Regreen.Properties {
         internal static System.Drawing.Bitmap Logo_Regreen {
             get {
                 object obj = ResourceManager.GetObject("Logo Regreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MANDIRI {
+            get {
+                object obj = ResourceManager.GetObject("MANDIRI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MONEY {
+            get {
+                object obj = ResourceManager.GetObject("MONEY", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +246,16 @@ namespace View_Regreen.Properties {
         internal static System.Drawing.Bitmap Penjadwalan_Menu_OFF2 {
             get {
                 object obj = ResourceManager.GetObject("Penjadwalan Menu OFF2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SHOPEPAY {
+            get {
+                object obj = ResourceManager.GetObject("SHOPEPAY", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
