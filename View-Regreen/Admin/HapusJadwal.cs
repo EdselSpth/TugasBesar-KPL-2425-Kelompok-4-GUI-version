@@ -174,5 +174,33 @@ namespace View_Regreen.Menu
                 this.Close(); // Sembunyikan form saat ini
             }
         }
+
+        private void Beranda_Click_1(object sender, EventArgs e)
+        {
+            var dashboardAdminForm = new DashboardAdmin();
+            dashboardAdminForm.Show();
+            this.Hide();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            var validasiArea = new MenuValidasiArea();
+            validasiArea.Show();
+            this.Hide();
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+            var validasiKeuntungan = new MenuValidasiKeuntungan();
+            validasiKeuntungan.Show();
+            this.Hide();
+        }
+
+        private void pictureBox2_Click_1(object sender, EventArgs e)
+        {
+            var penjadwalan = new MenuPenjadwalan();
+            penjadwalan.Show();
+            this.Hide();
+        }
     }
 }

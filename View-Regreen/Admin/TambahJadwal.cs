@@ -104,7 +104,7 @@ namespace View_Regreen.Admin
 
         private void Beranda_Click(object sender, EventArgs e)
         {
-            
+            // Masih Error
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
