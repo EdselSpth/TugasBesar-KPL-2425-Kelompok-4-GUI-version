@@ -23,7 +23,7 @@ namespace modelLibrary
 
             areaDiambil ??= "Default Area";
 
-            return new Jadwal<string>(tanggal, jenisSampah, areaDiambil, kurir);
+            return new Jadwal<string>(tanggal, jenisSampah, kurir, areaDiambil);
         }
     }
 }
