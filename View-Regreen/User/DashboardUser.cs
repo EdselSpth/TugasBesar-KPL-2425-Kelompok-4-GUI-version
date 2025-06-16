@@ -100,5 +100,19 @@ namespace View_Regreen.Menu
             menuPenarikanKeuntungan.Show();
             this.Hide(); // Sembunyikan form saat ini
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var daftarAmbil = new MenuDaftarPengambilan();
+            daftarAmbil.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            var daftarArea = new MenuDaftarArea();
+            daftarArea.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
     }
 }

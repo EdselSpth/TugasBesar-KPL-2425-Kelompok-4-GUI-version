@@ -156,5 +156,19 @@ namespace View_Regreen.User
                 this.Close(); // Sembunyikan form saat ini
             }
         }
+
+        private void Beranda_Click_1(object sender, EventArgs e)
+        {
+            var dashboardUser = new DashboardUser();
+            dashboardUser.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            var menuPenarikanKeuntungan = new MenuPenarikanKeuntungan();
+            menuPenarikanKeuntungan.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
     }
 }
