@@ -22,6 +22,7 @@ namespace View_Regreen.User
         {
             LoadArea();
             UpdateJenisSampahValid();
+
         }
 
         private void LoadArea()

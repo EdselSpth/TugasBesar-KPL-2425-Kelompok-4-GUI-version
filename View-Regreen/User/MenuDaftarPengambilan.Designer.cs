@@ -48,6 +48,7 @@
             btnDaftar = new Button();
             label5 = new Label();
             txtNamaPengguna = new TextBox();
+            panel1 = new Panel();
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -55,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Beranda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel_1
@@ -138,37 +140,39 @@
             // label_Text1
             // 
             label_Text1.AutoSize = true;
-            label_Text1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Text1.Location = new Point(487, 61);
+            label_Text1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Text1.ForeColor = SystemColors.ButtonHighlight;
+            label_Text1.Location = new Point(33, 28);
             label_Text1.Name = "label_Text1";
             label_Text1.RightToLeft = RightToLeft.Yes;
-            label_Text1.Size = new Size(681, 54);
+            label_Text1.Size = new Size(599, 41);
             label_Text1.TabIndex = 4;
-            label_Text1.Text = "Pendaftaran Penjemputan Sampah";
+            label_Text1.Text = "PENDAFTARAN PENGAMBILAN SAMPAH";
             // 
             // label_Text2
             // 
             label_Text2.AutoSize = true;
-            label_Text2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text2.Location = new Point(312, 135);
+            label_Text2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Text2.Location = new Point(292, 121);
             label_Text2.Name = "label_Text2";
-            label_Text2.Size = new Size(301, 31);
+            label_Text2.Size = new Size(315, 31);
             label_Text2.TabIndex = 6;
             label_Text2.Text = "Masukan Data Penjemputan";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(495, 244);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(363, 232);
             label1.Name = "label1";
-            label1.Size = new Size(86, 20);
+            label1.Size = new Size(111, 28);
             label1.TabIndex = 7;
             label1.Text = "Daftar Area";
             // 
             // comboBoxArea
             // 
             comboBoxArea.FormattingEnabled = true;
-            comboBoxArea.Location = new Point(754, 236);
+            comboBoxArea.Location = new Point(569, 236);
             comboBoxArea.Name = "comboBoxArea";
             comboBoxArea.Size = new Size(250, 28);
             comboBoxArea.TabIndex = 8;
@@ -176,15 +180,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(495, 299);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(363, 292);
             label2.Name = "label2";
-            label2.Size = new Size(61, 20);
+            label2.Size = new Size(80, 28);
             label2.TabIndex = 9;
             label2.Text = "Tanggal";
             // 
             // dateTimePickerTanggal
             // 
-            dateTimePickerTanggal.Location = new Point(754, 292);
+            dateTimePickerTanggal.Location = new Point(569, 294);
             dateTimePickerTanggal.Name = "dateTimePickerTanggal";
             dateTimePickerTanggal.Size = new Size(250, 27);
             dateTimePickerTanggal.TabIndex = 10;
@@ -193,7 +198,7 @@
             // listBoxJenisSampah
             // 
             listBoxJenisSampah.FormattingEnabled = true;
-            listBoxJenisSampah.Location = new Point(754, 353);
+            listBoxJenisSampah.Location = new Point(569, 355);
             listBoxJenisSampah.Name = "listBoxJenisSampah";
             listBoxJenisSampah.Size = new Size(150, 104);
             listBoxJenisSampah.TabIndex = 11;
@@ -201,24 +206,26 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(495, 353);
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(363, 353);
             label3.Name = "label3";
-            label3.Size = new Size(98, 20);
+            label3.Size = new Size(129, 28);
             label3.TabIndex = 12;
             label3.Text = "Jenis Sampah";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(495, 490);
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(358, 490);
             label4.Name = "label4";
-            label4.Size = new Size(85, 20);
+            label4.Size = new Size(112, 28);
             label4.TabIndex = 13;
             label4.Text = "Keterangan";
             // 
             // txtKeterangan
             // 
-            txtKeterangan.Location = new Point(754, 487);
+            txtKeterangan.Location = new Point(569, 491);
             txtKeterangan.Name = "txtKeterangan";
             txtKeterangan.Size = new Size(250, 27);
             txtKeterangan.TabIndex = 14;
@@ -228,9 +235,9 @@
             btnDaftar.BackColor = Color.SeaGreen;
             btnDaftar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDaftar.ForeColor = Color.Transparent;
-            btnDaftar.Location = new Point(631, 591);
+            btnDaftar.Location = new Point(569, 580);
             btnDaftar.Name = "btnDaftar";
-            btnDaftar.Size = new Size(188, 43);
+            btnDaftar.Size = new Size(250, 43);
             btnDaftar.TabIndex = 16;
             btnDaftar.Text = "SUBMIT";
             btnDaftar.UseVisualStyleBackColor = false;
@@ -239,18 +246,28 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(495, 194);
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(363, 187);
             label5.Name = "label5";
-            label5.Size = new Size(118, 20);
+            label5.Size = new Size(156, 28);
             label5.TabIndex = 17;
             label5.Text = "Nama Pengguna";
             // 
             // txtNamaPengguna
             // 
-            txtNamaPengguna.Location = new Point(754, 187);
+            txtNamaPengguna.Location = new Point(569, 191);
             txtNamaPengguna.Name = "txtNamaPengguna";
             txtNamaPengguna.Size = new Size(250, 27);
             txtNamaPengguna.TabIndex = 18;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SeaGreen;
+            panel1.Controls.Add(label_Text1);
+            panel1.Location = new Point(257, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1189, 96);
+            panel1.TabIndex = 19;
             // 
             // MenuDaftarPengambilan
             // 
@@ -269,8 +286,8 @@
             Controls.Add(comboBoxArea);
             Controls.Add(label1);
             Controls.Add(label_Text2);
-            Controls.Add(label_Text1);
             Controls.Add(panel_1);
+            Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "MenuDaftarPengambilan";
             Text = "MenuDaftarPengambilan";
@@ -282,6 +299,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)Beranda).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -308,5 +327,6 @@
         private Button btnDaftar;
         private Label label5;
         private TextBox txtNamaPengguna;
+        private Panel panel1;
     }
 }
