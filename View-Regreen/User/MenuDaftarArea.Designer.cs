@@ -62,18 +62,16 @@
             panel_1.Controls.Add(Beranda);
             panel_1.Controls.Add(pictureBox1);
             panel_1.Location = new Point(0, 0);
-            panel_1.Margin = new Padding(3, 2, 3, 2);
             panel_1.Name = "panel_1";
-            panel_1.Size = new Size(228, 685);
+            panel_1.Size = new Size(261, 913);
             panel_1.TabIndex = 2;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.User_Daftar_Area_OFF;
-            pictureBox4.Location = new Point(16, 291);
-            pictureBox4.Margin = new Padding(3, 2, 3, 2);
+            pictureBox4.Location = new Point(18, 388);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(199, 53);
+            pictureBox4.Size = new Size(227, 71);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
@@ -82,10 +80,9 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.User_Narik_Keuntungan;
-            pictureBox3.Location = new Point(16, 234);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Location = new Point(18, 312);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(199, 53);
+            pictureBox3.Size = new Size(227, 71);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
@@ -94,10 +91,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.User_Daftar_Ambil_Sampah;
-            pictureBox2.Location = new Point(16, 177);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Location = new Point(18, 236);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(199, 53);
+            pictureBox2.Size = new Size(227, 71);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
@@ -106,21 +102,20 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.Keluar;
-            pictureBox6.Location = new Point(16, 631);
-            pictureBox6.Margin = new Padding(3, 2, 3, 2);
+            pictureBox6.Location = new Point(18, 841);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(85, 39);
+            pictureBox6.Size = new Size(97, 52);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click_1;
             // 
             // Beranda
             // 
             Beranda.Image = Properties.Resources.Beranda_Menu_OFF;
-            Beranda.Location = new Point(16, 120);
-            Beranda.Margin = new Padding(3, 2, 3, 2);
+            Beranda.Location = new Point(18, 160);
             Beranda.Name = "Beranda";
-            Beranda.Size = new Size(199, 53);
+            Beranda.Size = new Size(227, 71);
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
@@ -129,10 +124,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_Regreen;
-            pictureBox1.Location = new Point(16, 14);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(18, 19);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(204, 72);
+            pictureBox1.Size = new Size(233, 96);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -141,48 +135,46 @@
             // 
             label_Text1.AutoSize = true;
             label_Text1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Text1.Location = new Point(447, 28);
+            label_Text1.Location = new Point(511, 37);
             label_Text1.Name = "label_Text1";
             label_Text1.RightToLeft = RightToLeft.Yes;
-            label_Text1.Size = new Size(488, 45);
+            label_Text1.Size = new Size(617, 54);
             label_Text1.TabIndex = 3;
             label_Text1.Text = "Pendaftaran Area Penjemputan";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(884, 168);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
+            dataGridView1.Location = new Point(1010, 224);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(264, 100);
+            dataGridView1.Size = new Size(302, 133);
             dataGridView1.TabIndex = 4;
             // 
             // label_Text2
             // 
             label_Text2.AutoSize = true;
             label_Text2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text2.Location = new Point(283, 143);
+            label_Text2.Location = new Point(323, 191);
             label_Text2.Name = "label_Text2";
-            label_Text2.Size = new Size(469, 32);
+            label_Text2.Size = new Size(578, 41);
             label_Text2.TabIndex = 5;
             label_Text2.Text = "Masukan Nama Area Yang Belum Terdaftar";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(290, 236);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Location = new Point(331, 315);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(261, 23);
+            textBox1.Size = new Size(298, 27);
             textBox1.TabIndex = 6;
             // 
             // label_Text3
             // 
             label_Text3.AutoSize = true;
             label_Text3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Text3.Location = new Point(290, 208);
+            label_Text3.Location = new Point(331, 277);
             label_Text3.Name = "label_Text3";
-            label_Text3.Size = new Size(68, 15);
+            label_Text3.Size = new Size(88, 20);
             label_Text3.TabIndex = 7;
             label_Text3.Text = "Nama Area";
             // 
@@ -191,10 +183,9 @@
             button_Daftarkan.BackColor = Color.SeaGreen;
             button_Daftarkan.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button_Daftarkan.ForeColor = Color.Transparent;
-            button_Daftarkan.Location = new Point(431, 284);
-            button_Daftarkan.Margin = new Padding(3, 2, 3, 2);
+            button_Daftarkan.Location = new Point(493, 379);
             button_Daftarkan.Name = "button_Daftarkan";
-            button_Daftarkan.Size = new Size(185, 35);
+            button_Daftarkan.Size = new Size(211, 47);
             button_Daftarkan.TabIndex = 8;
             button_Daftarkan.Text = "Daftarkan";
             button_Daftarkan.UseVisualStyleBackColor = false;
@@ -204,17 +195,17 @@
             // 
             label_Text4.AutoSize = true;
             label_Text4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text4.Location = new Point(893, 128);
+            label_Text4.Location = new Point(1021, 171);
             label_Text4.Name = "label_Text4";
-            label_Text4.Size = new Size(233, 32);
+            label_Text4.Size = new Size(291, 41);
             label_Text4.TabIndex = 9;
             label_Text4.Text = "Jadwal Yang tersedia";
             // 
             // MenuDaftarArea
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1445, 908);
             Controls.Add(label_Text4);
             Controls.Add(button_Daftarkan);
             Controls.Add(label_Text3);
@@ -223,7 +214,6 @@
             Controls.Add(dataGridView1);
             Controls.Add(label_Text1);
             Controls.Add(panel_1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuDaftarArea";
             Text = "MenuDaftarArea";
             panel_1.ResumeLayout(false);

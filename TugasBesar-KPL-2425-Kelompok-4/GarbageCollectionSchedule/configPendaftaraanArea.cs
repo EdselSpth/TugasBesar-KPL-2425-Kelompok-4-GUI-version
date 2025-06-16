@@ -10,11 +10,12 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
     public class configPendaftaraanArea
     {
-        private string configPath = "daftarArea.json";
+        private string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarArea.json");
+;
         public int id { get; set; }
         public string area { get; set; }
   
-        public configPendaftaraanArea() : this("daftarArea.json") { }
+        public configPendaftaraanArea() : this(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarArea.json")) { }
 
 
 
