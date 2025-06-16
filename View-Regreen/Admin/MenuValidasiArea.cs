@@ -18,6 +18,7 @@ namespace View_Regreen.Admin
             InitializeComponent();
             this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
             panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
+
         }
 
         private void MenuValidasiArea_Load(object sender, EventArgs e)
