@@ -21,6 +21,7 @@ namespace View_Regreen.Menu
 
         private async void DashboardUser_Load(object sender, EventArgs e)
         {
+            label1.Text = $"Selamat Datang, {Session.Username}";
             await LoadAllJadwalAsync();
         }
 
@@ -73,6 +74,22 @@ namespace View_Regreen.Menu
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _allJadwals;
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Session.Username = null; // Hapus username dari session
+                Session.Role = null; // Hapus role dari session
+
+                // Kembali ke menu login
+                var menuLogin = new MenuLogin();
+                menuLogin.Show();
+
+                this.Close(); // Sembunyikan form saat ini
+            }
         }
     }
 }
