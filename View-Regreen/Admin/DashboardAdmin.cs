@@ -143,6 +143,13 @@ namespace View_Regreen.Menu
             menuValidasiKeuntungan.Show();
             this.Hide(); // Sembunyikan form saat ini
         }
+
+        private void Beranda_Click(object sender, EventArgs e)
+        {
+            var dashboard = new DashboardAdmin();
+            dashboard.Show();
+            this.Hide(); // Sembunyikan form saat ini
+        }
     }
 
     // Model data untuk merepresentasikan struktur jadwal
