@@ -77,6 +77,9 @@ namespace View_Regreen
 
                     MessageBox.Show($"Login berhasil sebagai {usernameLogin} (Role: {role})", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    Session.Username = usernameLogin;
+                    Session.Role = role;
+
                     switch (role)
                     {
                         case "admin":
