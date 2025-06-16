@@ -85,6 +85,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox2
             // 
@@ -96,6 +97,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox6
             // 
@@ -107,6 +109,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click;
             // 
             // Beranda
             // 
@@ -118,6 +121,7 @@
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
+            Beranda.Click += Beranda_Click;
             // 
             // pictureBox1
             // 

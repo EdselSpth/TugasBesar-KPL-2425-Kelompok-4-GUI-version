@@ -36,7 +36,7 @@
             btnHapus = new Button();
             Panel_Header = new Panel();
             label_Text1 = new Label();
-            label1 = new Label();
+
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -75,6 +75,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
+
             // 
             // pictureBox3
             // 
@@ -86,6 +87,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 1;
             pictureBox3.TabStop = false;
+
             // 
             // pictureBox2
             // 
@@ -97,6 +99,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
+
             // 
             // pictureBox6
             // 
@@ -108,6 +111,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 3;
             pictureBox6.TabStop = false;
+
             // 
             // Beranda
             // 
@@ -119,6 +123,7 @@
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
+
             // 
             // pictureBox1
             // 
@@ -205,26 +210,14 @@
             label_Text1.ForeColor = SystemColors.ButtonHighlight;
             label_Text1.Location = new Point(23, 17);
             label_Text1.Name = "label_Text1";
-            label_Text1.Size = new Size(487, 32);
-            label_Text1.TabIndex = 0;
-            label_Text1.Text = "PENJADWALAN PENGAMBILAN SAMPAH";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(268, 90);
-            label1.Name = "label1";
-            label1.Size = new Size(418, 32);
-            label1.TabIndex = 9;
-            label1.Text = "Hapus Daftar Pengambilan Sampah";
+
             // 
             // HapusJadwal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 681);
-            Controls.Add(label1);
+
             Controls.Add(Panel_Header);
             Controls.Add(panelTableContainer);
             Controls.Add(btnHapus);
