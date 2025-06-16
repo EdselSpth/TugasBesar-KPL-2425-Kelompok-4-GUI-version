@@ -42,6 +42,7 @@
             label_Text3 = new Label();
             button_Daftarkan = new Button();
             label_Text4 = new Label();
+            panel1 = new Panel();
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -50,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)Beranda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel_1
@@ -134,18 +136,19 @@
             // label_Text1
             // 
             label_Text1.AutoSize = true;
-            label_Text1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Text1.Location = new Point(511, 37);
+            label_Text1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Text1.ForeColor = SystemColors.ButtonHighlight;
+            label_Text1.Location = new Point(30, 31);
             label_Text1.Name = "label_Text1";
             label_Text1.RightToLeft = RightToLeft.Yes;
-            label_Text1.Size = new Size(617, 54);
+            label_Text1.Size = new Size(323, 41);
             label_Text1.TabIndex = 3;
-            label_Text1.Text = "Pendaftaran Area Penjemputan";
+            label_Text1.Text = "PENDAFTARAN AREA";
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(1010, 224);
+            dataGridView1.Location = new Point(969, 260);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(302, 133);
@@ -154,16 +157,16 @@
             // label_Text2
             // 
             label_Text2.AutoSize = true;
-            label_Text2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text2.Location = new Point(323, 191);
+            label_Text2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Text2.Location = new Point(331, 135);
             label_Text2.Name = "label_Text2";
-            label_Text2.Size = new Size(578, 41);
+            label_Text2.Size = new Size(582, 38);
             label_Text2.TabIndex = 5;
             label_Text2.Text = "Masukan Nama Area Yang Belum Terdaftar";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(331, 315);
+            textBox1.Location = new Point(447, 208);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(298, 27);
             textBox1.TabIndex = 6;
@@ -171,10 +174,10 @@
             // label_Text3
             // 
             label_Text3.AutoSize = true;
-            label_Text3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Text3.Location = new Point(331, 277);
+            label_Text3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_Text3.Location = new Point(331, 211);
             label_Text3.Name = "label_Text3";
-            label_Text3.Size = new Size(88, 20);
+            label_Text3.Size = new Size(109, 28);
             label_Text3.TabIndex = 7;
             label_Text3.Text = "Nama Area";
             // 
@@ -183,7 +186,7 @@
             button_Daftarkan.BackColor = Color.SeaGreen;
             button_Daftarkan.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button_Daftarkan.ForeColor = Color.Transparent;
-            button_Daftarkan.Location = new Point(493, 379);
+            button_Daftarkan.Location = new Point(447, 260);
             button_Daftarkan.Name = "button_Daftarkan";
             button_Daftarkan.Size = new Size(211, 47);
             button_Daftarkan.TabIndex = 8;
@@ -195,11 +198,20 @@
             // 
             label_Text4.AutoSize = true;
             label_Text4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text4.Location = new Point(1021, 171);
+            label_Text4.Location = new Point(969, 201);
             label_Text4.Name = "label_Text4";
             label_Text4.Size = new Size(291, 41);
             label_Text4.TabIndex = 9;
             label_Text4.Text = "Jadwal Yang tersedia";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SeaGreen;
+            panel1.Controls.Add(label_Text1);
+            panel1.Location = new Point(257, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1188, 99);
+            panel1.TabIndex = 10;
             // 
             // MenuDaftarArea
             // 
@@ -212,8 +224,8 @@
             Controls.Add(textBox1);
             Controls.Add(label_Text2);
             Controls.Add(dataGridView1);
-            Controls.Add(label_Text1);
             Controls.Add(panel_1);
+            Controls.Add(panel1);
             Name = "MenuDaftarArea";
             Text = "MenuDaftarArea";
             panel_1.ResumeLayout(false);
@@ -224,6 +236,8 @@
             ((System.ComponentModel.ISupportInitialize)Beranda).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,5 +261,6 @@
         private Label label_Text3;
         private Label label_Text4;
         private Button button_Daftarkan;
+        private Panel panel1;
     }
 }
