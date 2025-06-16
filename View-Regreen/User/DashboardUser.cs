@@ -31,7 +31,7 @@ namespace View_Regreen.Menu
         {
             try
             {
-                string url = "https://localhost:7277/api/jadwal_user";
+                string url = "https://localhost:7277/api/jadwal_Pengguna";
                 var response = await _httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 
