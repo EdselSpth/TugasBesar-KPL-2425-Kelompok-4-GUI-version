@@ -89,11 +89,15 @@ namespace View_Regreen
                             break;
 
                         case "kurir":
-                            // TODO: Panggil form kurir
+                            var dashboardKurir = new DashboardKurir();
+                            dashboardKurir.Show();
+                            this.Hide();
                             break;
 
                         case "user":
-                            // TODO: Panggil form user
+                            var dashboardUser = new DashboardUser();
+                            dashboardUser.Show();
+                            this.Hide();
                             break;
 
                         default:
