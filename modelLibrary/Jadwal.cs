@@ -11,8 +11,8 @@
         {
             Tanggal = tanggalInput;
             JenisSampahList = jenisSampahListInput;
-            AreaDiambil = areaDiambilInput;
             KurirPengambil = kurirPengambilInput;
+            AreaDiambil = areaDiambilInput;
         }
     }
 }
