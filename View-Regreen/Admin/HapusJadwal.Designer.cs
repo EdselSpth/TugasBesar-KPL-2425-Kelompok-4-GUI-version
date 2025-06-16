@@ -35,9 +35,9 @@
             dateTimePickerFilter = new DateTimePicker();
             btnHapus = new Button();
             Panel_Header = new Panel();
+            label3 = new Label();
             label1 = new Label();
             label_Text1 = new Label();
-            label3 = new Label();
             label4 = new Label();
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -108,6 +108,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 3;
             pictureBox6.TabStop = false;
+            pictureBox6.Click += pictureBox6_Click_1;
             // 
             // Beranda
             // 
@@ -194,6 +195,17 @@
             Panel_Header.Size = new Size(1185, 92);
             Panel_Header.TabIndex = 5;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.ButtonFace;
+            label3.Location = new Point(32, 23);
+            label3.Name = "label3";
+            label3.Size = new Size(604, 41);
+            label3.TabIndex = 9;
+            label3.Text = "PENJADWALAN PENGAMBILAN SAMPAH";
+            // 
             // label1
             // 
             label1.Location = new Point(0, 0);
@@ -210,17 +222,6 @@
             label_Text1.Name = "label_Text1";
             label_Text1.Size = new Size(0, 41);
             label_Text1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ButtonFace;
-            label3.Location = new Point(32, 23);
-            label3.Name = "label3";
-            label3.Size = new Size(604, 41);
-            label3.TabIndex = 9;
-            label3.Text = "PENJADWALAN PENGAMBILAN SAMPAH";
             // 
             // label4
             // 

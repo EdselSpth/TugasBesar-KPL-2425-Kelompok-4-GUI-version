@@ -10,127 +10,111 @@ namespace View_Regreen.Menu
 {
     public partial class HapusJadwal : Form
     {
-        // HttpClient digunakan untuk komunikasi HTTP dengan API
+        // HttpClient digunakan untuk mengirim request HTTP ke API
         private readonly HttpClient _httpClient = new();
 
-        // Menyimpan semua jadwal yang telah dimuat dari API
+        // Menyimpan data semua jadwal yang dimuat dari API
         private List<JadwalModel> _allJadwals = new();
 
-        // Konstruktor Form
         public HapusJadwal()
         {
             InitializeComponent();
 
-            // Mengatur warna latar belakang form dan panel
+            // Atur tema warna latar belakang form dan panel
             this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
             panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
 
-            // Menambahkan event handler untuk event load dan tombol hapus
+            // Register event handler
             this.Load += HapusJadwal_Load;
             btnHapus.Click += btnHapus_Click;
         }
 
-        // Event handler saat form dimuat
+        // Memuat data jadwal dari API saat form ditampilkan
         private async void HapusJadwal_Load(object sender, EventArgs e)
         {
-            // Memuat semua data jadwal dari API
             await LoadAllJadwalAsync();
         }
 
-        // Fungsi untuk mengambil semua jadwal dari API
+        // Mengambil semua jadwal dari endpoint API dan menampilkannya di DataGridView
         private async Task LoadAllJadwalAsync()
         {
             try
             {
                 string url = "https://localhost:7277/api/jadwal_admin";
                 var response = await _httpClient.GetAsync(url);
-                response.EnsureSuccessStatusCode(); // Memastikan status response adalah sukses
+                response.EnsureSuccessStatusCode();
 
                 var jsonString = await response.Content.ReadAsStringAsync();
 
-                // Mengatur agar deserialisasi properti tidak case-sensitive
+                // Deserialisasi JSON tanpa memperhatikan case nama properti
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-                // Deserialisasi data JSON ke List<JadwalModel>
                 var jadwals = JsonSerializer.Deserialize<List<JadwalModel>>(jsonString, options);
 
                 if (jadwals != null)
                 {
                     _allJadwals = jadwals;
-
-                    // Menampilkan data ke dalam DataGridView
                     dataGridView1.DataSource = _allJadwals;
                 }
             }
             catch (Exception ex)
             {
-                // Menampilkan pesan error jika terjadi exception
                 MessageBox.Show("Gagal memuat data: " + ex.Message);
             }
         }
 
-        // Event handler tombol hapus jadwal berdasarkan tanggal yang dipilih
+        // Menghapus jadwal berdasarkan tanggal yang dipilih dari DatePicker
         private async void btnHapus_Click(object sender, EventArgs e)
         {
-            // Ambil tanggal dari date picker
             var selectedDate = dateTimePickerFilter.Value.Date;
 
-            // Konfirmasi penghapusan dari pengguna
             var confirmResult = MessageBox.Show(
                 $"Yakin ingin menghapus jadwal pada {selectedDate:yyyy-MM-dd}?",
                 "Konfirmasi Hapus",
                 MessageBoxButtons.YesNo);
 
-            // Jika user mengonfirmasi penghapusan
             if (confirmResult == DialogResult.Yes)
             {
                 try
                 {
-                    // Kirim request DELETE ke API berdasarkan tanggal
                     string url = $"https://localhost:7277/api/jadwal_admin/{selectedDate:yyyy-MM-dd}";
                     var response = await _httpClient.DeleteAsync(url);
 
                     if (response.IsSuccessStatusCode)
                     {
-                        // Jika sukses, tampilkan pesan dan refresh data
                         MessageBox.Show("Jadwal berhasil dihapus.");
-                        await LoadAllJadwalAsync();
+                        await LoadAllJadwalAsync(); // Perbarui tampilan setelah penghapusan
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        // Jika data tidak ditemukan
                         MessageBox.Show("Jadwal tidak ditemukan.");
                     }
                     else
                     {
-                        // Menampilkan pesan kesalahan dari API
                         string errorMsg = await response.Content.ReadAsStringAsync();
                         MessageBox.Show("Gagal menghapus jadwal: " + errorMsg);
                     }
                 }
                 catch (Exception ex)
                 {
-                    // Tampilkan error umum
                     MessageBox.Show("Terjadi kesalahan: " + ex.Message);
                 }
             }
         }
 
-        // Tombol untuk mengembalikan tampilan DataGridView ke semua data
+        // Reset tampilan DataGridView ke semua data jadwal yang telah dimuat
         private void buttonReset_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = _allJadwals;
         }
 
-        // Event kosong jika ingin digunakan untuk klik isi cell DataGridView
+        // Event kosong – dapat dihapus jika tidak digunakan
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-
-        // Event kosong untuk label jika ingin digunakan kemudian
         private void label_Text1_Click(object sender, EventArgs e) { }
         private void label1_Click(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
 
+        // Navigasi ke Dashboard
         private void Beranda_Click(object sender, EventArgs e)
         {
             var dashboardAdminForm = new DashboardAdmin();
@@ -138,6 +122,7 @@ namespace View_Regreen.Menu
             this.Hide();
         }
 
+        // Navigasi ke Menu Penjadwalan
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             var penjadwalan = new MenuPenjadwalan();
@@ -145,6 +130,7 @@ namespace View_Regreen.Menu
             this.Hide();
         }
 
+        // Navigasi ke Menu Validasi Area
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             var area = new MenuValidasiArea();
@@ -152,6 +138,7 @@ namespace View_Regreen.Menu
             this.Hide();
         }
 
+        // Navigasi ke Menu Validasi Keuntungan
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             var keuntungan = new MenuValidasiKeuntungan();
@@ -159,48 +146,26 @@ namespace View_Regreen.Menu
             this.Hide();
         }
 
+        // Logout dari sistem dengan konfirmasi
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Session.Username = null; // Hapus username dari session
-                Session.Role = null; // Hapus role dari session
+                Session.Username = null;
+                Session.Role = null;
 
-                // Kembali ke menu login
                 var menuLogin = new MenuLogin();
                 menuLogin.Show();
-
-                this.Close(); // Sembunyikan form saat ini
+                this.Close();
             }
         }
 
-        private void Beranda_Click_1(object sender, EventArgs e)
-        {
-            var dashboardAdminForm = new DashboardAdmin();
-            dashboardAdminForm.Show();
-            this.Hide();
-        }
-
-        private void pictureBox3_Click_1(object sender, EventArgs e)
-        {
-            var validasiArea = new MenuValidasiArea();
-            validasiArea.Show();
-            this.Hide();
-        }
-
-        private void pictureBox4_Click_1(object sender, EventArgs e)
-        {
-            var validasiKeuntungan = new MenuValidasiKeuntungan();
-            validasiKeuntungan.Show();
-            this.Hide();
-        }
-
-        private void pictureBox2_Click_1(object sender, EventArgs e)
-        {
-            var penjadwalan = new MenuPenjadwalan();
-            penjadwalan.Show();
-            this.Hide();
-        }
+        // event
+        private void Beranda_Click_1(object sender, EventArgs e) => Beranda_Click(sender, e);
+        private void pictureBox3_Click_1(object sender, EventArgs e) => pictureBox3_Click(sender, e);
+        private void pictureBox4_Click_1(object sender, EventArgs e) => pictureBox4_Click(sender, e);
+        private void pictureBox2_Click_1(object sender, EventArgs e) => pictureBox2_Click(sender, e);
+        private void pictureBox6_Click_1(object sender, EventArgs e) => pictureBox6_Click(sender, e);
     }
 }
