@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel_1 = new Panel();
-            pictureBox4 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            keuntungan_Button = new PictureBox();
+            area_Button = new PictureBox();
+            jadwalSampah_Button = new PictureBox();
             pictureBox6 = new PictureBox();
             Beranda = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -60,9 +60,9 @@
             comboBox_jenissampah = new ComboBox();
             button_ubahJadwal = new Button();
             panel_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)keuntungan_Button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)area_Button).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)jadwalSampah_Button).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Beranda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -72,9 +72,9 @@
             // panel_1
             // 
             panel_1.BackColor = SystemColors.ButtonHighlight;
-            panel_1.Controls.Add(pictureBox4);
-            panel_1.Controls.Add(pictureBox3);
-            panel_1.Controls.Add(pictureBox2);
+            panel_1.Controls.Add(keuntungan_Button);
+            panel_1.Controls.Add(area_Button);
+            panel_1.Controls.Add(jadwalSampah_Button);
             panel_1.Controls.Add(pictureBox6);
             panel_1.Controls.Add(Beranda);
             panel_1.Controls.Add(pictureBox1);
@@ -84,41 +84,41 @@
             panel_1.Size = new Size(228, 685);
             panel_1.TabIndex = 7;
             // 
-            // pictureBox4
+            // keuntungan_Button
             // 
-            pictureBox4.Image = Properties.Resources.Penarikan_Menu_OFF;
-            pictureBox4.Location = new Point(16, 291);
-            pictureBox4.Margin = new Padding(3, 2, 3, 2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(199, 53);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 8;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+            keuntungan_Button.Image = Properties.Resources.Penarikan_Menu_OFF;
+            keuntungan_Button.Location = new Point(16, 291);
+            keuntungan_Button.Margin = new Padding(3, 2, 3, 2);
+            keuntungan_Button.Name = "keuntungan_Button";
+            keuntungan_Button.Size = new Size(199, 53);
+            keuntungan_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            keuntungan_Button.TabIndex = 8;
+            keuntungan_Button.TabStop = false;
+            keuntungan_Button.Click += pictureBox4_Click;
             // 
-            // pictureBox3
+            // area_Button
             // 
-            pictureBox3.Image = Properties.Resources.Area_Menu_OFF;
-            pictureBox3.Location = new Point(16, 234);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(199, 53);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 7;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
+            area_Button.Image = Properties.Resources.Area_Menu_OFF;
+            area_Button.Location = new Point(16, 234);
+            area_Button.Margin = new Padding(3, 2, 3, 2);
+            area_Button.Name = "area_Button";
+            area_Button.Size = new Size(199, 53);
+            area_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            area_Button.TabIndex = 7;
+            area_Button.TabStop = false;
+            area_Button.Click += pictureBox3_Click;
             // 
-            // pictureBox2
+            // jadwalSampah_Button
             // 
-            pictureBox2.Image = Properties.Resources.Penjadwalan_Menu;
-            pictureBox2.Location = new Point(16, 177);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(199, 53);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 6;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            jadwalSampah_Button.Image = Properties.Resources.Penjadwalan_Menu;
+            jadwalSampah_Button.Location = new Point(16, 177);
+            jadwalSampah_Button.Margin = new Padding(3, 2, 3, 2);
+            jadwalSampah_Button.Name = "jadwalSampah_Button";
+            jadwalSampah_Button.Size = new Size(199, 53);
+            jadwalSampah_Button.SizeMode = PictureBoxSizeMode.Zoom;
+            jadwalSampah_Button.TabIndex = 6;
+            jadwalSampah_Button.TabStop = false;
+            jadwalSampah_Button.Click += pictureBox2_Click;
             // 
             // pictureBox6
             // 
@@ -418,9 +418,9 @@
             Name = "EditJadwal";
             Text = "EditJadwal";
             panel_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)keuntungan_Button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)area_Button).EndInit();
+            ((System.ComponentModel.ISupportInitialize)jadwalSampah_Button).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)Beranda).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -433,9 +433,9 @@
         #endregion
 
         private Panel panel_1;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
+        private PictureBox keuntungan_Button;
+        private PictureBox area_Button;
+        private PictureBox jadwalSampah_Button;
         private PictureBox pictureBox6;
         private PictureBox Beranda;
         private PictureBox pictureBox1;

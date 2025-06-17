@@ -28,6 +28,7 @@ namespace View_Regreen.Admin
 
 
         private void Beranda_Click(object sender, EventArgs e)
+        // method untuk kembali ke beranda dari menu
         {
             var beranda = new DashboardAdmin();
             beranda.Show();
@@ -35,6 +36,7 @@ namespace View_Regreen.Admin
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        // method untuk ke jadwal
         {
             var jadwaAmbill = new MenuPenjadwalan();
             jadwaAmbill.Show();
@@ -42,6 +44,7 @@ namespace View_Regreen.Admin
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
+        // method untuk ke validasi area
         {
             var area = new MenuValidasiArea();
             area.Show();
@@ -49,6 +52,7 @@ namespace View_Regreen.Admin
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
+        // method untuk ke validasi keuntungan
         {
             var validasiKeuntungan = new MenuValidasiKeuntungan();
             validasiKeuntungan.Show();
@@ -56,6 +60,7 @@ namespace View_Regreen.Admin
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
+        // method untuk exit
         {
             var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
