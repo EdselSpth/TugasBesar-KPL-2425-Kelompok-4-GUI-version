@@ -19,6 +19,8 @@ namespace View_Regreen.Admin
         public MenuValidasiKeuntungan()
         {
             InitializeComponent(); // Inisialisasi komponen dari Designer
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
+            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
 
             // Atur ukuran dan posisi form
             this.Size = new System.Drawing.Size(1000, 700);

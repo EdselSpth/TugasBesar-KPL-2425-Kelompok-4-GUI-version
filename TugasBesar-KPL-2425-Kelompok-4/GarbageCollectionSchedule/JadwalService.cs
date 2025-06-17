@@ -143,7 +143,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             }
         }
 
-        public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama)
+        public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama, DateOnly tanggalBaru)
         {
             var model = GetJadwalByKurirDanTanggal(namaKurirLama, tanggal);
             if (model == null)
@@ -152,7 +152,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 throw new InvalidOperationException($"Jadwal untuk kurir '{namaKurirLama}' pada tanggal {tanggal:yyyy-MM-dd} tidak ditemukan.");
             }
 
-            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggal.ToDateTime(TimeOnly.MinValue))).ToList();
+            var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggalBaru.ToDateTime(TimeOnly.MinValue))).ToList();
 
             if (invalid.Any())
             // kondisi pengecekan list jenis sampah yang tidak valid
@@ -160,6 +160,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
             }
 
+            model.Tanggal = tanggalBaru;
             model.JenisSampah = jenisList.Select(j => j.ToString()).ToList();
             model.areaDiambil = area;
             model.namaKurir = namaKurirBaru;
