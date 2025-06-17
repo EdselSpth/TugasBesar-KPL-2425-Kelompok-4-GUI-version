@@ -175,7 +175,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
     }
 }
 
-public class DateOnlyJsonConverter : JsonConverter<DateOnly>\
+public class DateOnlyJsonConverter : JsonConverter<DateOnly>
 // json converter
 {
     private const string Format = "yyyy-MM-dd";
