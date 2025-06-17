@@ -10,6 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="daftarAreaFix.Json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="daftarAreaFix.Json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FormPenarikanKeuntungan\FormPenarikanKeuntungan.csproj" />
     <ProjectReference Include="..\JadwalAPI\JadwalAPI.csproj" />
     <ProjectReference Include="..\LoginAPI\LoginAPI.csproj" />

@@ -1,43 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
+
 namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
-
     public class configPendaftaraanArea
     {
-        private string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarArea.json");
+        private readonly string configPath;
 
         public int id { get; set; }
         public string area { get; set; }
-  
-        public configPendaftaraanArea() : this(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarArea.json")) { }
 
+        // Constructor default
+        public configPendaftaraanArea()
+        {
+            configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarAreaFix.json");
+        }
 
-
+        // Constructor dengan custom path
         public configPendaftaraanArea(string customPath)
         {
             configPath = customPath;
         }
+
         public List<configPendaftaraanArea> GetAllArea()
         {
             List<configPendaftaraanArea> listArea = new();
-            if (File.Exists(configPath))
+
+            try
             {
-                string read = File.ReadAllText(configPath);
-                if (!string.IsNullOrWhiteSpace(read))
+                if (File.Exists(configPath))
                 {
-                    listArea = JsonSerializer.Deserialize<List<configPendaftaraanArea>>(read);
-                    if (listArea == null)
+                    string read = File.ReadAllText(configPath);
+                    if (!string.IsNullOrWhiteSpace(read))
                     {
-                        listArea = new List<configPendaftaraanArea>();
+                        listArea = JsonSerializer.Deserialize<List<configPendaftaraanArea>>(read) ?? new List<configPendaftaraanArea>();
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Gagal membaca file JSON:");
+                Console.WriteLine($"Detail: {ex.Message}");
+            }
+
             return listArea;
         }
 
@@ -45,29 +53,28 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(this.area))
+                {
+                    Console.WriteLine("Nama area tidak valid.");
+                    return;
+                }
+
                 var listArea = GetAllArea();
-             
+
                 if (listArea.Any(a => a.area != null &&
                                       a.area.Equals(this.area, StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine("Area sudah ada. Tidak disimpan ulang.");
                     return;
                 }
-                int maxId = 0;
-                foreach (var i in listArea)
-                {
-                    if (i.id > maxId)
-                    {
-                        maxId = i.id;
-                    }
-                }
 
+                int maxId = listArea.Any() ? listArea.Max(a => a.id) : 0;
                 this.id = maxId + 1;
                 listArea.Add(this);
 
                 string newData = JsonSerializer.Serialize(listArea, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(configPath, newData);
-                Console.WriteLine(" Data Area berhasil disimpan.");
+                Console.WriteLine("Data Area berhasil disimpan.");
             }
             catch (Exception ex)
             {
@@ -75,6 +82,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 Console.WriteLine($"Detail: {ex.Message}");
             }
         }
+
         public void TampilkanSemuaArea()
         {
             var listArea = GetAllArea();
@@ -91,6 +99,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 Console.WriteLine($"ID: {area.id} | Nama Area: {area.area}");
             }
         }
+
         public static void DaftarkanAreaPengambilan()
         {
             Console.Write("Masukkan nama area baru: ");
@@ -105,18 +114,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             configPendaftaraanArea areaConfig = new configPendaftaraanArea();
             List<configPendaftaraanArea> daftarArea = areaConfig.GetAllArea();
 
-            bool duplikat = false;
-
-            foreach (var area in daftarArea)
-            {
-                if (area.area != null && area.area.Equals(namaAreaBaru, StringComparison.OrdinalIgnoreCase))
-                {
-                    duplikat = true;
-                    break;
-                }
-            }
-
-            if (duplikat)
+            if (daftarArea.Any(a => a.area != null && a.area.Equals(namaAreaBaru, StringComparison.OrdinalIgnoreCase)))
             {
                 Console.WriteLine("Area sudah terdaftar. Silakan masukkan nama area yang berbeda.");
             }
@@ -129,6 +127,5 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 areaBaru.saveArea();
             }
         }
-
     }
-};
+}
