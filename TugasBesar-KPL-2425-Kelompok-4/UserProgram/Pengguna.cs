@@ -46,10 +46,10 @@ namespace TugasBesar_KPL_2425_Kelompok_4.UserProgram
                             PenarikanCustomer.ProsesPenarikan(ref state);
                             break;
                         case 3:
-                            configPendaftaraanArea.DaftarkanAreaPengambilan();
+                            ConfigPendaftaranArea.DaftarkanAreaPengambilan();
                             break;
                         case 4:
-                            configPendaftaranPenjemputan<string>.DaftarkanPengambilanSampah(username);
+                            ConfigPendaftaranPenjemputan<string>.DaftarkanPengambilanSampah(username);
                             break;
                         case 5:
                             Console.WriteLine("Terima kasih sudah menggunakan aplikasi");

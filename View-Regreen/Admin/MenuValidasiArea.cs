@@ -12,7 +12,7 @@ namespace View_Regreen.Admin
     public partial class MenuValidasiArea : Form
     {
         // Daftar area yang akan divalidasi
-        private List<configPendaftaraanArea> daftarArea = new();
+        private List<ConfigPendaftaranArea> daftarArea = new();
 
         // Daftar nama pengguna untuk ditampilkan di tabel
         private List<string> namaPengguna = new()
@@ -40,7 +40,7 @@ namespace View_Regreen.Admin
         // Method yang dijalankan saat form pertama kali dimuat
         private void MenuValidasiArea_Load(object sender, EventArgs e)
         {
-            configPendaftaraanArea config = new configPendaftaraanArea();
+            ConfigPendaftaranArea config = new ConfigPendaftaranArea();
             daftarArea = config.GetAllArea();
 
             dataGridView1.Rows.Clear();
@@ -52,7 +52,7 @@ namespace View_Regreen.Admin
             for (int i = 0; i < daftarArea.Count; i++)
             {
                 string nama = i < namaPengguna.Count ? namaPengguna[i] : "Pengguna Default";
-                string area = daftarArea[i].area;
+                string area = daftarArea[i].Area;
                 string status = "menunggu";
 
                 dataGridView1.Rows.Add(no++, nama, area, status);
@@ -129,7 +129,7 @@ namespace View_Regreen.Admin
 
                 hasilValidasi.Add(new
                 {
-                    area = daftarArea[i].area,
+                    area = daftarArea[i].Area,
                     nama_pengguna = nama,
                     status = statusArea[i]
                 });

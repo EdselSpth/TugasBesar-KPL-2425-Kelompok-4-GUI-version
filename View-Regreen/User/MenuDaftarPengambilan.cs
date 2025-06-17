@@ -11,7 +11,7 @@ namespace View_Regreen.User
 {
     public partial class MenuDaftarPengambilan : Form
     {
-        private List<configPendaftaraanArea> daftarArea = new();
+        private List<ConfigPendaftaranArea> daftarArea = new();
 
         // Konstruktor form MenuDaftarPengambilan
         public MenuDaftarPengambilan()
@@ -35,7 +35,7 @@ namespace View_Regreen.User
             // Menangani error saat memuat daftar area dari file JSON
             try
             {
-                var areaService = new configPendaftaraanArea();
+                var areaService = new ConfigPendaftaranArea();
                 daftarArea = areaService.GetAllArea();
 
                 comboBoxArea.Items.Clear();
@@ -43,9 +43,9 @@ namespace View_Regreen.User
                 foreach (var area in daftarArea)
                 {
                     // Validasi: Hanya tambahkan area jika tidak kosong/null
-                    if (!string.IsNullOrWhiteSpace(area.area))
+                    if (!string.IsNullOrWhiteSpace(area.Area))
                     {
-                        comboBoxArea.Items.Add(area.area);
+                        comboBoxArea.Items.Add(area.Area);
                     }
                 }
 
@@ -137,9 +137,9 @@ namespace View_Regreen.User
 
             var areaTerpilih = daftarArea[comboBoxArea.SelectedIndex];
 
-            var pendaftaran = new configPendaftaranPenjemputan<string>
+            var pendaftaran = new ConfigPendaftaranPenjemputan<string>
             {
-                namaPengguna = nama,
+                NamaPengguna = nama,
                 Area = areaTerpilih,
                 Jadwal = tanggal,
                 Keterangan = keterangan
