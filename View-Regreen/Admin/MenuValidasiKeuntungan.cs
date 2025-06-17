@@ -76,14 +76,14 @@ namespace View_Regreen.Admin
         // Event handler untuk tombol "Terima" - mengubah status menjadi "Diterima"
         private void button1_ClickTerima(object sender, EventArgs e)
         {
-            if (dgvPengajuan.SelectedRows.Count > 0)
+            if (dgvPengajuan.SelectedRows.Count > 0) // Memastikan ada baris yang dipilih
             {
-                string nama = dgvPengajuan.SelectedRows[0].Cells[1].Value.ToString();
-                dgvPengajuan.SelectedRows[0].Cells[5].Value = "Diterima";
+                string nama = dgvPengajuan.SelectedRows[0].Cells[1].Value.ToString(); // Mengambil nama dari baris yang dipilih admin
+                dgvPengajuan.SelectedRows[0].Cells[5].Value = "Diterima"; // Mengubah status menjadi "Diterima"
 
                 MessageBox.Show($"Permintaan 1 oleh {nama} disetujui", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            else // Jika tidak ada baris yang dipilih
             {
                 MessageBox.Show("Silakan pilih satu baris terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -92,12 +92,13 @@ namespace View_Regreen.Admin
         // Event handler untuk tombol "Tolak" - mengubah status menjadi "Ditolak"
         private void button2_ClickTolak(object sender, EventArgs e)
         {
-            if (dgvPengajuan.SelectedRows.Count > 0)
-            {
-                dgvPengajuan.SelectedRows[0].Cells[5].Value = "Ditolak";
+            if (dgvPengajuan.SelectedRows.Count > 0) // Memastikan ada baris yang dipilih
+            { 
+                string nama = dgvPengajuan.SelectedRows[0].Cells[1].Value.ToString(); // Mengambil nama dari baris yang dipilih admin
+                dgvPengajuan.SelectedRows[0].Cells[5].Value = "Ditolak"; // Mengubah status menjadi "Ditolak"
                 MessageBox.Show("Permintaan ditolak.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            else // Jika tidak ada baris yang dipilih
             {
                 MessageBox.Show("Silakan pilih satu baris terlebih dahulu.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
