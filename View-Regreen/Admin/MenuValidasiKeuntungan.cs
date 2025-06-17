@@ -23,7 +23,6 @@ namespace View_Regreen.Admin
             panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
 
             // Atur ukuran dan posisi form
-            this.Size = new System.Drawing.Size(1000, 700);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Text = "Validasi Keuntungan";
 

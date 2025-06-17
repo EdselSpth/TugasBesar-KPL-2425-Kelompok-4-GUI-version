@@ -61,18 +61,18 @@
             panel_1.Controls.Add(Beranda);
             panel_1.Controls.Add(pictureBox1);
             panel_1.Location = new Point(0, 0);
-            panel_1.Margin = new Padding(3, 2, 3, 2);
+            panel_1.Margin = new Padding(4, 3, 4, 3);
             panel_1.Name = "panel_1";
-            panel_1.Size = new Size(228, 686);
+            panel_1.Size = new Size(326, 1143);
             panel_1.TabIndex = 1;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.Tarik_Untung_Menu;
-            pictureBox4.Location = new Point(16, 291);
-            pictureBox4.Margin = new Padding(3, 2, 3, 2);
+            pictureBox4.Location = new Point(23, 485);
+            pictureBox4.Margin = new Padding(4, 3, 4, 3);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(199, 52);
+            pictureBox4.Size = new Size(284, 87);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
@@ -80,10 +80,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Area_Menu_OFF;
-            pictureBox3.Location = new Point(16, 234);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
+            pictureBox3.Location = new Point(23, 390);
+            pictureBox3.Margin = new Padding(4, 3, 4, 3);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(199, 52);
+            pictureBox3.Size = new Size(284, 87);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
@@ -92,10 +92,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Penjadwalan_Menu_OFF1;
-            pictureBox2.Location = new Point(16, 177);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
+            pictureBox2.Location = new Point(23, 295);
+            pictureBox2.Margin = new Padding(4, 3, 4, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(199, 52);
+            pictureBox2.Size = new Size(284, 87);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
@@ -104,10 +104,10 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.Keluar;
-            pictureBox6.Location = new Point(16, 632);
-            pictureBox6.Margin = new Padding(3, 2, 3, 2);
+            pictureBox6.Location = new Point(23, 1053);
+            pictureBox6.Margin = new Padding(4, 3, 4, 3);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(85, 39);
+            pictureBox6.Size = new Size(121, 65);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
@@ -116,10 +116,10 @@
             // Beranda
             // 
             Beranda.Image = Properties.Resources.Beranda_Menu_OFF;
-            Beranda.Location = new Point(16, 120);
-            Beranda.Margin = new Padding(3, 2, 3, 2);
+            Beranda.Location = new Point(23, 200);
+            Beranda.Margin = new Padding(4, 3, 4, 3);
             Beranda.Name = "Beranda";
-            Beranda.Size = new Size(199, 52);
+            Beranda.Size = new Size(284, 87);
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
@@ -128,18 +128,17 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_Regreen;
-            pictureBox1.Location = new Point(16, 14);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
+            pictureBox1.Location = new Point(23, 23);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(204, 72);
+            pictureBox1.Size = new Size(291, 120);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
             // ValidasiPenarikanKeuntungan
             // 
-            ValidasiPenarikanKeuntungan.Location = new Point(225, 0);
-            ValidasiPenarikanKeuntungan.Margin = new Padding(2);
+            ValidasiPenarikanKeuntungan.Location = new Point(321, 0);
             ValidasiPenarikanKeuntungan.Name = "ValidasiPenarikanKeuntungan";
             ValidasiPenarikanKeuntungan.Size = new Size(0, 0);
             ValidasiPenarikanKeuntungan.TabIndex = 2;
@@ -147,19 +146,17 @@
             // 
             // PanelDummy
             // 
-            PanelDummy.Location = new Point(251, 82);
-            PanelDummy.Margin = new Padding(2);
+            PanelDummy.Location = new Point(359, 137);
             PanelDummy.Name = "PanelDummy";
-            PanelDummy.Size = new Size(973, 404);
+            PanelDummy.Size = new Size(1390, 673);
             PanelDummy.TabIndex = 3;
             PanelDummy.Paint += panel2_PaintListData;
             // 
             // button2
             // 
-            button2.Location = new Point(479, 533);
-            button2.Margin = new Padding(2);
+            button2.Location = new Point(663, 838);
             button2.Name = "button2";
-            button2.Size = new Size(172, 62);
+            button2.Size = new Size(246, 103);
             button2.TabIndex = 1;
             button2.Text = "Tolak";
             button2.UseVisualStyleBackColor = true;
@@ -167,10 +164,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(251, 533);
-            button1.Margin = new Padding(2);
+            button1.Location = new Point(358, 838);
             button1.Name = "button1";
-            button1.Size = new Size(180, 62);
+            button1.Size = new Size(257, 103);
             button1.TabIndex = 0;
             button1.Text = "Terima";
             button1.UseVisualStyleBackColor = true;
@@ -180,10 +176,10 @@
             // 
             panel1.BackColor = Color.SeaGreen;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(225, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(321, 0);
+            panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1040, 68);
+            panel1.Size = new Size(1486, 113);
             panel1.TabIndex = 4;
             // 
             // label1
@@ -191,24 +187,25 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(26, 20);
+            label1.Location = new Point(37, 33);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(444, 32);
+            label1.Size = new Size(653, 48);
             label1.TabIndex = 0;
             label1.Text = "VALIDASI PENARIKAN KEUNTUNGAN";
             // 
             // MenuValidasiKeuntungan
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 681);
+            ClientSize = new Size(1806, 1050);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(PanelDummy);
             Controls.Add(ValidasiPenarikanKeuntungan);
             Controls.Add(panel_1);
             Controls.Add(panel1);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 3, 4, 3);
             MinimizeBox = false;
             Name = "MenuValidasiKeuntungan";
             Text = "MenuValidasiKeuntungan";
