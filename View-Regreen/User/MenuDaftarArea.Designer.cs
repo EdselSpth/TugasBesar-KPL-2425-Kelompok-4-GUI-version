@@ -77,7 +77,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+            pictureBox4.Click += PictureBox4_Click;
             // 
             // pictureBox3
             // 
@@ -88,7 +88,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click_1;
+            pictureBox3.Click += PictureBox3_Click;
             // 
             // pictureBox2
             // 
@@ -99,7 +99,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            pictureBox2.Click += PictureBox2_Click;
             // 
             // pictureBox6
             // 
@@ -110,7 +110,7 @@
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
-            pictureBox6.Click += pictureBox6_Click_1;
+            pictureBox6.Click += PictureBox6_Click;
             // 
             // Beranda
             // 
@@ -121,7 +121,7 @@
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
-            Beranda.Click += Beranda_Click_1;
+            Beranda.Click += Beranda_Click;
             // 
             // pictureBox1
             // 
@@ -147,11 +147,15 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(969, 260);
+            dataGridView1.Location = new Point(949, 260);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(302, 133);
+            dataGridView1.Size = new Size(302, 422);
             dataGridView1.TabIndex = 4;
             // 
             // label_Text2
@@ -192,17 +196,17 @@
             button_Daftarkan.TabIndex = 8;
             button_Daftarkan.Text = "Daftarkan";
             button_Daftarkan.UseVisualStyleBackColor = false;
-            button_Daftarkan.Click += button_Daftarkan_Click;
+            button_Daftarkan.Click += ButtonDaftarkan_Click;
             // 
             // label_Text4
             // 
             label_Text4.AutoSize = true;
-            label_Text4.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_Text4.Location = new Point(969, 201);
+            label_Text4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_Text4.Location = new Point(920, 211);
             label_Text4.Name = "label_Text4";
-            label_Text4.Size = new Size(291, 41);
+            label_Text4.Size = new Size(351, 31);
             label_Text4.TabIndex = 9;
-            label_Text4.Text = "Jadwal Yang tersedia";
+            label_Text4.Text = "Nama Area Yang Sudah Terdaftar";
             // 
             // panel1
             // 

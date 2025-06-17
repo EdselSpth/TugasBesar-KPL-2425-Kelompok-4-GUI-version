@@ -1,6 +1,6 @@
-﻿using System;
+﻿// Import library dan dependensi yang dibutuhkan
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -11,44 +11,59 @@ namespace View_Regreen.User
 {
     public partial class MenuDaftarArea : Form
     {
+        // Konstruktor form
         public MenuDaftarArea()
         {
             InitializeComponent();
             Load += MenuDaftarArea_Load;
         }
 
+        // Method yang dijalankan saat form pertama kali diload
         private void MenuDaftarArea_Load(object sender, EventArgs e)
         {
             LoadDataArea();
         }
 
-        private void button_Daftarkan_Click(object sender, EventArgs e)
+        // Method untuk menangani klik tombol Daftarkan
+        private void ButtonDaftarkan_Click(object sender, EventArgs e)
         {
             string namaArea = textBox1.Text.Trim();
 
             // Validasi input sebelum diproses
-            if (!ValidasiInput(namaArea)) return;
-
-            var areaManager = new configPendaftaraanArea();
-            var semuaArea = areaManager.GetAllArea();
-
-            bool sudahAda = semuaArea.Any(area => area.area?.Equals(namaArea, StringComparison.OrdinalIgnoreCase) == true);
-
-            //pengecekan duplikasi area
-            if (sudahAda)
+            if (!ValidasiInput(namaArea))
             {
-                MessageBox.Show("Area sudah terdaftar. Silakan masukkan nama yang berbeda.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            var areaBaru = new configPendaftaraanArea { area = namaArea };
-            areaBaru.saveArea();
+            //Try untuk mencoba menyimpan data
+            try
+            {
+                var areaManager = new configPendaftaraanArea();
+                var semuaArea = areaManager.GetAllArea() ?? new List<configPendaftaraanArea>();
 
-            MessageBox.Show("Area berhasil didaftarkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            textBox1.Clear();
-            LoadDataArea();
+                // Cek apakah area sudah terdaftar sebelumnya
+                if (semuaArea.Any(area => area.area?.Equals(namaArea, StringComparison.OrdinalIgnoreCase) == true))
+                {
+                    MessageBox.Show("Area sudah terdaftar. Silakan masukkan nama yang berbeda.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                var areaBaru = new configPendaftaraanArea { area = namaArea };
+                areaBaru.saveArea();
+
+                MessageBox.Show("Area berhasil didaftarkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                textBox1.Clear(); 
+                LoadDataArea(); 
+            }
+            catch (Exception ex)
+            {
+                // Tangani error saat penyimpanan
+                MessageBox.Show("Terjadi kesalahan saat menyimpan area.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        // Method validasi input user
         private bool ValidasiInput(string input)
         {
             // Cek apakah input kosong
@@ -58,16 +73,17 @@ namespace View_Regreen.User
                 return false;
             }
 
-            // Cek apakah input mengandung karakter selain huruf dan spasi
+            // Cek apakah input hanya huruf dan spasi
             if (!Regex.IsMatch(input, @"^[a-zA-Z\s]+$"))
             {
                 MessageBox.Show("Nama area hanya boleh berisi huruf dan spasi.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
-            return true;
+            return true; // Input valid
         }
 
+        // Method untuk menampilkan semua data area ke DataGridView
         private void LoadDataArea()
         {
             try
@@ -78,7 +94,7 @@ namespace View_Regreen.User
                 dataGridView1.Rows.Clear();
                 dataGridView1.Columns.Clear();
 
-                // Jika tidak ada area yang tersimpan
+                // Tampilkan pesan jika tidak ada data
                 if (semuaArea == null || semuaArea.Count == 0)
                 {
                     MessageBox.Show("Belum ada area yang terdaftar.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -88,66 +104,94 @@ namespace View_Regreen.User
                 dataGridView1.Columns.Add("id", "ID");
                 dataGridView1.Columns.Add("area", "Area");
 
-                // Tambahkan baris berdasarkan data area
+                //pengambilan untuk setiap area
                 foreach (var area in semuaArea)
                 {
-                    // Tambahkan hanya jika area tidak kosong/null
+                    // Tambahkan hanya jika area tidak kosong
                     if (!string.IsNullOrWhiteSpace(area.area))
+                    {
                         dataGridView1.Rows.Add(area.id, area.area);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                // Tangani error jika gagal membaca atau menampilkan data
+                // Tangani error saat load data
                 MessageBox.Show("Gagal menampilkan data area.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e) => Navigasi(new MenuDaftarPengambilan());
-        private void pictureBox3_Click(object sender, EventArgs e) => Navigasi(new MenuPenarikanKeuntungan());
-        private void pictureBox3_Click_1(object sender, EventArgs e) => Navigasi(new MenuPenarikanKeuntungan());
-        private void Beranda_Click(object sender, EventArgs e) => Navigasi(new DashboardUser());
-        private void Beranda_Click_1(object sender, EventArgs e) => Navigasi(new DashboardUser());
-
-        private void pictureBox6_Click(object sender, EventArgs e)
+        // Method navigasi ke form tujuan
+        private void Navigasi(Form targetForm)
         {
-            // Tampilkan konfirmasi logout
+            // Cek apakah form tujuan valid
+            if (targetForm == null)
+            {
+                return;
+            }
+
+            //Coba buka form
+            try
+            {
+                targetForm.Show();
+                Hide(); // Sembunyikan form saat ini
+            }
+            //pengangan jika terjadi error
+            catch (Exception ex)
+            {
+                
+                MessageBox.Show("Gagal membuka form tujuan.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Method logout user dari sistem
+        private void Logout()
+        {
+            // Tampilkan konfirmasi sebelum logout
             if (MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Session.Username = null;
                 Session.Role = null;
 
-                new MenuLogin().Show();
-                Close();
+                try
+                {
+                    new MenuLogin().Show();
+                    Close(); // Tutup form saat ini
+                }
+                catch (Exception ex)
+                {
+                    // Tangani error jika gagal logout
+                    MessageBox.Show("Gagal logout.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private void Navigasi(Form targetForm)
+        // Event klik untuk navigasi ke halaman Daftar Pengambilan
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
-            targetForm.Show();
-            Hide();
+            Navigasi(new MenuDaftarPengambilan());
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        // Event klik untuk navigasi ke halaman Penarikan Keuntungan
+        private void PictureBox3_Click(object sender, EventArgs e)
         {
-
+            Navigasi(new MenuPenarikanKeuntungan());
+        }
+        private void PictureBox4_Click(object sender, EventArgs e)
+        {
+            Navigasi(new MenuDaftarArea());
         }
 
-        private void pictureBox6_Click_1(object sender, EventArgs e)
+        // Event klik untuk navigasi ke halaman Dashboard
+        private void Beranda_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Navigasi(new DashboardUser());
+        }
 
-            // Jika user memilih Yes, lakukan logout
-            if (result == DialogResult.Yes)
-            {
-                Session.Username = null;
-                Session.Role = null;
-
-                var menuLogin = new MenuLogin();
-                menuLogin.Show();
-
-                this.Close();
-            }
+        // Event klik logout melalui PictureBox
+        private void PictureBox6_Click(object sender, EventArgs e)
+        {
+            Logout();
         }
     }
 }
