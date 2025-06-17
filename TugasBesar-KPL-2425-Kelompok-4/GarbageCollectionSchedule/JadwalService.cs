@@ -22,6 +22,12 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         public static void CreateAndSendJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurir, string area)
         // method untuk membuat dan mengirim jadwal pengambilan sampah ke API
         {
+            if (tanggal < DateOnly.FromDateTime(DateTime.Today))
+            {
+                throw new ArgumentException("Tanggal tidak boleh berada di masa lalu");
+            }
+
+
             if (namaKurir == null || namaKurir.Trim().Length == 0)
             // kondisi pengecekan nama kurir yang tidak boleh kosong
             {
@@ -100,13 +106,41 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
 
         public static JadwalModel GetJadwalByKurirDanTanggal(string namaKurir, DateOnly tanggal)
-        // method untuk mendapatkan jadwal dari kurir dan tanggal
         {
-            var response = _http.GetAsync("api/jadwal_admin").Result;
-            if (!response.IsSuccessStatusCode) return null;
-            var json = response.Content.ReadAsStringAsync().Result;
-            var list = JsonSerializer.Deserialize<List<JadwalModel>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-            return list?.FirstOrDefault(j => j.namaKurir.Equals(namaKurir, StringComparison.OrdinalIgnoreCase) && j.Tanggal == tanggal);
+            try
+            {
+                var response = _http.GetAsync("api/jadwal_admin").Result;
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine($"Gagal mengambil data. StatusCode: {response.StatusCode}");
+                    return null;
+                }
+
+                var json = response.Content.ReadAsStringAsync().Result;
+                Console.WriteLine("JSON Diterima:");
+                Console.WriteLine(json);
+
+                var list = JsonSerializer.Deserialize<List<JadwalModel>>(json, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    Converters = { new DateOnlyJsonConverter() } // tambahkan converter kalau belum
+                });
+
+                foreach (var j in list)
+                {
+                    Console.WriteLine($"Cek: {j.namaKurir} | {j.Tanggal}");
+                }
+
+                return list?.FirstOrDefault(j =>
+                    j.namaKurir.Trim().Equals(namaKurir.Trim(), StringComparison.OrdinalIgnoreCase) &&
+                    j.Tanggal == tanggal
+                );
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"EXCEPTION GetJadwalByKurirDanTanggal: {ex.Message}");
+                return null;
+            }
         }
 
         public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama)

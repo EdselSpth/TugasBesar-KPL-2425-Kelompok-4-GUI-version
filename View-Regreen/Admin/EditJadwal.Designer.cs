@@ -384,6 +384,7 @@
             button_ubahJadwal.TabIndex = 30;
             button_ubahJadwal.Text = "Edit Jadwal";
             button_ubahJadwal.UseVisualStyleBackColor = false;
+            button_ubahJadwal.Click += button_ubahJadwal_Click;
             // 
             // EditJadwal
             // 

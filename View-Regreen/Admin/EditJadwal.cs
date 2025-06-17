@@ -25,40 +25,7 @@ namespace View_Regreen.Admin
 
         private void button__UbahJadwal_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Ambil jadwal yang mau diubah
-                var tanggalAwal = DateOnly.FromDateTime(tanggalInputLama.Value);
-                var namaKurirLama = kurirLama.Text.Trim();
-
-                var jadwalLama = TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.GetJadwalByKurirDanTanggal(namaKurirLama, tanggalAwal);
-                if (jadwalLama == null)
-                {
-                    MessageBox.Show("Jadwal tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Ambil input baru
-                var tanggalBaru = DateOnly.FromDateTime(tanggalInputBaru.Value);
-                var namaKurirBaru = KurirBaru.Text.Trim();
-                var area = areaBaru.Text.Trim();
-                var jenisSampahStr = comboBox_jenissampah.SelectedItem?.ToString();
-
-                if (string.IsNullOrWhiteSpace(jenisSampahStr) || !Enum.TryParse<JenisSampah>(jenisSampahStr, out var jenisSampah))
-                {
-                    MessageBox.Show("Jenis sampah tidak valid atau belum dipilih.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Update jadwal
-                TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.UpdateJadwal(tanggalAwal, new List<JenisSampah> { jenisSampah }, namaKurirBaru, area, namaKurirLama);
-
-                MessageBox.Show("Jadwal berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
 
         }
 
@@ -95,14 +62,53 @@ namespace View_Regreen.Admin
             var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Session.Username = null; // Hapus username dari session
-                Session.Role = null; // Hapus role dari session
+                Session.Username = null;
+                Session.Role = null; 
 
-                // Kembali ke menu login
+              
                 var menuLogin = new MenuLogin();
                 menuLogin.Show();
 
-                this.Close(); // Sembunyikan form saat ini
+                this.Close(); 
+            }
+        }
+
+        private void button_ubahJadwal_Click(object sender, EventArgs e)
+        // method menangani handling ubah jadwal saat tekan tombol ubah jadwal
+        {
+            try
+            {
+                // Ambil jadwal yang mau diubah
+                var tanggalAwal = DateOnly.FromDateTime(tanggalInputLama.Value);
+                var namaKurirLama = kurirLama.Text.Trim();
+
+                var jadwalLama = TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.GetJadwalByKurirDanTanggal(namaKurirLama, tanggalAwal);
+                if (jadwalLama == null)
+                {
+                    MessageBox.Show("Jadwal tidak ditemukan!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                
+                var tanggalBaru = DateOnly.FromDateTime(tanggalInputBaru.Value);
+                var namaKurirBaru = KurirBaru.Text.Trim();
+                var area = areaBaru.Text.Trim();
+                var jenisSampahStr = comboBox_jenissampah.SelectedItem?.ToString();
+
+                if (string.IsNullOrWhiteSpace(jenisSampahStr) || !Enum.TryParse<JenisSampah>(jenisSampahStr, out var jenisSampah))
+                {
+                    MessageBox.Show("Jenis sampah tidak valid atau belum dipilih.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Update jadwal
+                TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.UpdateJadwal(tanggalAwal, new List<JenisSampah> { jenisSampah }, namaKurirBaru, area, namaKurirLama);
+
+                MessageBox.Show("Jadwal berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

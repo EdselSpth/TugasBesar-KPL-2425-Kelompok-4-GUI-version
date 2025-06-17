@@ -18,6 +18,7 @@ namespace View_Regreen.Admin
     public partial class TambahJadwal : Form
     {
         public TambahJadwal()
+        // GUI set untuk setting jadwal
         {
             InitializeComponent();
             comboBox_jenissampah.DataSource = Enum.GetValues(typeof(JenisSampah));
@@ -29,6 +30,7 @@ namespace View_Regreen.Admin
         private List<JadwalModel> _allJadwals = new();
 
         private async Task LoadAllJadwalAsync()
+        // method untuk memberikan data jadwal ke DataGridView
         {
             try
             {
@@ -63,7 +65,8 @@ namespace View_Regreen.Admin
 
         }
 
-        private void button_Tambah_Click(object sender, EventArgs e)
+        private async void button_Tambah_Click(object sender, EventArgs e)
+        // method untuk menambahkan jadwal ke API dari tombol tambah
         {
             try
             {
@@ -94,7 +97,10 @@ namespace View_Regreen.Admin
                     jadwal.AreaDiambil
                 );
 
+                await LoadAllJadwalAsync();
+
                 MessageBox.Show("Jadwal berhasil dibuat dan dikirim ke API.");
+
             }
             catch (Exception ex)
             {
@@ -126,7 +132,7 @@ namespace View_Regreen.Admin
             var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Session.Username = null; // Hapus username dari session
+                Session.Username = null; 
                 Session.Role = null; // Hapus role dari session
 
                 // Kembali ke menu login
