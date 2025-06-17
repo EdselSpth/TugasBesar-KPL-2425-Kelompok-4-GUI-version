@@ -38,12 +38,12 @@
             panel1 = new Panel();
             label1 = new Label();
             dataGridView1 = new DataGridView();
+            btn_diterima = new Button();
+            btn_ditolak = new Button();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
-            btn_diterima = new Button();
-            btn_ditolak = new Button();
             panel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -65,16 +65,18 @@
             panel_1.Controls.Add(Beranda);
             panel_1.Controls.Add(pictureBox1);
             panel_1.Location = new Point(0, 0);
+            panel_1.Margin = new Padding(3, 2, 3, 2);
             panel_1.Name = "panel_1";
-            panel_1.Size = new Size(261, 913);
+            panel_1.Size = new Size(228, 685);
             panel_1.TabIndex = 1;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = Properties.Resources.Penarikan_Menu_OFF;
-            pictureBox4.Location = new Point(18, 388);
+            pictureBox4.Location = new Point(16, 291);
+            pictureBox4.Margin = new Padding(3, 2, 3, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(227, 71);
+            pictureBox4.Size = new Size(199, 53);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 8;
             pictureBox4.TabStop = false;
@@ -83,9 +85,10 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Area_Menu;
-            pictureBox3.Location = new Point(18, 312);
+            pictureBox3.Location = new Point(16, 234);
+            pictureBox3.Margin = new Padding(3, 2, 3, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(227, 71);
+            pictureBox3.Size = new Size(199, 53);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
@@ -93,9 +96,10 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.Penjadwalan_Menu_OFF1;
-            pictureBox2.Location = new Point(18, 236);
+            pictureBox2.Location = new Point(16, 177);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(227, 71);
+            pictureBox2.Size = new Size(199, 53);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
@@ -104,9 +108,10 @@
             // pictureBox6
             // 
             pictureBox6.Image = Properties.Resources.Keluar;
-            pictureBox6.Location = new Point(18, 841);
+            pictureBox6.Location = new Point(16, 631);
+            pictureBox6.Margin = new Padding(3, 2, 3, 2);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(97, 52);
+            pictureBox6.Size = new Size(85, 39);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 0;
             pictureBox6.TabStop = false;
@@ -115,9 +120,10 @@
             // Beranda
             // 
             Beranda.Image = Properties.Resources.Beranda_Menu_OFF;
-            Beranda.Location = new Point(18, 160);
+            Beranda.Location = new Point(16, 120);
+            Beranda.Margin = new Padding(3, 2, 3, 2);
             Beranda.Name = "Beranda";
-            Beranda.Size = new Size(227, 71);
+            Beranda.Size = new Size(199, 53);
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
@@ -126,9 +132,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.Logo_Regreen;
-            pictureBox1.Location = new Point(18, 19);
+            pictureBox1.Location = new Point(16, 14);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(233, 96);
+            pictureBox1.Size = new Size(204, 72);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
@@ -137,9 +144,10 @@
             // 
             panel1.BackColor = Color.SeaGreen;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(261, 0);
+            panel1.Location = new Point(228, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1183, 93);
+            panel1.Size = new Size(1035, 70);
             panel1.TabIndex = 2;
             // 
             // label1
@@ -147,9 +155,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(29, 29);
+            label1.Location = new Point(25, 22);
             label1.Name = "label1";
-            label1.Size = new Size(465, 41);
+            label1.Size = new Size(374, 32);
             label1.TabIndex = 3;
             label1.Text = "VALIDASI PENDAFTARAN AREA";
             // 
@@ -160,12 +168,41 @@
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            dataGridView1.Location = new Point(576, 160);
+            dataGridView1.Location = new Point(268, 108);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(658, 465);
+            dataGridView1.Size = new Size(849, 349);
             dataGridView1.TabIndex = 3;
+            // 
+            // btn_diterima
+            // 
+            btn_diterima.BackColor = Color.SeaGreen;
+            btn_diterima.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_diterima.ForeColor = SystemColors.Control;
+            btn_diterima.Location = new Point(283, 480);
+            btn_diterima.Margin = new Padding(3, 2, 3, 2);
+            btn_diterima.Name = "btn_diterima";
+            btn_diterima.Size = new Size(178, 53);
+            btn_diterima.TabIndex = 4;
+            btn_diterima.Text = "TERIMA";
+            btn_diterima.UseVisualStyleBackColor = false;
+            btn_diterima.Click += Btn_diterima_Click;
+            // 
+            // btn_ditolak
+            // 
+            btn_ditolak.BackColor = Color.SeaGreen;
+            btn_ditolak.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_ditolak.ForeColor = SystemColors.Control;
+            btn_ditolak.Location = new Point(505, 480);
+            btn_ditolak.Margin = new Padding(3, 2, 3, 2);
+            btn_ditolak.Name = "btn_ditolak";
+            btn_ditolak.Size = new Size(188, 53);
+            btn_ditolak.TabIndex = 5;
+            btn_ditolak.Text = "TOLAK";
+            btn_ditolak.UseVisualStyleBackColor = false;
+            btn_ditolak.Click += Btn_ditolak_Click;
             // 
             // Column1
             // 
@@ -181,7 +218,7 @@
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
-            Column2.Width = 200;
+            Column2.Width = 300;
             // 
             // Column3
             // 
@@ -189,7 +226,7 @@
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 200;
+            Column3.Width = 300;
             // 
             // Column4
             // 
@@ -199,42 +236,17 @@
             Column4.ReadOnly = true;
             Column4.Width = 125;
             // 
-            // btn_diterima
-            // 
-            btn_diterima.BackColor = Color.SeaGreen;
-            btn_diterima.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_diterima.ForeColor = SystemColors.Control;
-            btn_diterima.Location = new Point(576, 679);
-            btn_diterima.Name = "btn_diterima";
-            btn_diterima.Size = new Size(157, 45);
-            btn_diterima.TabIndex = 4;
-            btn_diterima.Text = "TERIMA";
-            btn_diterima.UseVisualStyleBackColor = false;
-            btn_diterima.Click += Btn_diterima_Click;
-            // 
-            // btn_ditolak
-            // 
-            btn_ditolak.BackColor = Color.SeaGreen;
-            btn_ditolak.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_ditolak.ForeColor = SystemColors.Control;
-            btn_ditolak.Location = new Point(1077, 679);
-            btn_ditolak.Name = "btn_ditolak";
-            btn_ditolak.Size = new Size(157, 45);
-            btn_ditolak.TabIndex = 5;
-            btn_ditolak.Text = "TOLAK";
-            btn_ditolak.UseVisualStyleBackColor = false;
-            btn_ditolak.Click += Btn_ditolak_Click;
-            // 
             // MenuValidasiArea
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1445, 908);
+            ClientSize = new Size(1264, 681);
             Controls.Add(btn_ditolak);
             Controls.Add(btn_diterima);
             Controls.Add(dataGridView1);
             Controls.Add(panel_1);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MenuValidasiArea";
             Text = "MenuValidasiArea";
             Load += MenuValidasiArea_Load;
@@ -251,7 +263,6 @@
             ResumeLayout(false);
         }
 
-        #endregion
 
         private Panel panel_1;
         private PictureBox pictureBox4;
@@ -263,11 +274,12 @@
         private Panel panel1;
         private Label label1;
         private DataGridView dataGridView1;
+        private Button btn_diterima;
+        private Button btn_ditolak;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column4;
-        private Button btn_diterima;
-        private Button btn_ditolak;
     }
 }
+#endregion

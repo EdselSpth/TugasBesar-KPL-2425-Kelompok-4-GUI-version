@@ -23,6 +23,8 @@ namespace View_Regreen.User
         public MenuPenarikanKeuntungan()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
+            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
             Load += MenuPenarikanKeuntungan_Load;
             textBox1.TextChanged += textBox1_TextChanged;
             textBox2.TextChanged += textBox2_TextChanged;

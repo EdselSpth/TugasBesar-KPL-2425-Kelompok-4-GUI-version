@@ -66,13 +66,13 @@ namespace View_Regreen.Admin
             if (result == DialogResult.Yes)
             {
                 Session.Username = null;
-                Session.Role = null; 
+                Session.Role = null;
 
-              
+
                 var menuLogin = new MenuLogin();
                 menuLogin.Show();
 
-                this.Close(); 
+                this.Close();
             }
         }
 
@@ -92,7 +92,7 @@ namespace View_Regreen.Admin
                     return;
                 }
 
-                
+
                 var tanggalBaru = DateOnly.FromDateTime(tanggalInputBaru.Value);
                 var namaKurirBaru = KurirBaru.Text.Trim();
                 var area = areaBaru.Text.Trim();
@@ -107,6 +107,7 @@ namespace View_Regreen.Admin
                 // Update jadwal
                 TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.UpdateJadwal(tanggalAwal, new List<JenisSampah> { jenisSampah }, namaKurirBaru, area, namaKurirLama, tanggalBaru);
 
+                
                 MessageBox.Show("Jadwal berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -114,5 +115,7 @@ namespace View_Regreen.Admin
                 MessageBox.Show($"Terjadi kesalahan: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }

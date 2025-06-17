@@ -1,10 +1,12 @@
-﻿using System;
+﻿using modelLibrary;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using View_Regreen.Admin;
+
 
 namespace View_Regreen.Menu
 {
@@ -152,6 +154,8 @@ namespace View_Regreen.Menu
         }
     }
 
+   
+
     // Model data untuk merepresentasikan struktur jadwal
     public class JadwalModel
     {
@@ -160,5 +164,9 @@ namespace View_Regreen.Menu
         public string namaKurir { get; set; }
         public string areaDiambil { get; set; }
         public string hari { get; set; }
+        public string JenisSampahTerjadwal => jenisSampah != null && jenisSampah.Any() ? string.Join(", ", jenisSampah) : "-";
     }
+
+
+
 }
