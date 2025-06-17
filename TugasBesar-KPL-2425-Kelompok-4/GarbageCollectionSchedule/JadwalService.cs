@@ -23,10 +23,10 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         // method untuk membuat dan mengirim jadwal pengambilan sampah ke API
         {
             if (tanggal < DateOnly.FromDateTime(DateTime.Today))
+            // kondisi pengecekan tanggal yang tidak boleh berada di masa lalu
             {
                 throw new ArgumentException("Tanggal tidak boleh berada di masa lalu");
             }
-
 
             if (namaKurir == null || namaKurir.Trim().Length == 0)
             // kondisi pengecekan nama kurir yang tidak boleh kosong
@@ -81,7 +81,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                     semuaJadwal = single != null
                         ? new List<JadwalModel> { single }
                         : new List<JadwalModel>();
-                }   
+                }
                 else
                 {
                     semuaJadwal = new List<JadwalModel>();
@@ -106,6 +106,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
 
         public static JadwalModel GetJadwalByKurirDanTanggal(string namaKurir, DateOnly tanggal)
+        // method untuk mencari jadwal berdasarkan kurir dan tanggal
         {
             try
             {
@@ -123,7 +124,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 var list = JsonSerializer.Deserialize<List<JadwalModel>>(json, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true,
-                    Converters = { new DateOnlyJsonConverter() } // tambahkan converter kalau belum
+                    Converters = { new DateOnlyJsonConverter() } 
                 });
 
                 foreach (var j in list)
@@ -131,10 +132,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                     Console.WriteLine($"Cek: {j.namaKurir} | {j.Tanggal}");
                 }
 
-                return list?.FirstOrDefault(j =>
-                    j.namaKurir.Trim().Equals(namaKurir.Trim(), StringComparison.OrdinalIgnoreCase) &&
-                    j.Tanggal == tanggal
-                );
+                return list?.FirstOrDefault(j => j.namaKurir.Trim().Equals(namaKurir.Trim(), StringComparison.OrdinalIgnoreCase) && j.Tanggal == tanggal);
             }
             catch (Exception ex)
             {
@@ -144,6 +142,7 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
         }
 
         public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama, DateOnly tanggalBaru)
+        // method untuk update jadwal
         {
             var model = GetJadwalByKurirDanTanggal(namaKurirLama, tanggal);
             if (model == null)
@@ -176,7 +175,8 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
     }
 }
 
-public class DateOnlyJsonConverter : JsonConverter<DateOnly>
+public class DateOnlyJsonConverter : JsonConverter<DateOnly>\
+// json converter
 {
     private const string Format = "yyyy-MM-dd";
 
@@ -185,7 +185,7 @@ public class DateOnlyJsonConverter : JsonConverter<DateOnly>
         var s = reader.GetString() ?? throw new JsonException("Expected date string");
         return DateOnly.ParseExact(s, Format, CultureInfo.InvariantCulture);
     }
-     
+
     public override void Write(Utf8JsonWriter writer, DateOnly value, JsonSerializerOptions options)
         => writer.WriteStringValue(value.ToString(Format));
 }
