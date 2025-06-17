@@ -30,11 +30,13 @@ namespace View_Regreen.User
 
         private void MenuPenarikanKeuntungan_Load(object sender, EventArgs e)
         {
+            // Atur warna latar belakang form
             this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
 
             button1.Text = "Kirim";
             this.Text = "Form Penarikan Customer";
 
+            // Styling TextBox Nominal
             textBox1.BackColor = ColorTranslator.FromHtml("#DFE4D5");
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Multiline = true;
@@ -42,6 +44,7 @@ namespace View_Regreen.User
             textBox1.TextAlign = HorizontalAlignment.Left;
             textBox1.Font = new Font("Segoe UI", 12, FontStyle.Regular);
 
+            // Styling TextBox Rekening
             textBox2.BackColor = ColorTranslator.FromHtml("#DFE4D5");
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Multiline = true;
@@ -49,6 +52,7 @@ namespace View_Regreen.User
             textBox2.TextAlign = HorizontalAlignment.Left;
             textBox2.Font = new Font("Segoe UI", 12, FontStyle.Regular);
 
+            // Styling tombol kirim
             button1.Text = "Kirim";
             button1.BackColor = ColorTranslator.FromHtml("#558B3E");
             button1.ForeColor = Color.White;
@@ -58,34 +62,22 @@ namespace View_Regreen.User
             button1.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             button1.TextAlign = ContentAlignment.MiddleCenter;
 
-            button2.Text = "BCA";
-            button3.Text = "BNI";
-            button4.Text = "Mandiri";
-            button5.Text = "BRI";
-            button6.Text = "ShopeePay";
-            button7.Text = "Gopay";
-            button8.Text = "Dana";
-            button9.Text = "Tunai";
+            // Inisialisasi metode pembayara// Inisialisasi metode pembayara
+            string[] metode = { "BCA", "BNI", "Mandiri", "BRI", "ShopeePay", "Gopay", "Dana", "Tunai" };
+            Button[] buttons = { button2, button3, button4, button5, button6, button7, button8, button9 };
 
-            button2.Click += button2_Click;
-            button3.Click += button3_Click;
-            button4.Click += button4_Click;
-            button5.Click += button5_Click;
-            button6.Click += button6_Click;
-            button7.Click += button7_Click;
-            button8.Click += button8_Click;
-            button9.Click += button9_Click;
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].Text = metode[i];
+                buttons[i].Click += MetodeButton_Click;
+            }
 
+            // Panel styling warna putih
             Color putih = ColorTranslator.FromHtml("#FFFFFF");
-
-            panel1.BackColor = putih;
-            panel2.BackColor = putih;
-            panel3.BackColor = putih;
-            panel4.BackColor = putih;
-            panel5.BackColor = putih;
-            panel6.BackColor = putih;
-            panel7.BackColor = putih;
-            panel8.BackColor = putih;
+            foreach (var panel in new[] { panel1, panel2, panel3, panel4, panel5, panel6, panel7, panel8 })
+            {
+                panel.BackColor = putih;
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -96,13 +88,13 @@ namespace View_Regreen.User
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             nominal = textBox1.Text;
-            UpdateTotalDiterimaLabel();
+            UpdateTotalDiterimaLabel(); // Update label setiap nominal berubah
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            // Hanya izinkan angka, maksimal 12 digit
             string input = textBox2.Text;
-
             string angkaSaja = new string(input.Where(char.IsDigit).ToArray());
 
             if (angkaSaja.Length > 12)
@@ -115,57 +107,78 @@ namespace View_Regreen.User
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            // Validasi input wajib diisi
             if (string.IsNullOrWhiteSpace(nominal) || string.IsNullOrWhiteSpace(rekening) || string.IsNullOrWhiteSpace(metodePembayaran))
             {
                 MessageBox.Show("Harap lengkapi semua data penarikan!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!decimal.TryParse(nominal, out decimal nominalDecimal))
+            // Validasi format nominal
+            if (!decimal.TryParse(nominal, out decimal nominalDecimal) || nominalDecimal <= 0)
             {
                 MessageBox.Show("Nominal tidak valid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Validasi enum metode pembayaran
             if (!Enum.TryParse(metodePembayaran, true, out Pembayaran metode))
             {
                 MessageBox.Show("Metode pembayaran tidak valid!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var info = PenarikanCustomer.PembayaranTable[metode];
-
-            if (nominalDecimal < info.MinimalPenarikan)
+            try
             {
-                MessageBox.Show($"Minimal penarikan untuk metode ini adalah {info.MinimalPenarikan}.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                // Ambil info pembayaran dari tabel
+                var info = PenarikanCustomer.PembayaranTable[metode];
+
+                // Validasi minimal penarikan
+                if (nominalDecimal < info.MinimalPenarikan)
+                {
+                    MessageBox.Show($"Minimal penarikan untuk metode ini adalah {info.MinimalPenarikan}.", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Hitung total diterima
+                decimal totalDiterima = nominalDecimal - info.BiayaAdmin;
+
+                // Tambahkan ke riwayat
+                PenarikanCustomer.RiwayatPenarikan.Add(new PenarikanData(rekening, nominalDecimal, metode));
+
+                // Simulasi proses penarikan
+                PenarikanState currentState = PenarikanState.MEMASUKKAN_DATA;
+                currentState = StateBasedPenarikan.GetNextState(currentState, PenarikanTrigger.SUBMIT);
+
+                MessageBox.Show("Memproses penarikan, mohon tunggu...", "Proses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                await Task.Delay(2000); // delay simulasi proses
+
+                currentState = PenarikanState.BERHASIL;
+                MessageBox.Show(
+                    $"Penarikan berhasil!\n" +
+                    $"Nomor Rekening: {rekening}\n" +
+                    $"Metode Pembayaran: {metodePembayaran}\n" +
+                    $"Total diterima setelah admin ({info.BiayaAdmin}): {totalDiterima}\n" +
+                    $"Status: {currentState}",
+                    "Sukses",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
-
-            decimal totalDiterima = nominalDecimal - info.BiayaAdmin;
-
-            PenarikanCustomer.RiwayatPenarikan.Add(new PenarikanData(rekening, nominalDecimal, metode));
-
-            PenarikanState currentState = PenarikanState.MEMASUKKAN_DATA;
-            currentState = StateBasedPenarikan.GetNextState(currentState, PenarikanTrigger.SUBMIT);
-
-            MessageBox.Show("Memproses penarikan, mohon tunggu...", "Proses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            await System.Threading.Tasks.Task.Delay(2000);
-            currentState = PenarikanState.BERHASIL;
-            MessageBox.Show(
-                $"Penarikan berhasil!\n" +
-                $"Nomor Rekening: {rekening}\n" +
-                $"Metode Pembayaran: {metodePembayaran}\n" +
-                $"Total diterima setelah admin ({info.BiayaAdmin}): {totalDiterima}\n" +
-                $"Status: {currentState}",
-                "Sukses",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            catch (KeyNotFoundException)
+            {
+                MessageBox.Show("Terjadi kesalahan: metode pembayaran tidak ditemukan.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan tak terduga:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void UpdateTotalDiterimaLabel()
         {
+            // Tampilkan estimasi total diterima
             if (decimal.TryParse(nominal, out decimal nominalDecimal) &&
                 Enum.TryParse(metodePembayaran, true, out Pembayaran metode) &&
                 PenarikanCustomer.PembayaranTable.TryGetValue(metode, out var info))
@@ -191,17 +204,18 @@ namespace View_Regreen.User
 
             metodePembayaran = btn.Text; // ambil teks dari tombol sebagai metode
 
-            // Optional: Highlight tombol yang dipilih
+            // Highlight tombol aktif
             ResetButtonStyles();
             btn.BackColor = ColorTranslator.FromHtml("#3B7C87"); // biru
             btn.ForeColor = Color.White;
 
-            // Update label total diterima
+            // Update estimasi
             UpdateTotalDiterimaLabel();
         }
 
         private void ResetButtonStyles()
         {
+            // Reset warna semua tombol metode
             foreach (var b in new[] { button2, button3, button4, button5, button6, button7, button8, button9 })
             {
                 b.BackColor = SystemColors.Control;
@@ -278,7 +292,7 @@ namespace View_Regreen.User
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Apakah Anda yakin meh metu?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Session.Username = null; // Hapus username dari session

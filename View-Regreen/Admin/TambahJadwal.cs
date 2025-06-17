@@ -91,10 +91,10 @@ namespace View_Regreen.Admin
                 );
 
                 TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.CreateAndSendJadwal(
-                    jadwal.tanggal,
+                    jadwal.Tanggal,
                     jenisList,
-                    jadwal.kurirPengambil,
-                    jadwal.areaDiambil
+                    jadwal.KurirPengambil,
+                    jadwal.AreaDiambil
                 );
 
                 await LoadAllJadwalAsync();
