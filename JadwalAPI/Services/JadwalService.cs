@@ -75,14 +75,15 @@ namespace JadwalAPI.Services
             return true;
         }
 
-        public bool HapusJadwal(DateOnly tanggal)
+        public bool HapusJadwal(DateOnly tanggal, string namaKurir)
         {
-            var existing = _jadwalList.FirstOrDefault(j => j.Tanggal == tanggal);
+            var existing = _jadwalList.FirstOrDefault(j => j.Tanggal == tanggal && j.namaKurir == namaKurir);
             if (existing == null) return false;
 
             _jadwalList.Remove(existing);
             return true;
         }
+
 
         public List<string> GetSemuaJenisSampah() => Enum.GetNames(typeof(JenisSampah)).ToList();
 

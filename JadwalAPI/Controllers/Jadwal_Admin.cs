@@ -88,16 +88,18 @@ namespace JadwalAPI.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        public ActionResult DeleteJadwal(string tanggal)
+        [HttpDelete("{tanggal}/{namaKurir}")]
+        public ActionResult DeleteJadwal(string tanggal, string namaKurir)
         {
             if (!DateOnly.TryParse(tanggal, out DateOnly parsedDate))
                 return BadRequest("Format tanggal tidak valid. Gunakan format yyyy-MM-dd.");
 
-            bool success = _jadwalService.HapusJadwal(parsedDate);
+            bool success = _jadwalService.HapusJadwal(parsedDate, namaKurir);
             if (!success)
                 return NotFound("Jadwal tidak ditemukan.");
 
             return NoContent();
         }
+
     }
 }
