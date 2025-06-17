@@ -66,7 +66,7 @@ namespace View_Regreen.Admin
         }
 
         private async void button_Tambah_Click(object sender, EventArgs e)
-        // method untuk menambahkan jadwal ke API dari tombol tambah
+        // method untuk menambahkan jadwal ke API
         {
             try
             {
@@ -91,10 +91,10 @@ namespace View_Regreen.Admin
                 );
 
                 TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.CreateAndSendJadwal(
-                    jadwal.Tanggal,
+                    jadwal.tanggal,
                     jenisList,
-                    jadwal.KurirPengambil,
-                    jadwal.AreaDiambil
+                    jadwal.kurirPengambil,
+                    jadwal.areaDiambil
                 );
 
                 await LoadAllJadwalAsync();
