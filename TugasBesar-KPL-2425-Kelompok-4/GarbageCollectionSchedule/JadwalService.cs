@@ -141,39 +141,54 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             }
         }
 
-        public static void UpdateJadwal(DateOnly tanggal, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama, DateOnly tanggalBaru)
+        public static void UpdateJadwal(DateOnly tanggalLama, List<JenisSampah> jenisList, string namaKurirBaru, string area, string namaKurirLama, DateOnly tanggalBaru)
         // method untuk update jadwal
         {
-            var model = GetJadwalByKurirDanTanggal(namaKurirLama, tanggal);
-            if (model == null)
-            // kondisi model jika tidak ditemukan
+            var jadwalLama = GetJadwalByKurirDanTanggal(namaKurirLama, tanggalLama);
+            if (jadwalLama == null)
             {
-                throw new InvalidOperationException($"Jadwal untuk kurir '{namaKurirLama}' pada tanggal {tanggal:yyyy-MM-dd} tidak ditemukan.");
+                throw new InvalidOperationException($"Jadwal untuk kurir '{namaKurirLama}' pada tanggal {tanggalLama:yyyy-MM-dd} tidak ditemukan.");
             }
 
             var invalid = jenisList.Where(j => !RulesJadwal.pengambilanValidasi(j, tanggalBaru.ToDateTime(TimeOnly.MinValue))).ToList();
-
             if (invalid.Any())
-            // kondisi pengecekan list jenis sampah yang tidak valid
             {
-                throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
+                throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggalBaru.DayOfWeek}: {string.Join(", ", invalid)}.");
             }
 
-            model.Tanggal = tanggal;
-            model.JenisSampah = jenisList.Select(j => j.ToString()).ToList();
-            model.areaDiambil = area;
-            model.namaKurir = namaKurirBaru;
+            // Hapus jadwal lama
+            HapusJadwal(namaKurirLama, tanggalLama);
 
-            var response = _http.PutAsJsonAsync($"api/jadwal_admin/{tanggal:yyyy-MM-dd}", model).Result;
+            // Buat jadwal baru
+            var modelBaru = JadwalModel.buatJadwal(
+                tanggalBaru,
+                jenisList.Select(j => j.ToString()).ToList(),
+                namaKurirBaru,
+                area
+            );
+
+            var response = _http.PostAsJsonAsync("api/jadwal_admin", modelBaru).Result;
             response.EnsureSuccessStatusCode();
-             
-            var fileName = $"jadwal_{tanggal:yyyyMMdd}.json";
-            File.WriteAllText(fileName, JsonSerializer.Serialize(model, new JsonSerializerOptions { WriteIndented = true }));
-            Console.WriteLine($"File lokal {fileName} berhasil diperbarui.\n");
+
+            // Simpan lokal
+            var fileName = $"jadwal_{tanggalBaru:yyyyMMdd}.json";
+            File.WriteAllText(fileName, JsonSerializer.Serialize(modelBaru, new JsonSerializerOptions { WriteIndented = true }));
+            Console.WriteLine($"File lokal {fileName} berhasil disimpan ulang.");
 
         }
+
+        public static void HapusJadwal(string namaKurir, DateOnly tanggal)
+        {
+            var response = _http.DeleteAsync($"api/jadwal_admin/{tanggal:yyyy-MM-dd}/{namaKurir}").Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new InvalidOperationException($"Gagal menghapus jadwal. StatusCode: {response.StatusCode}");
+            }
+        }
+
     }
 }
+
 
 public class DateOnlyJsonConverter : JsonConverter<DateOnly>
 // json converter

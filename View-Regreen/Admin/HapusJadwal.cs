@@ -66,40 +66,49 @@ namespace View_Regreen.Menu
         private async void btnHapus_Click(object sender, EventArgs e)
         {
             var selectedDate = dateTimePickerFilter.Value.Date;
+            string namaKurir = txtNamaKurir.Text.Trim(); // pastikan txtNamaKurir sudah ada di form
+
+            if (string.IsNullOrWhiteSpace(namaKurir))
+            {
+                MessageBox.Show("Nama kurir harus diisi.", "Validasi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             var confirmResult = MessageBox.Show(
-                $"Yakin ingin menghapus jadwal pada {selectedDate:yyyy-MM-dd}?",
+                $"Yakin ingin menghapus jadwal pada {selectedDate:yyyy-MM-dd} untuk kurir '{namaKurir}'?",
                 "Konfirmasi Hapus",
-                MessageBoxButtons.YesNo);
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
 
             if (confirmResult == DialogResult.Yes)
             {
                 try
                 {
-                    string url = $"https://localhost:7277/api/jadwal_admin/{selectedDate:yyyy-MM-dd}";
+                    string url = $"https://localhost:7277/api/jadwal_admin/{selectedDate:yyyy-MM-dd}/{namaKurir}";
                     var response = await _httpClient.DeleteAsync(url);
 
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Jadwal berhasil dihapus.");
-                        await LoadAllJadwalAsync(); // Perbarui tampilan setelah penghapusan
+                        MessageBox.Show("Jadwal berhasil dihapus.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await LoadAllJadwalAsync(); // Refresh tampilan
                     }
                     else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                     {
-                        MessageBox.Show("Jadwal tidak ditemukan.");
+                        MessageBox.Show("Jadwal tidak ditemukan.", "Tidak Ditemukan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
                         string errorMsg = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show("Gagal menghapus jadwal: " + errorMsg);
+                        MessageBox.Show($"Gagal menghapus jadwal: {errorMsg}", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Terjadi kesalahan: " + ex.Message);
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
+
 
         // Reset tampilan DataGridView ke semua data jadwal yang telah dimuat
         private void buttonReset_Click(object sender, EventArgs e)

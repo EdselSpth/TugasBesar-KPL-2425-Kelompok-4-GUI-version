@@ -10,7 +10,7 @@ namespace JadwalAPI.Services
         List<JadwalModel> GetByTanggal(DateOnly tanggal);
         bool TambahJadwal(JadwalModel jadwal);  // <-- ubah dari void ke bool
         bool UpdateJadwal(DateOnly tanggal, JadwalModel updatedJadwal);
-        bool HapusJadwal(DateOnly tanggal);
+        bool HapusJadwal(DateOnly tanggal, string namaKurir);
         List<string> GetSemuaJenisSampah();
     }
 
