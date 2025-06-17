@@ -33,7 +33,7 @@ namespace View_Regreen.User
             // Atur warna latar belakang form
             this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
 
-            button1.Text = "Kirim";
+            button1.Text = "Tarik";
             this.Text = "Form Penarikan Customer";
 
             // Styling TextBox Nominal
@@ -53,7 +53,7 @@ namespace View_Regreen.User
             textBox2.Font = new Font("Segoe UI", 12, FontStyle.Regular);
 
             // Styling tombol kirim
-            button1.Text = "Kirim";
+            button1.Text = "Tarik";
             button1.BackColor = ColorTranslator.FromHtml("#558B3E");
             button1.ForeColor = Color.White;
             button1.FlatStyle = FlatStyle.Flat;
