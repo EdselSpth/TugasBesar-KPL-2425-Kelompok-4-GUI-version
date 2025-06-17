@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Content Include="daftarAreaFix.Json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

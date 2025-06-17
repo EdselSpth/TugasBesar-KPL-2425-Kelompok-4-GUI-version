@@ -1,147 +1,161 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
 using modelLibrary;
 using JadwalAPI;
-using TugasBesar_KPL_2425_Kelompok_4.UserProgram;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
-    public class configPendaftaranPenjemputan<T>
+    public class ConfigPendaftaranPenjemputan<T>
     {
-        private string configPath = "Riwayat_Pendaftaran_Penjemputan.json";
-        public int id { get; set; }
-        public string namaPengguna { get; set; }
-        public configPendaftaraanArea Area { get; set; }
+        private readonly string configPath = "Riwayat_Pendaftaran_Penjemputan.json";
+
+        public int Id { get; set; }
+        public string NamaPengguna { get; set; }
+        public ConfigPendaftaranArea Area { get; set; }
         public DateTime Jadwal { get; set; }
         public T Keterangan { get; set; }
 
-        
-        public configPendaftaranPenjemputan()
-        {
-            configPath = "Riwayat_Pendaftaran_Penjemputan.json";
-        }
+        // Constructor default
+        public ConfigPendaftaranPenjemputan() { }
 
-       
-        public configPendaftaranPenjemputan(string path)
+        // Constructor dengan path custom
+        public ConfigPendaftaranPenjemputan(string path)
         {
             configPath = path;
         }
+
+        // Menyimpan pendaftaran penjemputan ke file JSON
         public void Simpan()
         {
-            List<configPendaftaranPenjemputan<T>> data = new();
-
-            if (File.Exists(configPath))
-            {
-                string content = File.ReadAllText(configPath);
-
-
-                if (!string.IsNullOrWhiteSpace(content))
-                {
-                    try
-                    {
-                        data = JsonSerializer.Deserialize<List<configPendaftaranPenjemputan<T>>>(content)
-                            ?? new List<configPendaftaranPenjemputan<T>>();
-                    }
-                    catch (JsonException ex)
-                    {
-                        Console.WriteLine("Gagal membaca file JSON: " + ex.Message);
-
-                    }
-                }
-            }
-            int maxId = 0;
-            foreach (var item in data)
-            {
-                if (item.id > maxId)
-                {
-                    maxId = item.id;
-                }
-            }
-            this.id = maxId + 1;
-            data.Add(this);
-
-            var serialized = JsonSerializer.Serialize(data, new JsonSerializerOptions
-            {
-                WriteIndented = true
-            });
-
-            File.WriteAllText(configPath, serialized);
-            Console.WriteLine("Pendaftaran berhasil disimpan.");
-
-        }
-     
-        public List<configPendaftaranPenjemputan<T>> AmbilSemua()
-        {
-            if (!File.Exists(configPath)) return new List<configPendaftaranPenjemputan<T>>();
-
-            string content = File.ReadAllText(configPath);
-            if (string.IsNullOrWhiteSpace(content)) return new List<configPendaftaranPenjemputan<T>>();
+            List<ConfigPendaftaranPenjemputan<T>> data = new();
 
             try
             {
-                return JsonSerializer.Deserialize<List<configPendaftaranPenjemputan<T>>>(content)
-                    ?? new List<configPendaftaranPenjemputan<T>>();
+                // Cek apakah file sudah ada
+                if (File.Exists(configPath))
+                {
+                    string content = File.ReadAllText(configPath);
+
+                    // Validasi isi file tidak kosong
+                    if (!string.IsNullOrWhiteSpace(content))
+                    {
+                        data = JsonSerializer.Deserialize<List<ConfigPendaftaranPenjemputan<T>>>(content)
+                               ?? new List<ConfigPendaftaranPenjemputan<T>>();
+                    }
+                }
             }
-            catch
+            catch (JsonException ex)
             {
-                return new List<configPendaftaranPenjemputan<T>>();
+                Console.WriteLine("Gagal membaca file JSON:");
+                Console.WriteLine($"Detail: {ex.Message}");
+                return;
+            }
+
+            // Tentukan ID baru berdasarkan ID tertinggi yang ada
+            int maxId = data.Any() ? data.Max(d => d.Id) : 0;
+            this.Id = maxId + 1;
+
+            data.Add(this);
+
+            try
+            {
+                string serialized = JsonSerializer.Serialize(data, new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
+
+                File.WriteAllText(configPath, serialized);
+                Console.WriteLine("Pendaftaran berhasil disimpan.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Gagal menyimpan data ke file.");
+                Console.WriteLine($"Detail: {ex.Message}");
             }
         }
+
+        // Mengambil semua data dari file JSON
+        public List<ConfigPendaftaranPenjemputan<T>> AmbilSemua()
+        {
+            try
+            {
+                if (!File.Exists(configPath)) return new();
+
+                string content = File.ReadAllText(configPath);
+                if (string.IsNullOrWhiteSpace(content)) return new();
+
+                return JsonSerializer.Deserialize<List<ConfigPendaftaranPenjemputan<T>>>(content)
+                       ?? new List<ConfigPendaftaranPenjemputan<T>>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Gagal mengambil data:");
+                Console.WriteLine($"Detail: {ex.Message}");
+                return new List<ConfigPendaftaranPenjemputan<T>>();
+            }
+        }
+
+        // Mendaftarkan pengguna melalui input console
         public static void DaftarkanPengambilanSampah(string username)
         {
-            configPendaftaraanArea areaConfig = new configPendaftaraanArea();
-            List<configPendaftaraanArea> semuaArea = areaConfig.GetAllArea();
-            
+            ConfigPendaftaranArea areaConfig = new();
+            List<ConfigPendaftaranArea> semuaArea = areaConfig.GetAllArea();
+
+            // Validasi jika tidak ada area
             if (semuaArea.Count == 0)
             {
                 Console.WriteLine("Belum ada area yang tersedia. Silakan daftarkan area terlebih dahulu.");
                 return;
             }
 
-            Console.WriteLine("area pengambilan sampah");
+            Console.WriteLine("Area pengambilan sampah:");
             for (int i = 0; i < semuaArea.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {semuaArea[i].area}");
+                Console.WriteLine($"{i + 1}. {semuaArea[i].Area}");
             }
-            Console.Write("Masukkan nomor area terlebih dahulu: ");
-            string input = Console.ReadLine();
-            int nomorArea;
 
-            if (!int.TryParse(input, out nomorArea))
+            Console.Write("Masukkan nomor area: ");
+            string input = Console.ReadLine();
+
+            // Validasi input angka
+            if (!int.TryParse(input, out int nomorArea))
             {
                 Console.WriteLine("Input bukan angka.");
                 return;
             }
 
+            // Validasi rentang nomor area
             if (nomorArea < 1 || nomorArea > semuaArea.Count)
             {
                 Console.WriteLine("Pilihan tidak valid.");
                 return;
             }
 
-           
-            configPendaftaraanArea areaTerpilih = semuaArea[nomorArea - 1];
-            
+            ConfigPendaftaranArea areaTerpilih = semuaArea[nomorArea - 1];
+
             Console.Write("Masukkan tanggal penjemputan (format: yyyy-MM-dd): ");
             string inputTanggal = Console.ReadLine();
-            DateTime tanggalJemput;
 
-            if (!DateTime.TryParse(inputTanggal, out tanggalJemput))
+            // Validasi input tanggal
+            if (!DateTime.TryParse(inputTanggal, out DateTime tanggalJemput))
             {
                 Console.WriteLine("Tanggal tidak valid.");
                 return;
             }
+
             DateOnly tgl = DateOnly.FromDateTime(tanggalJemput);
-            var hari = tgl.DayOfWeek;
+            DayOfWeek hari = tgl.DayOfWeek;
 
-            var jenisYangValid = Enum.GetValues(typeof(JenisSampah)).Cast<JenisSampah>().Where(js => RulesJadwal.pengambilanValidasi(js, tanggalJemput)).ToList();
+            // Ambil jenis sampah yang valid berdasarkan hari
+            var jenisYangValid = Enum.GetValues(typeof(JenisSampah))
+                                     .Cast<JenisSampah>()
+                                     .Where(js => RulesJadwal.pengambilanValidasi(js, tanggalJemput))
+                                     .ToList();
 
+            // Validasi jika tidak ada jenis sampah yang bisa disetorkan
             if (jenisYangValid.Count == 0)
             {
                 Console.WriteLine("Tidak ada sampah yang dijadwalkan pada hari tersebut.");
@@ -153,12 +167,20 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             {
                 Console.WriteLine(jenis.ToString().ToLower());
             }
+
             Console.Write("Masukkan keterangan jumlah sampah: ");
             string keterangan = Console.ReadLine();
 
-            var pendaftaran = new configPendaftaranPenjemputan<string>
+            // Validasi input keterangan
+            if (string.IsNullOrWhiteSpace(keterangan))
             {
-                namaPengguna = username,
+                Console.WriteLine("Keterangan tidak boleh kosong.");
+                return;
+            }
+
+            var pendaftaran = new ConfigPendaftaranPenjemputan<string>
+            {
+                NamaPengguna = username,
                 Area = areaTerpilih,
                 Jadwal = tanggalJemput,
                 Keterangan = keterangan
@@ -166,7 +188,5 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
             pendaftaran.Simpan();
         }
-
-
     }
 }

@@ -6,37 +6,43 @@ using System.Text.Json;
 
 namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 {
-    public class configPendaftaraanArea
+    public class ConfigPendaftaranArea
     {
-        private readonly string configPath;
+        private readonly string _configPath;
 
-        public int id { get; set; }
-        public string area { get; set; }
+        // Properti ID dan Area
+        public int Id { get; set; }
+        public string Area { get; set; }
 
-        // Constructor default
-        public configPendaftaraanArea()
+        // Konstruktor default: menggunakan path default file JSON
+        public ConfigPendaftaranArea()
         {
-            configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarAreaFix.json");
+            _configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "daftarAreaFix.json");
         }
 
-        // Constructor dengan custom path
-        public configPendaftaraanArea(string customPath)
+        // Konstruktor custom: untuk menentukan path file JSON sendiri
+        public ConfigPendaftaranArea(string customPath)
         {
-            configPath = customPath;
+            _configPath = customPath;
         }
 
-        public List<configPendaftaraanArea> GetAllArea()
+        // Mengambil semua data area dari file JSON
+        public List<ConfigPendaftaranArea> GetAllArea()
         {
-            List<configPendaftaraanArea> listArea = new();
+            List<ConfigPendaftaranArea> listArea = new();
 
             try
             {
-                if (File.Exists(configPath))
+                // Cek apakah file JSON ada
+                if (File.Exists(_configPath))
                 {
-                    string read = File.ReadAllText(configPath);
-                    if (!string.IsNullOrWhiteSpace(read))
+                    string jsonContent = File.ReadAllText(_configPath);
+
+                    // Cek jika isi file tidak kosong
+                    if (!string.IsNullOrWhiteSpace(jsonContent))
                     {
-                        listArea = JsonSerializer.Deserialize<List<configPendaftaraanArea>>(read) ?? new List<configPendaftaraanArea>();
+                        listArea = JsonSerializer.Deserialize<List<ConfigPendaftaranArea>>(jsonContent)
+                                   ?? new List<ConfigPendaftaranArea>();
                     }
                 }
             }
@@ -49,11 +55,13 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             return listArea;
         }
 
-        public void saveArea()
+        // Menyimpan data area baru ke file JSON
+        public void SaveArea()
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(this.area))
+                // Validasi nama area tidak boleh kosong/null
+                if (string.IsNullOrWhiteSpace(this.Area))
                 {
                     Console.WriteLine("Nama area tidak valid.");
                     return;
@@ -61,19 +69,24 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
 
                 var listArea = GetAllArea();
 
-                if (listArea.Any(a => a.area != null &&
-                                      a.area.Equals(this.area, StringComparison.OrdinalIgnoreCase)))
+                // Cek apakah area sudah ada (case-insensitive)
+                if (listArea.Any(a => a.Area != null &&
+                                      a.Area.Equals(this.Area, StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine("Area sudah ada. Tidak disimpan ulang.");
                     return;
                 }
 
-                int maxId = listArea.Any() ? listArea.Max(a => a.id) : 0;
-                this.id = maxId + 1;
+                // Tambahkan ID baru secara increment
+                int maxId = listArea.Any() ? listArea.Max(a => a.Id) : 0;
+                this.Id = maxId + 1;
+
                 listArea.Add(this);
 
+                // Serialisasi dan simpan kembali ke file JSON
                 string newData = JsonSerializer.Serialize(listArea, new JsonSerializerOptions { WriteIndented = true });
-                File.WriteAllText(configPath, newData);
+                File.WriteAllText(_configPath, newData);
+
                 Console.WriteLine("Data Area berhasil disimpan.");
             }
             catch (Exception ex)
@@ -83,10 +96,12 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             }
         }
 
+        // Menampilkan semua area dari file JSON ke konsol
         public void TampilkanSemuaArea()
         {
             var listArea = GetAllArea();
 
+            // Cek jika tidak ada area terdaftar
             if (listArea.Count == 0)
             {
                 Console.WriteLine("Belum ada area yang terdaftar.");
@@ -96,35 +111,41 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
             Console.WriteLine("Daftar Area Pengambilan Sampah:");
             foreach (var area in listArea)
             {
-                Console.WriteLine($"ID: {area.id} | Nama Area: {area.area}");
+                Console.WriteLine($"ID: {area.Id} | Nama Area: {area.Area}");
             }
         }
 
+        // Fungsi static untuk input area baru melalui console
         public static void DaftarkanAreaPengambilan()
         {
             Console.Write("Masukkan nama area baru: ");
             string namaAreaBaru = Console.ReadLine();
 
+            // Validasi input tidak kosong/null
             if (string.IsNullOrWhiteSpace(namaAreaBaru))
             {
                 Console.WriteLine("Nama area tidak boleh kosong.");
                 return;
             }
 
-            configPendaftaraanArea areaConfig = new configPendaftaraanArea();
-            List<configPendaftaraanArea> daftarArea = areaConfig.GetAllArea();
+            ConfigPendaftaranArea areaConfig = new ConfigPendaftaranArea();
+            List<ConfigPendaftaranArea> daftarArea = areaConfig.GetAllArea();
 
-            if (daftarArea.Any(a => a.area != null && a.area.Equals(namaAreaBaru, StringComparison.OrdinalIgnoreCase)))
+            // Cek apakah area sudah terdaftar
+            if (daftarArea.Any(a => a.Area != null &&
+                                    a.Area.Equals(namaAreaBaru, StringComparison.OrdinalIgnoreCase)))
             {
                 Console.WriteLine("Area sudah terdaftar. Silakan masukkan nama area yang berbeda.");
             }
             else
             {
-                configPendaftaraanArea areaBaru = new configPendaftaraanArea
+                // Simpan area baru
+                ConfigPendaftaranArea areaBaru = new ConfigPendaftaranArea
                 {
-                    area = namaAreaBaru
+                    Area = namaAreaBaru
                 };
-                areaBaru.saveArea();
+
+                areaBaru.SaveArea();
             }
         }
     }
