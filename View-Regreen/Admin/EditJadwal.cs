@@ -18,16 +18,14 @@ namespace View_Regreen.Admin
     public partial class EditJadwal : Form
     {
         public EditJadwal()
+        // Inisialisasi seluruh view
         {
             InitializeComponent();
             comboBox_jenissampah.DataSource = Enum.GetValues(typeof(JenisSampah));
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
+            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
         }
 
-        private void button__UbahJadwal_Click(object sender, EventArgs e)
-        {
-            
-
-        }
 
         private void Beranda_Click(object sender, EventArgs e)
         {
@@ -102,7 +100,7 @@ namespace View_Regreen.Admin
                 }
 
                 // Update jadwal
-                TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.UpdateJadwal(tanggalAwal, new List<JenisSampah> { jenisSampah }, namaKurirBaru, area, namaKurirLama);
+                TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.UpdateJadwal(tanggalAwal, new List<JenisSampah> { jenisSampah }, namaKurirBaru, area, namaKurirLama, tanggalBaru);
 
                 MessageBox.Show("Jadwal berhasil diperbarui!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
