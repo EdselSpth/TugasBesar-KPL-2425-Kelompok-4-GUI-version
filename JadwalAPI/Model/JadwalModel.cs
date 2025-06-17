@@ -10,7 +10,7 @@ namespace JadwalAPI.Model
         public List<string> JenisSampah { get; set; } = new();
         public string namaKurir { get; set; } = string.Empty;
         public string areaDiambil { get; set; } = string.Empty;
-        public string Hari => Tanggal.DayOfWeek.ToString();
+        public string Hari => Tanggal.DayOfWeek.ToString(); 
 
         public static JadwalModel buatJadwal(DateOnly tanggal, List<string> listJenisSampah, string namaKurir, string namaArea)
         {
@@ -28,9 +28,11 @@ namespace JadwalAPI.Model
                 Tanggal = tanggal,
                 JenisSampah = listJenisSampah,
                 namaKurir = namaKurir,
-                areaDiambil = namaArea ?? "Default Area"
+                areaDiambil = namaArea ?? "Defaul t Area"
             };
         }
+
+        public string JenisSampahTerjadwal => JenisSampah != null && JenisSampah.Any() ? string.Join(", ", JenisSampah) : "-";
     }
 }
 

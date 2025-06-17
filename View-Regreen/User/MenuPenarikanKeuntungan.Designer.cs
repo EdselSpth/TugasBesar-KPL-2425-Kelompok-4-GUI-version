@@ -203,17 +203,19 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(650, 120);
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(496, 120);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(199, 23);
+            textBox1.Size = new Size(538, 29);
             textBox1.TabIndex = 7;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(650, 207);
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.Location = new Point(496, 174);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(199, 23);
+            textBox2.Size = new Size(538, 29);
             textBox2.TabIndex = 8;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -221,7 +223,7 @@
             // 
             panel1.Controls.Add(pictureBox7);
             panel1.Controls.Add(button2);
-            panel1.Location = new Point(549, 279);
+            panel1.Location = new Point(301, 268);
             panel1.Name = "panel1";
             panel1.Size = new Size(200, 44);
             panel1.TabIndex = 9;
@@ -250,7 +252,7 @@
             // 
             panel2.Controls.Add(pictureBox5);
             panel2.Controls.Add(button3);
-            panel2.Location = new Point(549, 338);
+            panel2.Location = new Point(301, 335);
             panel2.Name = "panel2";
             panel2.Size = new Size(200, 44);
             panel2.TabIndex = 10;
@@ -279,7 +281,7 @@
             // 
             panel3.Controls.Add(pictureBox8);
             panel3.Controls.Add(button4);
-            panel3.Location = new Point(549, 397);
+            panel3.Location = new Point(764, 323);
             panel3.Name = "panel3";
             panel3.Size = new Size(200, 44);
             panel3.TabIndex = 11;
@@ -308,7 +310,7 @@
             // 
             panel4.Controls.Add(pictureBox9);
             panel4.Controls.Add(button5);
-            panel4.Location = new Point(549, 456);
+            panel4.Location = new Point(994, 268);
             panel4.Name = "panel4";
             panel4.Size = new Size(200, 44);
             panel4.TabIndex = 12;
@@ -337,7 +339,7 @@
             // 
             panel5.Controls.Add(pictureBox11);
             panel5.Controls.Add(button6);
-            panel5.Location = new Point(764, 279);
+            panel5.Location = new Point(538, 268);
             panel5.Name = "panel5";
             panel5.Size = new Size(200, 44);
             panel5.TabIndex = 13;
@@ -366,7 +368,7 @@
             // 
             panel6.Controls.Add(pictureBox12);
             panel6.Controls.Add(button7);
-            panel6.Location = new Point(764, 338);
+            panel6.Location = new Point(538, 332);
             panel6.Name = "panel6";
             panel6.Size = new Size(200, 44);
             panel6.TabIndex = 14;
@@ -395,7 +397,7 @@
             // 
             panel7.Controls.Add(pictureBox13);
             panel7.Controls.Add(button8);
-            panel7.Location = new Point(764, 397);
+            panel7.Location = new Point(764, 268);
             panel7.Name = "panel7";
             panel7.Size = new Size(200, 44);
             panel7.TabIndex = 15;
@@ -424,7 +426,7 @@
             // 
             panel8.Controls.Add(pictureBox10);
             panel8.Controls.Add(button9);
-            panel8.Location = new Point(764, 456);
+            panel8.Location = new Point(994, 329);
             panel8.Name = "panel8";
             panel8.Size = new Size(200, 44);
             panel8.TabIndex = 16;
@@ -453,7 +455,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(704, 98);
+            label1.Location = new Point(301, 128);
             label1.Name = "label1";
             label1.Size = new Size(105, 15);
             label1.TabIndex = 17;
@@ -463,7 +465,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(681, 186);
+            label2.Location = new Point(301, 177);
             label2.Name = "label2";
             label2.Size = new Size(154, 15);
             label2.TabIndex = 18;
@@ -473,7 +475,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(687, 255);
+            label3.Location = new Point(301, 234);
             label3.Name = "label3";
             label3.Size = new Size(148, 15);
             label3.TabIndex = 19;
@@ -481,9 +483,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(650, 584);
+            button1.Location = new Point(302, 486);
             button1.Name = "button1";
-            button1.Size = new Size(199, 23);
+            button1.Size = new Size(199, 50);
             button1.TabIndex = 20;
             button1.Text = "TARIK";
             button1.UseVisualStyleBackColor = true;
@@ -501,9 +503,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(712, 561);
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(302, 448);
             label5.Name = "label5";
-            label5.Size = new Size(77, 15);
+            label5.Size = new Size(93, 20);
             label5.TabIndex = 22;
             label5.Text = "--------------";
             label5.Click += label5_Click;

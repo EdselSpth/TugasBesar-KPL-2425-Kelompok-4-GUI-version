@@ -348,6 +348,7 @@
             tanggalInputBaru.Name = "tanggalInputBaru";
             tanggalInputBaru.Size = new Size(301, 33);
             tanggalInputBaru.TabIndex = 26;
+
             // 
             // KurirBaru
             // 

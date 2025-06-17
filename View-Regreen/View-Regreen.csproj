@@ -20,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FormPenarikanKeuntungan\FormPenarikanKeuntungan.csproj" />
     <ProjectReference Include="..\JadwalAPI\JadwalAPI.csproj" />
     <ProjectReference Include="..\LoginAPI\LoginAPI.csproj" />
     <ProjectReference Include="..\modelLibrary\modelLibrary.csproj" />

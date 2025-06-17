@@ -93,7 +93,7 @@ namespace View_Regreen.Admin
         private void button2_ClickTolak(object sender, EventArgs e)
         {
             if (dgvPengajuan.SelectedRows.Count > 0) // Memastikan ada baris yang dipilih
-            { 
+            {
                 string nama = dgvPengajuan.SelectedRows[0].Cells[1].Value.ToString(); // Mengambil nama dari baris yang dipilih admin
                 dgvPengajuan.SelectedRows[0].Cells[5].Value = "Ditolak"; // Mengubah status menjadi "Ditolak"
                 MessageBox.Show("Permintaan ditolak.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -169,6 +169,22 @@ namespace View_Regreen.Admin
         private void MenuValidasiKeuntungan_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Jika pengguna memilih Yes, lakukan logout
+            if (result == DialogResult.Yes)
+            {
+                Session.Username = null;
+                Session.Role = null;
+
+                var menuLogin = new MenuLogin();
+                menuLogin.Show();
+                this.Close();
+            }
         }
     }
 }

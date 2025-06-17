@@ -17,6 +17,8 @@ namespace View_Regreen.User
         public MenuDaftarPengambilan()
         {
             InitializeComponent();
+            this.BackColor = ColorTranslator.FromHtml("#E8EDDE");
+            panel_1.BackColor = ColorTranslator.FromHtml("#D6E6C4");
             Load += MenuDaftarPengambilan_Load;
         }
 

@@ -159,18 +159,18 @@ namespace TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule
                 throw new InvalidOperationException($"Jenis sampah berikut tidak dijadwalkan pada {tanggal.DayOfWeek}: {string.Join(", ", invalid)}.");
             }
 
-            model.Tanggal = tanggalBaru;
+            model.Tanggal = tanggal;
             model.JenisSampah = jenisList.Select(j => j.ToString()).ToList();
             model.areaDiambil = area;
             model.namaKurir = namaKurirBaru;
 
             var response = _http.PutAsJsonAsync($"api/jadwal_admin/{tanggal:yyyy-MM-dd}", model).Result;
             response.EnsureSuccessStatusCode();
-            Console.WriteLine("Data berhasil diupdate ke API.");
-
+             
             var fileName = $"jadwal_{tanggal:yyyyMMdd}.json";
             File.WriteAllText(fileName, JsonSerializer.Serialize(model, new JsonSerializerOptions { WriteIndented = true }));
             Console.WriteLine($"File lokal {fileName} berhasil diperbarui.\n");
+
         }
     }
 }
