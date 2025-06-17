@@ -156,6 +156,7 @@
             // 
             // button2
             // 
+            button2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.Location = new Point(479, 533);
             button2.Margin = new Padding(2);
             button2.Name = "button2";
@@ -167,6 +168,7 @@
             // 
             // button1
             // 
+            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.Location = new Point(251, 533);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
