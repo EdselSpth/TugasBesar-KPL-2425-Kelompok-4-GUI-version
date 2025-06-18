@@ -13,7 +13,8 @@ namespace modelLibrary
             List<string> jenisSampah,
             string kurir,
             string areaDiambil
-)
+        )
+        // Method untuk membuat objek Jadwal dengan validasi input design pattern factory method
         {
             if (kurir == null || string.IsNullOrWhiteSpace(kurir))
                 throw new ArgumentException("Kurir tidak boleh kosong/null.");

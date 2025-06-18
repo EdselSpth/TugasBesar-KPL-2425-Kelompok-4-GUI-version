@@ -229,7 +229,7 @@
             Controls.Add(panel_1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "MenuPenjadwalan";
-            Text = "MenuPenjadwalan";
+            Text = "6";
             Load += MenuPenjadwalan_Load;
             panel_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
