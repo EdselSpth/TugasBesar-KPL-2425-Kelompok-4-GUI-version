@@ -137,7 +137,6 @@
             Beranda.SizeMode = PictureBoxSizeMode.Zoom;
             Beranda.TabIndex = 4;
             Beranda.TabStop = false;
-            Beranda.Click += Beranda_Click;
             // 
             // pictureBox1
             // 

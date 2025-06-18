@@ -60,6 +60,7 @@ namespace View_Regreen.Admin
         }
 
         private async void TambahJadwal_Load(object sender, EventArgs e)
+        // method yang dijalankan saat form pertama kali dimuat
         {
             await LoadAllJadwalAsync();
 
@@ -91,10 +92,10 @@ namespace View_Regreen.Admin
                 );
 
                 TugasBesar_KPL_2425_Kelompok_4.GarbageCollectionSchedule.JadwalService.CreateAndSendJadwal(
-                    jadwal.Tanggal,
+                    jadwal.tanggal,
                     jenisList,
-                    jadwal.KurirPengambil,
-                    jadwal.AreaDiambil
+                    jadwal.kurirPengambil,
+                    jadwal.areaDiambil
                 );
 
                 await LoadAllJadwalAsync();
@@ -108,12 +109,10 @@ namespace View_Regreen.Admin
             }
         }
 
-        private void Beranda_Click(object sender, EventArgs e)
-        {
-            // Masih Error
-        }
+       
 
         private void pictureBox3_Click(object sender, EventArgs e)
+        // method untuk navigasi ke menu validasi area
         {
             var area = new MenuValidasiArea();
             area.Show();
@@ -121,6 +120,7 @@ namespace View_Regreen.Admin
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
+        // method untuk navigasi ke menu validasi keuntungan
         {
             var keuntungan = new MenuValidasiKeuntungan();
             keuntungan.Show();
@@ -128,6 +128,7 @@ namespace View_Regreen.Admin
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
+        // method untuk keluar aplikasi
         {
             var result = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
